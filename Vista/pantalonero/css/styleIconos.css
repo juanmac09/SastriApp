@@ -1,0 +1,23 @@
+.icono{
+    color: #fff;
+    font-size: 500%;
+    margin-top: -50%;
+    cursor: pointer;
+}
+.desaparecer{
+    display: none;
+}
+
+.entrada{
+    top: 57%
+}
+.salida{
+    top: 57%
+}
+.extra{
+    top: 57% 
+}
+.login-box {
+    max-height: 1000px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto; /* Habilita la barra de desplazamiento vertical si es necesario */
+}

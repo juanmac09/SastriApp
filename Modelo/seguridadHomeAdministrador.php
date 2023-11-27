@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['auth']) && $_SESSION["auth"] == 1) {
-    if ($_SESSION['rol'] = 1) {
+    if ($_SESSION['rol'] == 1) {
      
     }
     else {

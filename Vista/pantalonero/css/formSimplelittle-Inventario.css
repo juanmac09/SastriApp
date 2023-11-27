@@ -1,0 +1,316 @@
+.imagen-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.imagen-fondo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1{
+  color: #fff;
+  margin-left: 10%;
+  text-align: center;
+  font-family: "Playfair Display", serif !important;
+  font-weight: 100;
+}
+
+.login-box {
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  width: 500px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #6b7f8dab !important;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .form-group{
+  position: relative;
+}
+
+.login-box .form-group input{
+  width: 90%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .form-group label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .form-group input:focus ~ label,
+.login-box .form-group  input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #fff;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #fff;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #fff,
+              0 0 25px #fff,
+              0 0 50px #fff,
+              0 0 100px #fff;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3d6cb9c7);
+  animation: btn-anim1 1s linear infinite;
+}
+
+.logo-form-login img{
+  width: 90%;
+}
+.caja {
+margin:20px auto 40px auto;	
+border:1px solid #000;
+height:30px;
+overflow: hidden;
+width: 230px;
+position:relative;
+}
+select{
+  background: transparent;
+  border: 1px solid #fff;
+  font-size: 14px;
+  height: 30px;
+  padding: 5px;
+  width: 250px;
+  color: #fff;
+  margin-top: -15%;
+  margin-bottom: 4%;
+  margin-left:20% !important ;
+}
+
+select:focus{ outline: none;}
+
+.tipo{
+  margin-top: 15%;
+  margin-left: -15% !important;
+  width: 120%;
+}
+
+.caja::after{
+content:"\025be";
+display:table-cell;
+padding-top:7px;
+text-align:center;
+width:30px;
+height:30px;
+background-color:#d9d9d9;
+position:absolute;
+top:0;
+right:0px;	
+pointer-events: none;
+}
+#nom1{
+color:#fff;
+}
+
+@media(max-width:500px){
+  body{
+      width: 100%;
+      height: 100vh;
+  }
+  .container-form-login{
+      width: 50%;
+      margin-left: 20%;
+      margin-top:60% 
+  }
+
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none; 
+margin: 0; 
+}
+
+.third {
+border-color: #fff;
+color: #000;
+box-shadow: 0 0 40px 40px #a12b46 inset, 0 0 0 0 #fff;
+-webkit-transition: all 150ms ease-in-out;
+transition: all 150ms ease-in-out;
+font-size: 150% !important;
+padding: 3% 9% !important;
+}
+.third:hover {
+box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff;
+}
+.btn {
+box-sizing: border-box;
+-webkit-appearance: none;
+   -moz-appearance: none;
+        appearance: none;
+background-color: transparent;
+border: 2px solid #fff;
+border-radius: 0.6em;
+color: #fff;
+cursor: pointer;
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-align-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1;
+margin: 20px;
+padding: 1.2em 2.8em;
+text-decoration: none;
+text-align: center;
+text-transform: capitalize;
+font-weight: 700;
+}
+.btn:hover, .btn:focus {
+color: #fff;
+outline: 0;
+}
+
+h1{
+color: #fff;
+margin-left: 0%;
+font-size: 240%;
+}
+
+input {
+width: 50%;
+padding: 5px;
+} 
+
+.form-group {
+top: 20%;
+margin-bottom: 50px;
+}
+
+.row {
+display: flex;
+flex-wrap: wrap ;
+}
+
+
+.sacoTop{
+top: 152%;
+}
+.pantaTop{
+top: 152%;
+}
+.todo{
+top:188%;
+}
+
+.read{
+  top: -20px !important;
+  left: 0 !important;
+  color: #fff !important;
+  font-size: 12px !important;
+}
+
+.inventario{
+  top: 57%;
+}
+
+.ocultar{
+  display: none;
+}
+.tipRegistro{
+  margin-left: 15% !important;
+}
+
+label,
+select,
+input {
+  font-family: "Lato", sans-serif !important;
+}
+button{
+  font-family: "Playfair Display", serif !important;
+  font-weight: 100 !important;
+}
+
+@media (max-width: 768px) {
+  /* Estilos para pantallas más pequeñas */
+  .login-box{
+    width: 75% !important;
+    margin-top: 20% !important;
+    margin-right: 0 !important;
+    margin-left: 8%;
+  }
+
+  .login-box select{
+    width: 90%;
+    margin-left: 8% !important;
+  }
+  .hamburger{
+    margin-left: -70%;
+  }   
+  
+  .login-box-update{
+    
+    margin-top: 55% !important;
+    margin-left: 0%;
+  }
+
+  .login-box-update-accesorios{
+    margin-top: 50% !important;
+    margin-left: 0%;
+  }
+}
+

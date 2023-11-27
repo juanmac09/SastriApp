@@ -1,0 +1,54 @@
+.desaparecer{
+    display: none;
+}
+
+.login-box {
+    max-height: 1000px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto; /* Habilita la barra de desplazamiento vertical si es necesario */
+}
+.tipoPedido{
+    margin-top: 5% !important;
+}
+
+.docTipo{
+    margin-top: -5% !important;
+}
+
+
+
+.medidasChaqueta{
+    border:1px solid #fff !important;
+}
+
+.medidasChaqueta h3{
+    margin-top: 4%;
+}
+
+.medidasChaleco {
+    border:1px solid #fff !important;
+}
+.medidasChaleco h3{
+    margin-top: 4%;
+}
+
+.medidasCamisa{
+    border:1px solid #fff !important;
+}
+.medidasCamisa h3{
+    margin-top: 4%;
+}
+
+.medidasPantalon {
+    border:1px solid #fff !important;
+}
+.medidasPantalon h3{
+    margin-top: 4%;
+}
+
+.selectPedido{
+    margin-top: 5% !important;
+}
+
+.camposChaleco{
+    margin-top: 5% !important;
+}
