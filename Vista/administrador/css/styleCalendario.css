@@ -1,0 +1,168 @@
+:root {
+    --bs-success-rgb: 71, 222, 152 !important;
+}
+
+
+
+.btn-info.text-light:hover,
+.btn-info.text-light:focus {
+    background: #000;
+}
+table, tbody, td, tfoot, th, thead, tr {
+    border-color: #ededed !important;
+    border-style: solid;
+    border-width: 1px !important;
+}
+
+#calendar{
+   width: 100%; 
+   margin-left: -15%;
+}
+
+.btn-group>.btn:not(:last-child):not(.dropdown-toggle){
+    background: #a12b42;
+    border: #a12b42;
+}
+.btn-group>.btn-group:not(:first-child)>.btn, .btn-group>.btn:nth-child(n+3), .btn-group>:not(.btn-check)+.btn {
+    background: #a12b42;
+    border: #a12b42;
+}
+
+.fc-direction-ltr .fc-toolbar>*>:not(:first-child) {
+    background: #a12b42;
+    border: #a12b42;
+}
+
+.fc-direction-ltr .fc-daygrid-event.fc-event-end, .fc-direction-rtl .fc-daygrid-event.fc-event-start{
+    background: #a12b42;
+    border: #a12b42;
+}
+
+
+
+
+.infoPedidos{
+    float: right;
+    margin-top: -40%;
+    margin-right: 2%;
+    
+}
+
+
+.customtab2{
+    font-size: 90%;
+}
+
+.customtab2 li a.nav-link.active{
+    background: #a12b42 none repeat scroll 0 0;
+    color: #ffffff;
+}
+
+.customtab2 li a.nav-link:hover {
+    background: #a12b42 none repeat scroll 0 0;
+    color: #ffffff;
+}
+
+.grafica{
+    float: right;
+    margin-top: -22%;
+    width: 26%;
+    margin-right: 3%;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+@media (max-width: 768px) {
+    .infoPedidos{
+        margin-top: 0% !important;
+    }
+    .infoEstadoPedido{
+        width: 85% !important;
+        height: 250px;
+        margin-left: 18% !important;
+        padding: 0;
+    }
+    .grafica{
+        margin-top: 10%;
+        width: 90% !important;
+        height: 200px !important;
+        
+    }
+    #grafica{
+        margin-left: 13% !important;
+    }
+    .fc .fc-scrollgrid-section-liquid>td {
+        height: 100px;
+    }
+    .fc-view-harness{
+        height: 300px !important;
+        width: 300px !important;
+    }
+    .fc-toolbar-title{
+        margin-top: -10px  !important;
+        margin-left: -50% !important;
+        
+    }
+    #fc-dom-1{
+     margin-top: -90px !important;
+    text-align: center;
+    }
+    .fc-next-button.btn.btn-primary{
+        margin-left: 12%;
+        margin-top: 30%; 
+    }
+    .fc-prev-button.btn.btn-primary{
+        margin-left: 12%;
+        margin-top: 30%;  
+    }
+    .fc-today-button{
+        margin-top: -160%;
+        margin-left: 250% !important; 
+        margin-bottom: -50%;
+    }
+    .mes{
+        top: 46px;
+        left: -165px;
+    }
+    .semana{
+        top: 46px;
+        left: -165px;
+    }
+    .agenda{
+        top: 46px;
+        left: -165px;
+    }
+    .nano{
+        height: 210vh !important;
+        background: #3e4651 !important;
+    }
+    
+}
+
+
+.card{
+    margin-top: 30% ;
+}
+
+label,
+select,
+input {
+  font-family: "Lato", sans-serif !important;
+}
+button{
+  font-family: "Playfair Display", serif !important;
+  font-weight: 100 !important;
+}
+
+.fc-toolbar-title{
+    font-family: 'Cormorant Garamond', serif;
+
+    
+}
+
+
+

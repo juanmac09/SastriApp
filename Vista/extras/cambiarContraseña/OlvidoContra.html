@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal fade modal-dialog modal-dialog-centered" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form action="../../Controlador/controladorEnviarCorreoRecuperarPassword.php" method="POST">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Cambiar Contraseña</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>¿Perdiste tu contraseña? Por favor, introduce tu correo electrónico. Recibirás un enlace para crear una contraseña nueva por correo electrónico.</p>
+                <label for="xd">E-mail: </label>
+                <input type="email" class="email" name="email">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary envia">Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

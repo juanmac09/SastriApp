@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="../img/Logo mini.png">    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">´
+  <title>Restablecer Contraseña</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Peta&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <form action="../../../Controlador/controladorEnviarCorreoRecuperarPassword.php" method="POST">  
+    
+    <div class="login-box">
+      <div class="row">
+        <div class="imagen col-lg-6 col-md-6">
+          <img width="450" src="OlvidoContraseña.png" alt="">
+        </div>
+        <div class="cotenido col-lg-6 col-md-6">
+
+          <h1> Restablecer contraseña</h1>
+      
+          <div class="intro">
+            <p>¿Perdiste tu contraseña? Por favor, introduce tu correo electrónico. Recibirás un enlace para crear una contraseña nueva por correo electrónico.</p>
+          </div>
+        
+          <div class="user-box">
+            <input type="email" name="email" required>
+            <label>Correo electrónico:</label>
+          </div>
+
+          <div class="row ">
+            <a href="../login.php" class="btn acc col-lg-6 col-md-6" >Acceder</a>
+            <button class="btn third col-lg-6 col-md-6" type="submit">Restablecer contraseña</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

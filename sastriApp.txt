@@ -1,0 +1,1282 @@
+CREATE DATABASE sastriApp;
+use sastriapp;
+
+create table rol(
+rol_id tinyint primary key auto_increment,
+rol_nombre varchar(20) not null
+);
+
+create table usuario(
+user_identificacion bigint primary key,
+user_rol tinyint not null,
+user_nombre varchar(20) not null,
+user_estado bool not null default 1,
+user_registra bigint,
+foreign key (user_rol) references rol(rol_id)
+);
+
+alter table usuario add foreign key (user_registra) references usuario(user_identificacion);
+
+create table user_usuario(
+user_identificacion bigint not null,
+user_apellido varchar(20) not null,
+user_correo varchar(100) not null,
+user_password varchar(255) not null,
+user_foto varchar(250),
+foreign key (user_identificacion) references usuario(user_identificacion)
+);
+
+create table cli_usuario(
+user_identificacion bigint not null,
+user_apellido varchar(20) not null,
+user_correo varchar(100) ,
+foreign key (user_identificacion) references usuario(user_identificacion)
+);
+
+create table telefono_usuario(
+user_identificacion bigint not null,
+user_telefono bigint not null,
+foreign key (user_identificacion) references usuario(user_identificacion)
+);
+
+create table direccion_usuario(
+user_identificacion bigint not null,
+user_direccion varchar(20) not null,
+foreign key (user_identificacion) references usuario(user_identificacion)
+);
+
+create table materia_prima(
+mat_id int auto_increment primary key,
+ma_material varchar(20) not null,
+ma_descripcion varchar(20) not null unique,
+ma_tipo_cantidad enum('metros','unidades','centimetros') not null,
+ma_cantidad float not null
+);
+
+create table accesorios(
+acc_id TINYINT PRIMARY KEY AUTO_INCREMENT,
+acc_nombre VARCHAR(255) not null,
+acc_descripcion VARCHAR(255) not null,
+acc_cantidad TINYINT not null
+);
+
+create table medidas(
+me_id int auto_increment primary key,
+user_identificacion bigint not null unique,
+foreign key (user_identificacion) references usuario(user_identificacion)
+);
+
+create table medidas_chaqueta(
+me_id int not null unique,
+me_talle_chaqueta smallint null,
+me_largo_chaqueta smallint null,
+me_espalda_chaqueta smallint null,
+me_hombro_chaqueta smallint null,
+me_pecho_chaqueta smallint null,
+me_cintura_chaqueta smallint null,
+me_manga_chaqueta smallint null,
+foreign key(me_id) references medidas(me_id)
+);
+
+create table medidas_chaleco(
+me_id int not null unique,
+me_largo_chaleco smallint null,
+me_espalda_chaleco smallint null,
+me_hombro_chaleco smallint null,
+me_pecho_chaleco smallint null,
+foreign key(me_id) references medidas(me_id)
+);
+
+create table medidas_camisa(
+me_id int not null unique,
+me_cuello smallint null,
+me_espalda_camisa smallint null,
+me_manga_camisa smallint null,
+me_largo_camisa smallint null,
+me_pecho_camisa smallint null,
+me_cintura_camisa smallint null,
+me_cont_puño varchar(25) null,
+foreign key(me_id) references medidas(me_id)
+);
+
+
+create table medidas_pantalon(
+me_id int not null unique,
+me_cintura_pantalon smallint null,
+me_base_pantalon smallint null,
+me_largo_pantalon smallint null,
+me_rodilla_pantalon smallint null,
+me_tiro_pantalon smallint null,
+me_bota_pantalon smallint null,
+foreign key(me_id) references medidas(me_id)
+);
+
+create table pedido(
+ped_id mediumint auto_increment primary key,
+user_identificacion bigint not null,
+pe_tipo bool not null,
+pe_prendas tinyint not null,
+pe_total bigint not null,
+pe_abono bigint not null,
+pe_fecha date not null,
+pe_fecha_entrega date not null,
+pe_estado enum('pendiente','retrasado','terminado','entregado') default 'pendiente',
+foreign key (user_identificacion) references usuario(user_identificacion)
+);
+
+create table adicional_pantalon(
+ped_id mediumint not null,
+ped_bota varchar(255) not null,
+ped_bolsillo_reloj bool default 0,
+ped_pobservaciones varchar(255) not null,
+foreign key (ped_id) references pedido(ped_id)
+);
+
+create table adicional_chaqueta(
+ped_id mediumint not null,
+ped_aberturas smallint not null,
+ped_tipo_abertura bool default 0,
+ped_cobservaciones varchar(255) not null,
+foreign key (ped_id) references pedido(ped_id)
+);
+
+create table adicional_camisa(
+ped_id mediumint not null,
+cam_cuello tinyint not null,
+cam_despunte tinyint not null,
+cam_puno tinyint not null,
+cam_bolsillo tinyint not null,
+ped_caobservaciones varchar(255) not null,
+foreign key (ped_id) references pedido(ped_id)
+);
+
+
+
+create table adicional_chaleco(
+ped_id mediumint not null,
+ped_chaobservaciones varchar(255) not null,
+foreign key (ped_id) references pedido(ped_id)
+);
+
+create table pedido_detalles(
+ped_id mediumint not null,
+ped_detalles varchar(300) not null,
+foreign key (ped_id) references pedido(ped_id)
+);
+
+create table inventario(
+in_id int primary key auto_increment,
+in_fecha date not null,
+in_accesorio_material int not null,
+in_entrada_salida tinyint not null,
+in_estado BOOL DEFAULT 1
+);
+
+create table observaciones_in(
+in_id int not null,
+observaciones varchar(100) not null,
+foreign key (in_id) references inventario(in_id)
+);
+
+create table salida_in(
+in_id int not null,
+ped_id mediumint not null,
+foreign key (in_id) references inventario(in_id),
+foreign key (ped_id) references pedido(ped_id)
+);
+
+create table entrada_in(
+in_id int not null,
+user_identificacion bigint not null,
+foreign key (in_id) references inventario(in_id),
+foreign key (user_identificacion) references usuario(user_identificacion)
+);
+
+create table in_precio(
+in_id int not null,
+in_precio int not null,
+foreign key (in_id) references inventario(in_id)
+);
+
+create table materia_in(
+in_id int not null,
+mat_id int not null,
+in_tipo enum('metros','unidades','centimetros') not null,
+in_cantidad int not  null,
+foreign key (in_id) references inventario(in_id),
+foreign key (mat_id) references materia_prima(mat_id)
+);
+
+
+create table inv_accesorios(
+in_id INT not null,
+acc_id TINYINT not null,
+acc_cantidad INT not null,
+foreign key (in_id) references inventario(in_id),
+foreign key (acc_id) references accesorios(acc_id)
+);
+
+#PROCEDIMIETNOS ALMACENADOS -------------------------------------------------------------------------------
+
+#ROL------------------------
+#registrar Rol
+CREATE PROCEDURE registrarRol(
+	IN rol_nombre VARCHAR(255)
+)
+
+INSERT INTO rol(rol_nombre)VALUES(rol_nombre);
+
+CALL registrarRol('administrador');
+CALL registrarRol('cliente');
+CALL  registrarRol('proveedor');
+CALL  registrarRol('usuario');
+CALL  registrarRol('pantalonero');
+
+#USUARIO------------------------
+#Registrar Usuario
+DELIMITER //
+CREATE PROCEDURE registrarUsuario(
+	IN user_identificacion BIGINT,
+    IN rol TINYINT,
+    IN user_nombre VARCHAR(255),
+    IN user_apellido VARCHAR(255),
+    IN user_contrasena VARCHAR(255),
+	IN user_foto VARCHAR(255),
+	IN user_telefono BIGINT,
+    IN user_direccion VARCHAR(255),
+    IN user_correo VARCHAR(255),
+    IN user_registra INT
+)
+BEGIN 
+DECLARE ultimoRegistro INT DEFAULT 0;
+INSERT INTO usuario(user_identificacion,user_rol,user_nombre,user_registra)VALUES(user_identificacion,rol,user_nombre,user_registra);
+SELECT user_identificacion INTO ultimoRegistro FROM usuario  ORDER BY user_identificacion DESC LIMIT 1;
+
+IF rol = 1 OR rol = 5 THEN
+	INSERT INTO user_usuario(user_identificacion,user_apellido,user_correo,user_password,user_foto)
+	VALUES(ultimoRegistro,user_apellido,user_correo,user_contrasena,user_foto);
+    IF user_telefono <> 0 THEN
+	INSERT INTO telefono_usuario (user_identificacion,user_telefono)VALUES(ultimoRegistro,user_telefono);
+    END IF;
+ELSEIF rol = 2 THEN
+	INSERT INTO cli_usuario(user_identificacion,user_apellido,user_correo) VALUES (ultimoRegistro,user_apellido,user_correo);
+    IF user_direccion <> '0' THEN
+	INSERT INTO direccion_usuario(user_identificacion,user_direccion) VALUES(ultimoRegistro,user_direccion);
+    END IF;
+    IF user_telefono <> 0 THEN
+	INSERT INTO telefono_usuario (user_identificacion,user_telefono)VALUES(ultimoRegistro,user_telefono);
+    END IF;
+ELSEIF rol = 3 THEN
+	INSERT INTO telefono_usuario (user_identificacion,user_telefono)VALUES(ultimoRegistro,user_telefono);
+    INSERT INTO direccion_usuario(user_identificacion,user_direccion) VALUES(ultimoRegistro,user_direccion);  
+END IF;
+END //
+DELIMITER ;
+
+
+CALL registrarUsuario(1124242245,1,'johan','escarraga','910e4c2bf662c66651f4103495c7967e','../uploads/users/escarraga.jpg',3125019407,null,'escarragajohan12@gmail.com',null);
+CALL registrarUsuario(1031643308,1,'Diana','Barrante','800f5d2633b027bcaa163a9ee229439b','../uploads/users/DIANA.jpg',3222040229,null,'dianabarrante17@gmail.com',null);
+CALL registrarUsuario(1001116571,1,'johan','coronado','5ba498d2a6783c6b4a88cb77f71a50df','../uploads/users/coronado.jpg',3148356401,null,'coronadojohan123@gmail.com',null);
+CALL registrarUsuario(1031540393,1,'Juan','Romero','52a57041739cf96fef674ecb9af6a2a2','../uploads/users/romero.jpg',3212714034,null,'mateoromero0910@gmail.com',null);
+CALL registrarUsuario(1000131959,1,'Andres','Hernandez','17d542a975065ba2174bb46d7ef2b0fe','../uploads/users/andres.jpeg',3175683452,null,'camilohg003@gmail.com',null);
+CALL registrarUsuario(1031541684,2,'Daniel Stiven','Romero Sánchez',null,null,3212714023,'cll131cN°126-72','danielesunpro0812@gmail.com',1031540393);
+
+#consultarUsuario
+DELIMITER //
+CREATE PROCEDURE consultarUsuario(
+	IN rol INT
+)
+BEGIN
+	IF rol = 1 THEN
+    
+    SELECT usuario.user_identificacion,usuario.user_nombre,rol.rol_nombre,
+    user_usuario.user_apellido,user_usuario.user_correo,user_usuario.user_foto,
+    telefono_usuario.user_telefono FROM rol INNER JOIN usuario ON  rol.rol_id = usuario.user_rol 
+    INNER JOIN user_usuario ON usuario.user_identificacion = user_usuario.user_identificacion 
+	LEFT JOIN telefono_usuario ON telefono_usuario.user_identificacion = usuario.user_identificacion WHERE user_estado = 1;
+    
+    ELSEIF rol = 2 THEN
+    
+    SELECT usuario.user_identificacion,usuario.user_nombre,usuario.user_registra,cli_usuario.user_apellido,cli_usuario.user_correo,
+    direccion_usuario.user_direccion,telefono_usuario.user_telefono FROM usuario 
+    INNER JOIN cli_usuario ON usuario.user_identificacion = cli_usuario.user_identificacion
+    LEFT JOIN  direccion_usuario ON direccion_usuario.user_identificacion = usuario.user_identificacion
+    LEFT JOIN telefono_usuario ON telefono_usuario.user_identificacion = usuario.user_identificacion WHERE user_estado = 1;
+    
+    ELSEIF rol = 3 THEN
+    
+    SELECT usuario.user_identificacion,usuario.user_nombre,usuario.user_registra,direccion_usuario.user_direccion,telefono_usuario.user_telefono
+    FROM usuario INNER JOIN direccion_usuario ON direccion_usuario.user_identificacion = usuario.user_identificacion
+    INNER JOIN telefono_usuario ON telefono_usuario.user_identificacion = usuario.user_identificacion WHERE user_estado = 1 AND usuario.user_rol = 3;
+    END IF;
+END//
+DELIMITER ;
+
+#consultarUsuarioEspecifico
+
+
+DELIMITER //
+CREATE PROCEDURE consultarUsuarioPerfil(
+	IN rol INT,
+    IN id INT
+)
+BEGIN
+	IF rol = 1 THEN
+    
+    SELECT usuario.user_identificacion,usuario.user_nombre,rol.rol_nombre,
+    user_usuario.*,
+    telefono_usuario.user_telefono FROM rol INNER JOIN usuario ON  rol.rol_id = usuario.user_rol 
+    INNER JOIN user_usuario ON usuario.user_identificacion = user_usuario.user_identificacion 
+	LEFT JOIN telefono_usuario ON telefono_usuario.user_identificacion = usuario.user_identificacion WHERE user_estado = 1 AND usuario.user_identificacion = id;
+    
+    ELSEIF rol = 2 THEN
+    
+    SELECT usuario.user_identificacion,usuario.user_nombre,usuario.user_registra,cli_usuario.user_apellido,cli_usuario.user_correo,
+    direccion_usuario.user_direccion,telefono_usuario.user_telefono FROM usuario 
+    INNER JOIN cli_usuario ON usuario.user_identificacion = cli_usuario.user_identificacion
+    LEFT JOIN  direccion_usuario ON direccion_usuario.user_identificacion = usuario.user_identificacion
+    LEFT JOIN telefono_usuario ON telefono_usuario.user_identificacion = usuario.user_identificacion WHERE user_estado = 1 AND usuario.user_identificacion = id;
+    
+    ELSEIF rol = 3 THEN
+    
+    SELECT usuario.user_identificacion,usuario.user_nombre,usuario.user_registra,direccion_usuario.user_direccion,telefono_usuario.user_telefono
+    FROM usuario INNER JOIN direccion_usuario ON direccion_usuario.user_identificacion = usuario.user_identificacion
+    INNER JOIN telefono_usuario ON telefono_usuario.user_identificacion = usuario.user_identificacion WHERE user_estado = 1 AND usuario.user_rol = 3 AND usuario.user_identificacion = id;
+    END IF;
+END//
+DELIMITER ;
+
+
+#actualizarUsuario
+
+#usuario
+DELIMITER //
+CREATE PROCEDURE actualizarUsuario(
+	IN user_id BIGINT,
+    IN user_nombre VARCHAR(255),
+    IN user_apellido VARCHAR(255),
+	IN user_telefono BIGINT,
+    IN user_correo VARCHAR(255)
+)
+BEGIN
+UPDATE usuario SET user_nombre = user_nombre WHERE user_identificacion = user_id;
+UPDATE user_usuario SET user_apellido = user_apellido, user_correo = user_correo WHERE user_identificacion = user_id;
+UPDATE telefono_usuario SET  user_telefono = user_telefono WHERE user_identificacion = user_id;
+END//
+DELIMITER ;
+
+#cliente
+DELIMITER //
+CREATE PROCEDURE actualizarCLiente(
+	IN user_id BIGINT,
+    IN user_nombre VARCHAR(255),
+    IN user_apellido VARCHAR(255),
+	IN user_telefono BIGINT,
+    IN user_correo VARCHAR(255),
+    IN user_direccion VARCHAR(255)
+)
+BEGIN
+UPDATE usuario SET user_nombre = user_nombre WHERE user_identificacion = user_id;
+UPDATE cli_usuario SET user_apellido = user_apellido, user_correo = user_correo WHERE user_identificacion = user_id;
+UPDATE direccion_usuario SET user_direccion = user_direccion WHERE user_identificacion = user_id;
+END //
+DELIMITER ;
+
+#proveedor
+DELIMITER //
+CREATE PROCEDURE actualizarProveedor(
+	IN user_id BIGINT,
+    IN user_nombre VARCHAR(255),
+	IN user_telefono BIGINT,
+    IN user_direccion VARCHAR(255)
+)
+BEGIN 
+UPDATE usuario SET user_nombre = user_nombre WHERE user_identificacion = user_id;
+UPDATE telefono_usuario SET  user_telefono = user_telefono WHERE user_identificacion = user_id;
+UPDATE direccion_usuario SET user_direccion = user_direccion WHERE user_identificacion = user_id;
+END //
+DELIMITER ;
+
+#actualizarContraseña
+
+CREATE PROCEDURE actualizarPass(
+	IN id INT,
+	IN pass VARCHAR(255)
+)     
+
+UPDATE user_usuario SET user_password = pass WHERE user_identificacion = id;
+
+
+#actualizarFoto
+
+CREATE PROCEDURE actualizarFoto(
+	IN id INT,
+    IN foto VARCHAR(255)
+
+)
+
+UPDATE user_usuario SET user_foto = foto WHERE user_identificacion = id;
+
+
+#deshabilitarUsuario
+CREATE PROCEDURE deshabilitarUsuario(
+	IN user_id BIGINT
+)
+UPDATE usuario SET  user_estado = 0 WHERE user_identificacion = user_id;
+
+
+#login
+
+CREATE PROCEDURE login(
+	IN user_id BIGINT
+)
+SELECT usuario.user_identificacion,usuario.user_nombre,user_usuario.user_password,usuario.user_rol,usuario.user_estado,
+user_usuario.user_apellido FROM usuario INNER JOIN user_usuario
+ON usuario.user_identificacion = user_usuario.user_identificacion WHERE usuario.user_identificacion = user_id AND usuario.user_estado = 1;
+
+#consultarUsuarioCorreo
+CREATE PROCEDURE consultarUsuarioCorreo(
+	IN user_corr VARCHAR(255)
+
+)
+SELECT * FROM user_usuario WHERE user_correo = user_corr;
+
+
+DELIMITER //
+CREATE PROCEDURE verificarExistencia(
+	IN rol INT,
+	IN id BIGINT,
+    IN email VARCHAR(255)
+)
+BEGIN
+IF rol = 1 THEN 
+SELECT usuario.*,user_usuario.* FROM usuario INNER JOIN user_usuario ON usuario.user_identificacion = user_usuario.user_identificacion
+WHERE usuario.user_identificacion = id OR user_usuario.user_correo = email;
+ELSEIF rol = 2 THEN 
+SELECT usuario.*,cli_usuario.* FROM usuario INNER JOIN cli_usuario ON usuario.user_identificacion = cli_usuario.user_identificacion
+WHERE usuario.user_identificacion = id OR cli_usuario.user_correo = email;
+END IF;
+END //
+DELIMITER ;
+
+
+#MEDIDAS-------------------------------------------------------------------------------------
+
+#registrarMedidas
+DELIMITER //
+CREATE PROCEDURE registrarMedidas(
+IN user_identificacion bigint
+)
+BEGIN 
+DECLARE ultimaMedida INT DEFAULT 0;
+INSERT INTO medidas (user_identificacion) VALUES (user_identificacion);
+
+
+END //
+DELIMITER ;
+
+
+#registrarMedidasChaleco
+DELIMITER //
+CREATE PROCEDURE registrarMedidasChaleco(
+IN me_largo_chaleco smallint,
+IN me_espalda_chaleco smallint,
+IN me_hombro_chaleco smallint,
+IN me_pecho_chaleco smallint
+)
+BEGIN
+DECLARE ultimaMedida INT DEFAULT 0;
+SELECT me_id INTO ultimaMedida FROM medidas ORDER BY me_id DESC LIMIT 1;
+INSERT INTO medidas_chaleco (me_id,me_largo_chaleco,me_espalda_chaleco,me_hombro_chaleco,me_pecho_chaleco) 
+VALUES (ultimaMedida,me_largo_chaleco,me_espalda_chaleco,me_hombro_chaleco,me_pecho_chaleco);
+END//
+DELIMITER ;
+
+
+	
+#registrarMedidasChaqueta
+DELIMITER //
+CREATE PROCEDURE registrarMedidasChaqueta(
+IN me_talle_chaqueta smallint,
+IN me_largo_chaqueta smallint,
+IN me_espalda_chaqueta smallint,
+IN me_hombro_chaqueta smallint,
+IN me_pecho_chaqueta smallint,
+IN me_cintura_chaqueta smallint,
+IN me_manga_chaqueta smallint
+)
+BEGIN 
+DECLARE ultimaMedida INT DEFAULT 0;
+SELECT me_id INTO ultimaMedida FROM medidas ORDER BY me_id DESC LIMIT 1;
+
+INSERT INTO medidas_chaqueta(me_id,me_talle_chaqueta,me_largo_chaqueta,me_espalda_chaqueta,me_hombro_chaqueta,me_pecho_chaqueta,me_cintura_chaqueta,me_manga_chaqueta)
+VALUES(ultimaMedida,me_talle_chaqueta,me_largo_chaqueta,me_espalda_chaqueta,me_hombro_chaqueta,me_pecho_chaqueta,me_cintura_chaqueta,me_manga_chaqueta);
+END //
+DELIMITER ;
+
+#registrarMedidasCamisa
+DELIMITER //
+CREATE PROCEDURE registrarMedidasCamisa(
+IN me_cuello smallint,
+IN me_espalda_camisa smallint,
+IN me_manga_camisa smallint,
+IN me_largo_camisa smallint,
+IN me_pecho_camisa smallint,
+IN me_cintura_camisa smallint,
+IN me_cont_puño varchar(25)
+
+)
+BEGIN 
+DECLARE ultimaMedida INT DEFAULT 0;
+SELECT me_id INTO ultimaMedida FROM medidas ORDER BY me_id DESC LIMIT 1;
+
+INSERT INTO medidas_camisa (me_id,me_cuello,me_espalda_camisa,me_manga_camisa,me_largo_camisa,me_pecho_camisa,me_cintura_camisa,me_cont_puño) 
+VALUES (ultimaMedida,me_cuello,me_espalda_camisa,me_manga_camisa,me_largo_camisa,me_pecho_camisa,me_cintura_camisa,me_cont_puño);
+END //
+DELIMITER ;
+
+#registrarMedidasPantalon
+DELIMITER //
+CREATE PROCEDURE registrarMedidasPantalon(
+IN me_cintura_pantalon smallint,
+IN me_base_pantalon smallint,
+IN me_largo_pantalon smallint,
+IN me_rodilla_pantalon smallint,
+IN me_tiro_pantalon smallint,
+IN me_bota_pantalon smallint
+)
+BEGIN 
+DECLARE ultimaMedida INT DEFAULT 0;
+SELECT me_id INTO ultimaMedida FROM medidas ORDER BY me_id DESC LIMIT 1;
+
+INSERT INTO medidas_pantalon(me_id,me_cintura_pantalon,me_base_pantalon,me_largo_pantalon,me_rodilla_pantalon,me_tiro_pantalon,me_bota_pantalon) 
+VALUES(ultimaMedida,me_cintura_pantalon,me_base_pantalon,me_largo_pantalon,me_rodilla_pantalon,me_tiro_pantalon,me_bota_pantalon);
+END //
+DELIMITER ;
+
+
+
+#consultarMedidasClientes
+DELIMITER //
+CREATE PROCEDURE consultarMedidasClientes(
+	IN user_ident INT
+)
+BEGIN
+SELECT medidas.*,medidas_camisa.*,medidas_chaleco.*,medidas_chaqueta.*,medidas_pantalon.* FROM medidas 
+LEFT JOIN medidas_chaleco ON medidas.me_id = medidas_chaleco.me_id 
+LEFT JOIN medidas_camisa ON medidas.me_id = medidas_camisa.me_id 
+LEFT JOIN medidas_chaqueta ON medidas.me_id = medidas_chaqueta.me_id
+LEFT JOIN medidas_pantalon ON medidas.me_id = medidas_pantalon.me_id WHERE medidas.user_identificacion = user_ident;
+END //
+DELIMITER ;
+
+
+
+#consultarMedidasExistencia
+DELIMITER //
+CREATE PROCEDURE consultarMedidasExistencia	(
+	IN user_ident INT,
+    IN tipo INT
+)
+BEGIN
+DECLARE id_medidas INT DEFAULT 0; 
+SELECT me_id INTO id_medidas FROM medidas WHERE user_identificacion = user_ident;
+
+IF tipo = 1 THEN
+SELECT * FROM medidas_chaleco WHERE me_id = id_medidas;
+ELSEIF tipo = 2 THEN
+SELECT * FROM medidas_chaqueta WHERE me_id = id_medidas;
+ELSEIF tipo = 3 THEN
+SELECT * FROM medidas_camisa WHERE me_id = id_medidas;
+ELSEIF tipo = 4 THEN
+SELECT * FROM medidas_pantalon WHERE me_id = id_medidas;
+END IF;
+END //
+DELIMITER ;
+
+
+
+#actualizarMedidasChaleco
+DELIMITER //
+CREATE PROCEDURE actualizarMedidasChaleco(
+	IN user_ident int,
+	IN me_largo_chaleco smallint,
+	IN me_espalda_chaleco smallint,
+	IN me_hombro_chaleco smallint,
+	IN me_pecho_chaleco smallint
+)
+BEGIN
+DECLARE id_medidas INT DEFAULT 0; 
+
+SELECT me_id INTO id_medidas FROM medidas WHERE user_identificacion = user_ident;
+
+UPDATE medidas_chaleco SET me_largo_chaleco = me_largo_chaleco, me_espalda_chaleco = me_espalda_chaleco, me_hombro_chaleco = me_hombro_chaleco,
+me_pecho_chaleco = me_pecho_chaleco WHERE me_id = id_medidas;
+
+
+END //
+DELIMITER ;
+
+
+#actualizarMedidasChaqueta
+DELIMITER //
+CREATE PROCEDURE actualizarMedidasChaqueta(
+	IN user_ident int,
+	IN me_talle_chaqueta smallint,
+	IN me_largo_chaqueta smallint,
+	IN me_espalda_chaqueta smallint,
+	IN me_hombro_chaqueta smallint,
+	IN me_pecho_chaqueta smallint,
+	IN me_cintura_chaqueta smallint,
+	IN me_manga_chaqueta smallint
+)
+BEGIN
+DECLARE id_medidas INT DEFAULT 0; 
+
+SELECT me_id INTO id_medidas FROM medidas WHERE user_identificacion = user_ident;
+
+UPDATE medidas_chaqueta SET me_talle_chaqueta = me_talle_chaqueta, me_largo_chaqueta = me_largo_chaqueta,
+me_espalda_chaqueta = me_espalda_chaqueta, me_hombro_chaqueta = me_hombro_chaqueta, me_pecho_chaqueta = me_pecho_chaqueta, 
+me_cintura_chaqueta = me_cintura_chaqueta, me_manga_chaqueta = me_manga_chaqueta WHERE me_id = id_medidas;
+
+END //
+DELIMITER ;
+
+#actualizarMedidasCamisa
+DELIMITER //
+CREATE PROCEDURE actualizarMedidasCamisa(
+	IN user_ident int,
+	IN me_cuello smallint,
+	IN me_espalda_camisa smallint,
+	IN me_manga_camisa smallint,
+	IN me_largo_camisa smallint,
+	IN me_pecho_camisa smallint,
+	IN me_cintura_camisa smallint,
+	IN me_cont_puño varchar(25)
+)
+BEGIN 
+DECLARE id_medidas INT DEFAULT 0; 
+
+SELECT me_id INTO id_medidas FROM medidas WHERE user_identificacion = user_ident;
+
+UPDATE medidas_camisa SET me_cuello = me_cuello, me_espalda_camisa = me_espalda_camisa, me_manga_camisa = me_manga_camisa, me_largo_camisa = me_largo_camisa,
+me_pecho_camisa = me_pecho_camisa, me_cintura_camisa = me_cintura_camisa, me_cont_puño = me_cont_puño WHERE  me_id = id_medidas;
+
+END//
+DELIMITER ;
+
+#actualizarMedidasPantalon
+
+DELIMITER //
+CREATE PROCEDURE actualizarMedidasPantalon(
+	IN user_ident int,
+	IN me_cintura_pantalon smallint,
+	IN me_base_pantalon smallint,
+	IN me_largo_pantalon smallint,
+	IN me_rodilla_pantalon smallint,
+	IN me_tiro_pantalon smallint,
+	IN me_bota_pantalon smallint
+)
+BEGIN 
+DECLARE id_medidas INT DEFAULT 0; 
+SELECT me_id INTO id_medidas FROM medidas WHERE user_identificacion = user_ident;
+
+UPDATE medidas_pantalon SET me_cintura_pantalon = me_cintura_pantalon, me_base_pantalon = me_base_pantalon, me_largo_pantalon = me_largo_pantalon,
+me_rodilla_pantalon = me_rodilla_pantalon, me_tiro_pantalon = me_tiro_pantalon, me_bota_pantalon= me_bota_pantalon WHERE me_id = id_medidas;
+
+
+END//
+DELIMITER ;
+
+#PEDIDOS----------------------------------------------------------------------------------------------------
+
+#registrarPedido
+DELIMITER //
+CREATE PROCEDURE registrarPedido(
+	IN user_identificacion BIGINT,
+	IN pe_tipo TINYINT,
+	IN pe_prendas TINYINT,
+	IN pe_total BIGINT,
+	IN pe_abono BIGINT,
+	IN pe_fecha_entrega DATE,
+	IN ped_detalles VARCHAR(255)
+)
+BEGIN
+    DECLARE ultimoPedido INT DEFAULT 0;
+    INSERT INTO pedido (user_identificacion, pe_tipo, pe_prendas, pe_total, pe_abono, pe_fecha, pe_fecha_entrega) VALUES (user_identificacion, pe_tipo, pe_prendas, pe_total, pe_abono, NOW(), pe_fecha_entrega);
+    SELECT ped_id INTO ultimoPedido FROM pedido ORDER BY ped_id DESC LIMIT 1;
+    IF ped_detalles <> "0" THEN
+        INSERT INTO pedido_detalles (ped_id, ped_detalles) VALUES (ultimoPedido, ped_detalles);
+    END IF;
+END//
+DELIMITER ;
+
+
+#registrarDetallePedido
+DELIMITER //
+CREATE PROCEDURE registrarDetallePedido(
+	IN pe_ide INT,
+	IN ped_detalles VARCHAR(255)
+)
+BEGIN 
+	INSERT INTO pedido_detalles (ped_id, ped_detalles) VALUES (pe_ide, ped_detalles);
+END //
+DELIMITER ;
+
+
+#registrarPedidoCamisa
+DELIMITER //
+CREATE PROCEDURE registrarPedidoCamisa(
+	IN cam_cuello TINYINT,
+	IN cam_despunte TINYINT,
+	IN cam_puno TINYINT,
+	IN cam_bolsillo TINYINT,
+	IN ped_caobservaciones VARCHAR(255)
+)
+BEGIN
+    DECLARE ultimoPedido INT DEFAULT 0;
+    SELECT ped_id INTO ultimoPedido FROM pedido ORDER BY ped_id DESC LIMIT 1;
+    INSERT INTO adicional_camisa (ped_id, cam_cuello, cam_despunte, cam_puno, cam_bolsillo, ped_caobservaciones) VALUES (ultimoPedido, cam_cuello, cam_despunte, cam_puno, cam_bolsillo, ped_caobservaciones);
+END//
+DELIMITER ;
+
+#registrarPedidoChaleco
+DELIMITER //
+CREATE PROCEDURE registrarPedidoChaleco(
+	IN ped_chaobservaciones VARCHAR(255)
+)
+BEGIN
+    DECLARE ultimoPedido INT DEFAULT 0;
+    SELECT ped_id INTO ultimoPedido FROM pedido ORDER BY ped_id DESC LIMIT 1;
+    INSERT INTO adicional_chaleco (ped_id, ped_chaobservaciones) VALUES (ultimoPedido, ped_chaobservaciones);
+END//
+DELIMITER ;
+
+#registrarPedidoPantalon
+DELIMITER //
+CREATE PROCEDURE registrarPedidoPantalon(
+	IN ped_bota VARCHAR(255),
+	IN ped_bolsillo_reloj TINYINT,
+	IN ped_pobservaciones VARCHAR(255)
+)
+BEGIN
+    DECLARE ultimoPedido INT DEFAULT 0;
+    SELECT ped_id INTO ultimoPedido FROM pedido ORDER BY ped_id DESC LIMIT 1;
+    INSERT INTO adicional_pantalon (ped_id, ped_bota, ped_bolsillo_reloj, ped_pobservaciones) VALUES (ultimoPedido, ped_bota, ped_bolsillo_reloj, ped_pobservaciones);
+END//
+DELIMITER ;
+
+#registrarPedidoSaco
+DELIMITER //
+CREATE PROCEDURE registrarPedidoSaco(
+	IN ped_aberturas SMALLINT,
+	IN ped_tipo_abertura TINYINT,
+	IN ped_cobservaciones VARCHAR(255)
+)
+BEGIN
+    DECLARE ultimoPedido INT DEFAULT 0;
+    SELECT ped_id INTO ultimoPedido FROM pedido ORDER BY ped_id DESC LIMIT 1;
+    INSERT INTO adicional_chaqueta (ped_id, ped_aberturas, ped_tipo_abertura, ped_cobservaciones) VALUES (ultimoPedido, ped_aberturas, ped_tipo_abertura, ped_cobservaciones);
+END//
+DELIMITER ;
+
+#consultarPedidosId
+DELIMITER //
+CREATE PROCEDURE consultarPedidosId(
+	IN doc INT,
+	IN id INT
+)
+BEGIN
+    IF id = 0 THEN
+        SELECT
+            pedido.*,
+            adicional_pantalon.*,
+            adicional_chaqueta.*,
+            adicional_camisa.*,
+            adicional_chaleco.*,
+            pedido_detalles.*,
+			usuario.*,
+			telefono_usuario.*,
+            direccion_usuario.*,
+            cli_usuario.*
+        FROM
+            pedido
+        INNER JOIN usuario ON pedido.user_identificacion  = usuario.user_identificacion
+		INNER JOIN telefono_usuario ON pedido.user_identificacion  = telefono_usuario.user_identificacion
+        INNER JOIN direccion_usuario ON pedido.user_identificacion  = direccion_usuario.user_identificacion
+        INNER JOIN cli_usuario ON pedido.user_identificacion  = cli_usuario.user_identificacion
+        LEFT JOIN adicional_pantalon ON pedido.ped_id = adicional_pantalon.ped_id
+        LEFT JOIN adicional_chaqueta ON pedido.ped_id = adicional_chaqueta.ped_id
+        LEFT JOIN adicional_camisa ON pedido.ped_id = adicional_camisa.ped_id
+        LEFT JOIN adicional_chaleco ON pedido.ped_id = adicional_chaleco.ped_id
+        LEFT JOIN pedido_detalles ON pedido.ped_id = pedido_detalles.ped_id WHERE pedido.user_identificacion = doc;
+    ELSE
+        SELECT
+            pedido.*,
+            adicional_pantalon.*,
+            adicional_chaqueta.*,
+            adicional_camisa.*,
+            adicional_chaleco.*,
+            pedido_detalles.*,
+			usuario.*,
+			telefono_usuario.*,
+            direccion_usuario.*,
+            cli_usuario.*
+        FROM
+            pedido
+        INNER JOIN usuario ON pedido.user_identificacion  = usuario.user_identificacion
+		INNER JOIN telefono_usuario ON pedido.user_identificacion  = telefono_usuario.user_identificacion
+        INNER JOIN direccion_usuario ON pedido.user_identificacion  = direccion_usuario.user_identificacion
+        INNER JOIN cli_usuario ON pedido.user_identificacion  = cli_usuario.user_identificacion
+        LEFT JOIN adicional_pantalon ON pedido.ped_id = adicional_pantalon.ped_id
+        LEFT JOIN adicional_chaqueta ON pedido.ped_id = adicional_chaqueta.ped_id
+        LEFT JOIN adicional_camisa ON pedido.ped_id = adicional_camisa.ped_id
+        LEFT JOIN adicional_chaleco ON pedido.ped_id = adicional_chaleco.ped_id
+        LEFT JOIN pedido_detalles ON pedido.ped_id = pedido_detalles.ped_id WHERE pedido.ped_id = id;
+    END IF;
+END//
+DELIMITER ;
+
+#consultarPedidos
+DELIMITER //
+CREATE PROCEDURE consultarPedidos()
+BEGIN
+    SELECT pedido.ped_id, pedido.pe_fecha, pedido.pe_tipo, pedido.pe_abono, pedido.pe_total, pedido.pe_fecha_entrega, pedido.pe_estado, pedido.user_identificacion, usuario.user_nombre
+    FROM pedido INNER JOIN usuario ON pedido.user_identificacion = usuario.user_identificacion;
+END//
+DELIMITER ;
+
+#actualizarEstadoPedido
+DELIMITER //
+CREATE PROCEDURE actualizarEstadoPedido(
+	IN doc INT,
+	IN estado VARCHAR(255)
+)
+BEGIN
+    UPDATE pedido SET pe_estado = estado WHERE ped_id = doc;
+END//
+DELIMITER ;
+
+#consultarPedidoCalendario
+DELIMITER //
+CREATE PROCEDURE consultarPedidoCalendario()
+BEGIN
+    SELECT
+        pedido.ped_id,
+        CASE
+            WHEN pedido.pe_prendas = 4 THEN 'Camisa, pantalón, chaleco y saco'
+            WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL THEN 'Camisa, pantalón y chaleco'
+            WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa, pantalón y chaqueta'
+            WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa, chaleco y chaqueta'
+            WHEN pedido.pe_prendas = 3 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Pantalón, chaleco y chaqueta'
+            WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL THEN 'Camisa y pantalón'
+            WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa y chaqueta'
+            WHEN pedido.pe_prendas = 2 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Pantalón y chaqueta'
+            WHEN pedido.pe_prendas = 1 AND adicional_camisa.ped_id IS NOT NULL THEN 'Camisa'
+            WHEN pedido.pe_prendas = 1 AND adicional_pantalon.ped_id IS NOT NULL THEN 'Pantalón'
+            WHEN pedido.pe_prendas = 1 AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Chaqueta'
+            WHEN pedido.pe_prendas = 1 AND adicional_chaleco.ped_id IS NOT NULL THEN 'Chaleco'
+            ELSE ''
+        END AS detalle,
+        pedido.pe_fecha,
+        pedido.pe_total,
+        pedido.pe_fecha_entrega,
+        pedido.pe_estado,
+        pedido.user_identificacion,
+        usuario.user_nombre
+    FROM pedido
+    INNER JOIN usuario ON pedido.user_identificacion = usuario.user_identificacion
+    LEFT JOIN adicional_camisa ON pedido.ped_id = adicional_camisa.ped_id
+    LEFT JOIN adicional_chaqueta ON pedido.ped_id = adicional_chaqueta.ped_id
+    LEFT JOIN adicional_pantalon ON pedido.ped_id = adicional_pantalon.ped_id
+    LEFT JOIN adicional_chaleco ON pedido.ped_id = adicional_chaleco.ped_id
+    WHERE pedido.pe_estado = 'pendiente' OR pedido.pe_estado = 'retrasado' OR pedido.pe_estado = 'terminado';
+END//
+DELIMITER ;
+
+#consultarPedidosGrafica
+DELIMITER //
+CREATE PROCEDURE consultarPedidosGrafica()
+BEGIN
+    DECLARE enero INT;
+    DECLARE febrero INT;
+    DECLARE marzo INT;
+    DECLARE abril INT;
+    DECLARE mayo INT;
+    DECLARE junio INT;
+    DECLARE julio INT;
+    DECLARE agosto INT;
+    DECLARE septiembre INT;
+    DECLARE octubre INT;
+    DECLARE noviembre INT;
+    DECLARE diciembre INT;
+    
+    SELECT COUNT(*) INTO enero FROM pedido WHERE MONTH(pe_fecha_entrega) = 1 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO febrero FROM pedido WHERE MONTH(pe_fecha_entrega) = 2 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO marzo FROM pedido WHERE MONTH(pe_fecha_entrega) = 3 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO abril FROM pedido WHERE MONTH(pe_fecha_entrega) = 4 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO mayo FROM pedido WHERE MONTH(pe_fecha_entrega) = 5 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO junio FROM pedido WHERE MONTH(pe_fecha_entrega) = 6 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO julio FROM pedido WHERE MONTH(pe_fecha_entrega) = 7 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO agosto FROM pedido WHERE MONTH(pe_fecha_entrega) = 8 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO septiembre FROM pedido WHERE MONTH(pe_fecha_entrega) = 9 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO octubre FROM pedido WHERE MONTH(pe_fecha_entrega) = 10 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO noviembre FROM pedido WHERE MONTH(pe_fecha_entrega) = 11 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    SELECT COUNT(*) INTO diciembre FROM pedido WHERE MONTH(pe_fecha_entrega) = 12 AND YEAR(pe_fecha_entrega) = YEAR(NOW()) AND pe_estado = 'entregado';
+    
+    SELECT enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre;
+END//
+DELIMITER ;
+
+#consultarCantidadPedidoEstado
+DELIMITER //
+CREATE PROCEDURE consultarCantidadPedidoEstado()
+BEGIN
+    DECLARE pendiente INT;
+    DECLARE retrasado INT;
+    DECLARE terminado INT;
+    
+    SELECT COUNT(*) INTO pendiente FROM pedido WHERE pe_estado = 'pendiente';
+    SELECT COUNT(*) INTO retrasado FROM pedido WHERE pe_estado = 'retrasado';
+    SELECT COUNT(*) INTO terminado FROM pedido WHERE pe_estado = 'terminado';
+    
+    SELECT pendiente, retrasado, terminado;
+END//
+DELIMITER ;
+
+#actualizarPedido 
+DELIMITER //
+CREATE PROCEDURE actualizarPedido(
+	IN pe_ide INT,
+	IN pe_tipo TINYINT,
+	IN pe_total BIGINT,
+	IN pe_abono BIGINT,
+	IN pe_fecha_entrega DATE
+)
+BEGIN
+	UPDATE pedido SET pe_tipo = pe_tipo, pe_total = pe_total, pe_abono = pe_abono, pe_fecha_entrega = pe_fecha_entrega
+    WHERE ped_id = pe_ide;
+END//
+DELIMITER ;
+
+
+#actualizarPedidoCamisa
+DELIMITER //
+CREATE PROCEDURE actualizarPedidoCamisa(
+	IN pe_ide INT,
+	IN cam_cuello TINYINT,
+	IN cam_despunte TINYINT,
+	IN cam_puno TINYINT,
+	IN cam_bolsillo TINYINT,
+	IN ped_caobservaciones VARCHAR(255)
+)
+BEGIN
+    UPDATE adicional_camisa SET cam_cuello = cam_cuello, cam_despunte = cam_despunte, cam_puno = cam_puno, cam_bolsillo = cam_bolsillo, ped_caobservaciones = ped_caobservaciones
+    WHERE ped_id = pe_ide;
+END//
+DELIMITER ;
+
+#actualizarPedidoChaleco
+DELIMITER //
+CREATE PROCEDURE actualizarPedidoChaleco(
+	IN pe_ide INT,
+	IN ped_chaobservaciones VARCHAR(255)
+)
+BEGIN 
+    UPDATE adicional_chaleco SET ped_chaobservaciones = ped_chaobservaciones
+    WHERE ped_id = pe_ide;
+END//
+DELIMITER ;
+
+#actualizarPedidoPantalon
+DELIMITER //
+CREATE PROCEDURE actualizarPedidoPantalon(
+	IN pe_ide INT,
+	IN ped_bota VARCHAR(255),
+	IN ped_bolsillo_reloj TINYINT,
+	IN ped_pobservaciones VARCHAR(255)
+)
+BEGIN
+    UPDATE adicional_pantalon SET ped_bota = ped_bota, ped_bolsillo_reloj = ped_bolsillo_reloj, ped_pobservaciones = ped_pobservaciones
+    WHERE ped_id = pe_ide;
+END//
+DELIMITER ;
+
+#actualizarPedidoSaco
+DELIMITER //
+CREATE PROCEDURE actualizarPedidoSaco(
+	IN pe_ide INT,
+	IN ped_aberturas SMALLINT,
+	IN ped_tipo_abertura TINYINT,
+	IN ped_cobservaciones VARCHAR(255)
+)
+BEGIN
+	UPDATE adicional_chaqueta SET ped_aberturas = ped_aberturas, ped_tipo_abertura = ped_tipo_abertura, ped_cobservaciones = ped_cobservaciones
+    WHERE ped_id = pe_ide;
+END//
+DELIMITER ;
+
+#actualizarDetallePedido
+DELIMITER //
+CREATE PROCEDURE actualizarDetallePedido(
+	IN pe_ide INT,
+	IN ped_detalles VARCHAR(255)
+)
+BEGIN 
+	UPDATE pedido_detalles SET ped_detalles = ped_detalles WHERE ped_id = pe_ide;
+END //
+DELIMITER ;
+
+#MATERIAL------------------------------------------------------------------------------------
+
+
+
+
+#registrarMaterial
+
+CREATE PROCEDURE registrarMaterial(
+	IN ma_material VARCHAR(255),
+    IN ma_descripcion VARCHAR(255),
+    IN ma_tipo_cantidad INT,
+   	IN ma_cantidad INT
+
+)
+
+INSERT INTO materia_prima(ma_material,ma_descripcion,ma_tipo_cantidad,ma_cantidad) 
+VALUES (ma_material,ma_descripcion,ma_tipo_cantidad,ma_cantidad);
+
+
+#actualizarMaterial
+CREATE PROCEDURE actualizarMaterial(
+	IN maid INT,
+	IN ma_material VARCHAR(255),
+	IN ma_descripcion VARCHAR(255),
+    IN ma_tipo_cantidad INT,
+	IN ma_cantidad INT
+)
+
+UPDATE materia_prima SET ma_material = ma_material, ma_descripcion = ma_descripcion,
+ ma_tipo_cantidad = ma_tipo_cantidad,  ma_cantidad = ma_cantidad WHERE mat_id = maid;
+
+#actualizarCantidadMateriaPrima
+
+CREATE PROCEDURE actualizarMaterialCantidad(
+	IN maid INT,
+	IN ma_cantidad INT
+)
+
+UPDATE materia_prima SET ma_cantidad = ma_cantidad WHERE mat_id = maid;
+
+#ACCESORIO-----------------------------------------------------------------------------------------------
+
+
+#registrarAccesorio
+DELIMITER //
+CREATE PROCEDURE registrarAccesorio(
+	IN acc_nombre VARCHAR(255),
+    IN acc_descripcion  VARCHAR(255),
+    IN acc_cantidad TINYINT
+)
+BEGIN
+INSERT INTO accesorios(acc_nombre, acc_descripcion, acc_cantidad) VALUES(acc_nombre, acc_descripcion, acc_cantidad);
+END //
+DELIMITER ;
+
+
+#actualizarAccesorio
+DELIMITER //
+CREATE PROCEDURE actualizarAccesorio(
+	IN id INT,
+	IN acc_nombre VARCHAR(255),
+    IN acc_descripcion  VARCHAR(255),
+    IN acc_cantidad TINYINT
+)
+BEGIN
+UPDATE accesorios SET acc_nombre = acc_nombre, acc_descripcion = acc_descripcion, acc_cantidad = acc_cantidad WHERE acc_id = id;
+END //
+DELIMITER ;
+
+
+#INVENTARIO---------------------------------------------------------------------------------------------
+
+#registrarInventarioEntrada
+DELIMITER //
+CREATE PROCEDURE registrarInventarioEntrada(
+	IN in_fecha date,
+	IN in_entrada_salida tinyint,
+    IN user_identificacion BIGINT,
+    IN observaciones VARCHAR(255)
+)
+BEGIN
+    DECLARE ultimoInventario INT DEFAULT 0;
+    INSERT INTO inventario (in_fecha,in_entrada_salida,in_accesorio_material) VALUES(in_fecha,in_entrada_salida,1);
+    SELECT in_id INTO ultimoInventario FROM inventario ORDER BY in_id DESC LIMIT 1;
+    INSERT INTO entrada_in(in_id,user_identificacion) VALUES(ultimoInventario,user_identificacion); 
+    IF observaciones <> '0' THEN
+        INSERT INTO observaciones_in(in_id,observaciones) VALUES(ultimoInventario,observaciones);
+    END IF;
+END//
+DELIMITER ;
+
+#registroInventarioMaterial
+DELIMITER //
+CREATE PROCEDURE registrarMaterialInventario(
+	IN in_tipo enum('metros','unidades','centimetros'),
+	IN in_cantidad int,
+	IN mat_id int,
+    IN in_precio INT
+)
+BEGIN
+    DECLARE ultimoInventario INT DEFAULT 0;
+    SELECT in_id INTO ultimoInventario FROM inventario ORDER BY in_id DESC LIMIT 1;
+    INSERT INTO materia_in (in_id,mat_id,in_tipo,in_cantidad) VALUES (ultimoInventario,mat_id,in_tipo,in_cantidad);
+    IF in_precio <> 0 THEN
+        INSERT INTO in_precio(in_id,in_precio) VALUES(ultimoInventario,in_precio);
+    END IF;
+END//
+DELIMITER ;
+
+#registrarInventarioSalida
+DELIMITER //
+CREATE PROCEDURE registrarInventarioSalida(
+	IN in_fecha date,
+	IN in_entrada_salida tinyint,
+	IN ped_id INT,
+    IN observaciones VARCHAR(255)
+) 
+BEGIN
+    DECLARE ultimoInventario INT DEFAULT 0;
+    INSERT INTO inventario (in_fecha,in_entrada_salida,in_accesorio_material) VALUES(in_fecha,in_entrada_salida,1);
+    SELECT in_id INTO ultimoInventario FROM inventario ORDER BY in_id DESC LIMIT 1;
+    INSERT INTO salida_in(in_id,ped_id) VALUES(ultimoInventario,ped_id);
+    IF observaciones <> '0' THEN
+        INSERT INTO observaciones_in(in_id,observaciones) VALUES(ultimoInventario,observaciones);
+    END IF;
+END //	 
+DELIMITER ;
+
+#registrarInventarioGeneralAccesorio
+DELIMITER //
+CREATE PROCEDURE registrarInventarioGeneralAccesorio(
+	IN in_fecha date,
+	IN in_entrada_salida tinyint,
+    IN observaciones varchar(255)
+)
+BEGIN
+	DECLARE ultimoInventario INT DEFAULT 0;
+    INSERT INTO inventario (in_fecha,in_entrada_salida,in_accesorio_material) VALUES(in_fecha,in_entrada_salida,2);
+    SELECT in_id INTO ultimoInventario FROM inventario ORDER BY in_id DESC LIMIT 1;
+    IF observaciones <> '0' THEN
+        INSERT INTO observaciones_in(in_id,observaciones) VALUES(ultimoInventario,observaciones);
+    END IF;
+END //
+DELIMITER ;
+
+#registrarInventarioAccesorio
+DELIMITER //
+CREATE PROCEDURE registrarInventarioAccesorio(
+	IN acc_id INT,
+	IN acc_cantidad INT,
+	IN in_precio INT
+)
+BEGIN
+	DECLARE ultimoInventario INT DEFAULT 0;
+	SELECT in_id INTO ultimoInventario FROM inventario ORDER BY in_id DESC LIMIT 1;
+    INSERT INTO inv_accesorios (in_id,acc_id,acc_cantidad) VALUES(ultimoInventario,acc_id,acc_cantidad);
+   IF in_precio <> 0 THEN
+        INSERT INTO in_precio(in_id,in_precio) VALUES(ultimoInventario,in_precio);
+    END IF;
+END //
+DELIMITER ;
+
+#consultarTodoInventario
+DELIMITER //
+CREATE PROCEDURE consultarInventario()
+BEGIN
+    SELECT inventario.*, observaciones_in.observaciones FROM inventario LEFT JOIN observaciones_in ON inventario.in_id = observaciones_in.in_id WHERE in_estado = 1;
+END //
+DELIMITER ;
+
+#consultarInventarioEspecifico
+DELIMITER //
+CREATE PROCEDURE consultarInventarioEspecifico(
+    IN id INT,
+    IN tipo INT
+)
+BEGIN
+    IF tipo = 1 THEN 
+        SELECT inventario.*,entrada_in.*,usuario.*,telefono_usuario.*,direccion_usuario.*, observaciones_in.* FROM usuario 
+        INNER JOIN telefono_usuario ON usuario.user_identificacion = telefono_usuario.user_identificacion
+        INNER JOIN direccion_usuario ON usuario.user_identificacion = direccion_usuario.user_identificacion 
+        INNER JOIN entrada_in ON usuario.user_identificacion = entrada_in.user_identificacion
+        INNER JOIN inventario ON entrada_in.in_id = inventario.in_id
+        LEFT JOIN observaciones_in ON inventario.in_id = observaciones_in.in_id  WHERE inventario.in_id = id;
+    ELSEIF tipo = 2 THEN 
+        SELECT inventario.*,  salida_in.*, observaciones_in.*  FROM inventario 
+        INNER JOIN salida_in ON inventario.in_id = salida_in.in_id
+        LEFT JOIN observaciones_in ON inventario.in_id = observaciones_in.in_id WHERE inventario.in_id = id;
+    ELSE 
+        SELECT inventario.*, extra_in.*, observaciones_in.*  FROM inventario 
+        INNER JOIN extra_in ON inventario.in_id = extra_in.in_id 
+        LEFT JOIN observaciones_in ON inventario.in_id = observaciones_in.in_id WHERE inventario.in_id = id;
+    END IF;
+END//
+DELIMITER ;
+
+#consultarInventarioAccesorio
+DELIMITER //
+CREATE PROCEDURE consultarInventarioAccesorio(
+	IN id INT
+)
+BEGIN 
+	SELECT inventario.*,inv_accesorios.*, observaciones_in.*  FROM inventario 
+    INNER JOIN inv_accesorios ON inventario.in_id = inv_accesorios.in_id
+	LEFT JOIN observaciones_in ON inventario.in_id = observaciones_in.in_id WHERE inventario.in_id = id	LIMIT 1;
+END //
+DELIMITER ;
+
+#consultarIventarioMaterial 
+DELIMITER //
+CREATE PROCEDURE consultarInventarioMaterial(
+    IN id INT
+)
+BEGIN
+    SELECT materia_in.*,materia_prima.*  FROM materia_in 
+    INNER JOIN inventario ON inventario.in_id = materia_in.in_id
+    INNER JOIN materia_prima ON materia_in.mat_id = materia_prima.mat_id WHERE inventario.in_id = id;
+END//
+DELIMITER ;
+
+#consultarInventarioAccesorioIndividuales
+DELIMITER //
+CREATE PROCEDURE consultarInventarioAccesorioIndividuales(
+    IN id INT
+)
+BEGIN
+    SELECT inv_accesorios.*, inv_accesorios.acc_cantidad AS cantidad,accesorios.*  FROM inv_accesorios 
+    INNER JOIN inventario ON inventario.in_id = inv_accesorios.in_id
+    INNER JOIN accesorios ON inv_accesorios.acc_id = accesorios.acc_id WHERE inventario.in_id = id;
+END//
+DELIMITER ;
+
+#consultarInventarioPrecio
+DELIMITER //
+CREATE PROCEDURE consultarInventarioPrecio(
+    IN id INT
+)
+BEGIN
+    SELECT in_precio.* FROM in_precio INNER JOIN inventario ON inventario.in_id = in_precio.in_id WHERE inventario.in_id = id;
+END//
+DELIMITER ;
+
+
+#deshabilitarInventario
+DELIMITER //
+CREATE PROCEDURE deshabilitarInventario(
+	IN id INT
+)
+BEGIN
+	UPDATE inventario SET in_estado = 0 WHERE in_id = id;
+END //
+DELIMITER ;
+

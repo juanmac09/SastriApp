@@ -1,0 +1,89 @@
+/* menu */
+#menu{
+  margin-top: 2%;
+  margin-left: 40%;
+}
+#menu ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+ }
+ 
+ /* items del menu */
+ 
+ #menu ul .a1{
+  background-color:#000;
+ }
+ #menu ul .a2{
+  background-color:#3A4750;
+ }
+ 
+ /* enlaces del menu */
+ 
+ #menu ul a {
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  font-weight:400;
+  font-size:15px;
+  padding:10px;
+  font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:1px;
+ }
+ 
+ /* items del menu */
+ 
+ #menu ul li {
+  text-align: center;
+  width: 12%;
+  height: 5%;
+  position:relative;
+  float:left;
+  margin-left: 4%;
+  padding:0;
+ }
+ 
+ /* efecto al pasar el ratón por los items del menu */
+ 
+ #menu ul .a1:hover {
+  background:#3A4750;
+ }
+ /* menu desplegable */
+
+#menu ul ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#eee;
+  padding:0;
+ }
+ 
+ /* items del menu desplegable */
+ 
+ #menu ul ul .a2 {
+  float:none;
+  width:150px
+  
+ }
+ 
+ /* enlaces de los items del menu desplegable */
+ 
+ #menu ul ul a {
+  line-height:120%;
+  padding:10px 15px;
+ }
+ 
+ /* items del menu desplegable al pasar el ratón */
+ 
+ #menu ul .a1:hover > ul {
+  display:block;
+ }
+ .logout{
+  background-color: #3A4750;
+ }
+ .logout:hover{
+  background-color: #3A475044;
+
+ }
