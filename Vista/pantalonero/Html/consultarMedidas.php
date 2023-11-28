@@ -55,59 +55,7 @@ if (!$obj->consultarMedidasClientes($_GET['id'])) {
 
 
         <div class="row tables" id="tablaMedidas">
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="">
-                        <div class="table-responsive">
-                            <center>
-                                <h6 class="h1Consultar">Chaqueta</h6>
-                            </center>
-                            <table id="" class="table table-striped table-bordered">
-                                <tbody id="idMedidasChaqueta">
-                                    <?php mostrarMedidasChaquetaConsulta($_GET['id']) ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- /# card -->
-            </div>
-
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="">
-                        <div class="table-responsive">
-                            <center>
-                                <h6 class="h1Consultar">Chaleco</h6>
-                            </center>
-                            <table id="" class="table table-striped table-bordered">
-                                <tbody id="idMedidasChaleco">
-                                    <?php mostrarMedidasChalecoConsultar($_GET['id']) ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- /# card -->
-            </div>
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="">
-                        <div class="table-responsive">
-                            <center>
-                                <h6 class="h1Consultar">Camisa</h6>
-                            </center>
-                            <table id="" class="table table-striped table-bordered">
-                                <tbody id="idMedidaCamisa">
-                                    <?php mostrarMedidasCamisaConsulta($_GET['id']) ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- /# card -->
-            </div>
-            <div class="col-lg-3">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="">
                         <div class="table-responsive">
@@ -126,9 +74,6 @@ if (!$obj->consultarMedidasClientes($_GET['id'])) {
             </div>
         </div>
         <!-- /# row -->
-
-
-        <input type="button" id="saveChange" value="Guardar Cambios" class="btn btn-success m-b-10  saveChange">
     </section>
     <script src="../../dashboard/js/lib/data-table/datatables.min.js"></script>
     <script src="../../dashboard/js/lib/data-table/dataTables.buttons.min.js"></script>
@@ -140,7 +85,7 @@ if (!$obj->consultarMedidasClientes($_GET['id'])) {
     <script src="../../dashboard/js/lib/data-table/buttons.print.min.js"></script>
     <script src="../../dashboard/js/lib/data-table/datatables-init.js"></script>
     <script src="../js/mainMedidas.js"></script>
-    
+
     <script>
         // Obtener todas las celdas editables
         const celdasEditables = document.querySelectorAll('span[contenteditable="true"]');

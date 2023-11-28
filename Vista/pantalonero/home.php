@@ -263,7 +263,7 @@ if (isset($_SESSION["clave"])) {
         <canvas id="grafica" style="margin-top:20%"></canvas>
     </div>
     <?php
-    $schedules = $conn->query("CALL consultarPedidoCalendario()");
+    $schedules = $conn->query("CALL consultarPedidosPantalonero()");
     $sched_res = [];
     foreach ($schedules->fetch_all(MYSQLI_ASSOC) as $row) {
         $row['sdate'] = date("F d, Y ", strtotime($row['pe_fecha_entrega']));

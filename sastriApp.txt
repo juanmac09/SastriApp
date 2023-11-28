@@ -846,6 +846,46 @@ BEGIN
 END//
 DELIMITER ;
 
+#consultarPedidosPantalonero
+DELIMITER //
+CREATE PROCEDURE consultarPedidosPantalonero()
+BEGIN 
+	SELECT
+		pedido.ped_id,
+		CASE
+			WHEN pedido.pe_prendas = 4 THEN 'Camisa, pantalón, chaleco y saco'
+			WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL THEN 'Camisa, pantalón y chaleco'
+			WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa, pantalón y chaqueta'
+			WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa, chaleco y chaqueta'
+			WHEN pedido.pe_prendas = 3 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Pantalón, chaleco y chaqueta'
+			WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL THEN 'Camisa y pantalón'
+			WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa y chaqueta'
+			WHEN pedido.pe_prendas = 2 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Pantalón y chaqueta'
+			WHEN pedido.pe_prendas = 1 AND adicional_camisa.ped_id IS NOT NULL THEN 'Camisa'
+			WHEN pedido.pe_prendas = 1 AND adicional_pantalon.ped_id IS NOT NULL THEN 'Pantalón'
+			WHEN pedido.pe_prendas = 1 AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Chaqueta'
+			WHEN pedido.pe_prendas = 1 AND adicional_chaleco.ped_id IS NOT NULL THEN 'Chaleco'
+			ELSE ''
+		END AS detalle,
+		pedido.pe_fecha,
+		pedido.pe_total,
+		pedido.pe_fecha_entrega,
+		pedido.pe_estado,
+		pedido.user_identificacion,
+        pedido.pe_abono,
+        pedido.pe_tipo,
+		usuario.user_nombre
+	FROM pedido
+	INNER JOIN usuario ON pedido.user_identificacion = usuario.user_identificacion
+	LEFT JOIN adicional_camisa ON pedido.ped_id = adicional_camisa.ped_id
+	LEFT JOIN adicional_chaqueta ON pedido.ped_id = adicional_chaqueta.ped_id
+	LEFT JOIN adicional_pantalon ON pedido.ped_id = adicional_pantalon.ped_id
+	LEFT JOIN adicional_chaleco ON pedido.ped_id = adicional_chaleco.ped_id
+	WHERE (pedido.pe_estado = 'pendiente' OR pedido.pe_estado = 'retrasado' OR pedido.pe_estado = 'terminado')
+	AND adicional_pantalon.ped_id IS NOT NULL;
+END //
+DELIMITER ;
+
 #actualizarEstadoPedido
 DELIMITER //
 CREATE PROCEDURE actualizarEstadoPedido(

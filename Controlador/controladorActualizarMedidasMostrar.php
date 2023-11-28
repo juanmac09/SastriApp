@@ -4,7 +4,7 @@ require_once("../Modelo/medidasModelo.php");
 require_once("controladorMostrarMedidaCliente.php");
 $obj = new Medidas();
 
-    
+session_start();
 if ($_GET['tipo'] == 1) {
     $obj -> actualizarMedidasChaqueta($_GET);
     mostrarMedidasChaquetaConsulta($_GET['id']);

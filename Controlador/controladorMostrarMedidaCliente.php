@@ -1,7 +1,8 @@
 <?php
-function mostrarMedidasChaleco($id){
+function mostrarMedidasChaleco($id)
+{
   $obj = new Medidas();
-  $resultado = $obj -> consultarMedidasClientes($id);
+  $resultado = $obj->consultarMedidasClientes($id);
 
   if ($resultado) {
     echo '
@@ -9,32 +10,31 @@ function mostrarMedidasChaleco($id){
           <div class="row">
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_largo_chaleco" class="camposMedidasChaleco" value="'.$resultado['me_largo_chaleco'].'" >
+                <input type="number" name="me_largo_chaleco" class="camposMedidasChaleco" value="' . $resultado['me_largo_chaleco'] . '" >
                 <label>Largo</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_espalda_chaleco" class="camposMedidasChaleco" value="'.$resultado['me_espalda_chaleco'].'">
+                <input type="number" name="me_espalda_chaleco" class="camposMedidasChaleco" value="' . $resultado['me_espalda_chaleco'] . '">
                 <label>Espalda</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_hombro_chaleco" class="camposMedidasChaleco" value="'.$resultado['me_hombro_chaleco'].'">
+                <input type="number" name="me_hombro_chaleco" class="camposMedidasChaleco" value="' . $resultado['me_hombro_chaleco'] . '">
                 <label>Hombro</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_pecho_chaleco" class="camposMedidasChaleco" value="'.$resultado['me_pecho_chaleco'].'">
+                <input type="number" name="me_pecho_chaleco" class="camposMedidasChaleco" value="' . $resultado['me_pecho_chaleco'] . '">
                 <label>Pecho</label>
               </div>
             </div>
           </div>
     ';
-  }
-  else{
+  } else {
     echo '
           <h3>Medidas Para Chaleco</h3>
           <div class="row">
@@ -68,9 +68,10 @@ function mostrarMedidasChaleco($id){
 }
 
 
-function mostrarMedidasChaqueta($id){
+function mostrarMedidasChaqueta($id)
+{
   $obj = new Medidas();
-  $resultado = $obj -> consultarMedidasClientes($id);
+  $resultado = $obj->consultarMedidasClientes($id);
 
   if ($resultado) {
     echo '
@@ -78,43 +79,43 @@ function mostrarMedidasChaqueta($id){
         <div class="row">
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_talle_chaqueta" class="camposMedidasChaqueta" value="'.$resultado['me_talle_chaqueta'].'">
+              <input type="number" name="me_talle_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_talle_chaqueta'] . '">
               <label>Talle</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_largo_chaqueta" class="camposMedidasChaqueta" value="'.$resultado['me_largo_chaqueta'].'">
+              <input type="number" name="me_largo_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_largo_chaqueta'] . '">
               <label>Largo</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_espalda_chaqueta" class="camposMedidasChaqueta" value="'.$resultado['me_espalda_chaqueta'].'">
+              <input type="number" name="me_espalda_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_espalda_chaqueta'] . '">
               <label>Espalda</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_hombro_chaqueta" class="camposMedidasChaqueta" value="'.$resultado['me_hombro_chaqueta'].'">
+              <input type="number" name="me_hombro_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_hombro_chaqueta'] . '">
               <label>Hombro</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_pecho_chaqueta" class="camposMedidasChaqueta" value="'.$resultado['me_pecho_chaqueta'].'">
+              <input type="number" name="me_pecho_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_pecho_chaqueta'] . '">
               <label>Pecho</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_cintura_chaqueta" class="camposMedidasChaqueta" value="'.$resultado['me_cintura_chaqueta'].'">
+              <input type="number" name="me_cintura_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_cintura_chaqueta'] . '">
               <label>Cintura</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_manga_chaqueta" class="camposMedidasChaqueta" value="'.$resultado['me_manga_chaqueta'].'">
+              <input type="number" name="me_manga_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_manga_chaqueta'] . '">
               <label>Manga</label>
             </div>
           </div>
@@ -122,8 +123,7 @@ function mostrarMedidasChaqueta($id){
     
     
     ';
-  }
-  else{
+  } else {
     echo '
       <h3>Medidas Para Chaqueta</h3>
       <div class="row">
@@ -177,9 +177,10 @@ function mostrarMedidasChaqueta($id){
 }
 
 
-function mostrarMedidasCamisa($id){
+function mostrarMedidasCamisa($id)
+{
   $obj = new Medidas();
-  $resultado = $obj -> consultarMedidasClientes($id);
+  $resultado = $obj->consultarMedidasClientes($id);
 
   if ($resultado) {
     echo '
@@ -187,43 +188,43 @@ function mostrarMedidasCamisa($id){
           <div class="row">
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_cuello" class="camposMedidasCamisa" value="'.$resultado['me_cuello'].'">
+                <input type="number" name="me_cuello" class="camposMedidasCamisa" value="' . $resultado['me_cuello'] . '">
                 <label>Cuello</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_espalda_camisa" class="camposMedidasCamisa" value="'.$resultado['me_espalda_camisa'].'">
+                <input type="number" name="me_espalda_camisa" class="camposMedidasCamisa" value="' . $resultado['me_espalda_camisa'] . '">
                 <label>Espalda</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_manga_camisa" class="camposMedidasCamisa" value="'.$resultado['me_manga_camisa'].'">
+                <input type="number" name="me_manga_camisa" class="camposMedidasCamisa" value="' . $resultado['me_manga_camisa'] . '">
                 <label>Manga</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_largo_camisa" class="camposMedidasCamisa" value="'.$resultado['me_largo_camisa'].'">
+                <input type="number" name="me_largo_camisa" class="camposMedidasCamisa" value="' . $resultado['me_largo_camisa'] . '">
                 <label>Largo</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_pecho_camisa" class="camposMedidasCamisa" value="'.$resultado['me_pecho_camisa'].'">
+                <input type="number" name="me_pecho_camisa" class="camposMedidasCamisa" value="' . $resultado['me_pecho_camisa'] . '">
                 <label>Pecho</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_cintura_camisa" class="camposMedidasCamisa" value="'.$resultado['me_cintura_camisa'].'">
+                <input type="number" name="me_cintura_camisa" class="camposMedidasCamisa" value="' . $resultado['me_cintura_camisa'] . '">
                 <label>Cintura</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="text" name="me_cont_puño" class="camposMedidasCamisa" value="'.$resultado['me_cont_puño'].'">
+                <input type="text" name="me_cont_puño" class="camposMedidasCamisa" value="' . $resultado['me_cont_puño'] . '">
                 <label>Corte Puño</label>
               </div>
             </div>
@@ -232,8 +233,7 @@ function mostrarMedidasCamisa($id){
     
     
       ';
-  }
-  else{
+  } else {
     echo '
       <h3>Medidas Para Camisa</h3>
       <div class="row">
@@ -285,9 +285,10 @@ function mostrarMedidasCamisa($id){
 }
 
 
-function mostrarMedidasPantalon($id){
+function mostrarMedidasPantalon($id)
+{
   $obj = new Medidas();
-  $resultado = $obj -> consultarMedidasClientes($id);
+  $resultado = $obj->consultarMedidasClientes($id);
 
   if ($resultado) {
     echo '
@@ -295,45 +296,44 @@ function mostrarMedidasPantalon($id){
         <div class="row">
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_cintura_pantalon" class="camposMedidasPantalon" value="'.$resultado['me_cintura_pantalon'].'">
+              <input type="number" name="me_cintura_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_cintura_pantalon'] . '">
               <label>Cintura</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_base_pantalon" class="camposMedidasPantalon" value="'.$resultado['me_base_pantalon'].'">
+              <input type="number" name="me_base_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_base_pantalon'] . '">
               <label>Base</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_largo_pantalon" class="camposMedidasPantalon" value="'.$resultado['me_largo_pantalon'].'">
+              <input type="number" name="me_largo_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_largo_pantalon'] . '">
               <label>Largo</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_rodilla_pantalon" class="camposMedidasPantalon" value="'.$resultado['me_rodilla_pantalon'].'">
+              <input type="number" name="me_rodilla_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_rodilla_pantalon'] . '">
               <label>Rodilla</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_tiro_pantalon" class="camposMedidasPantalon" value="'.$resultado['me_tiro_pantalon'].'">
+              <input type="number" name="me_tiro_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_tiro_pantalon'] . '">
               <label>Tiro</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_bota_pantalon" class="camposMedidasPantalon" value="'.$resultado['me_bota_pantalon'].'">
+              <input type="number" name="me_bota_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_bota_pantalon'] . '">
               <label>Bota</label>
             </div>
           </div>
         </div>
     
     ';
-  }
-  else{
+  } else {
     echo '
         <h3>Medidas Para Pantalón</h3>
         <div class="row">
@@ -380,31 +380,31 @@ function mostrarMedidasPantalon($id){
   }
 }
 
-function mostrarMedidasChalecoConsultar($id){
+function mostrarMedidasChalecoConsultar($id)
+{
   $obj = new Medidas();
-  $resultado = $obj -> consultarMedidasClientes($id);
+  $resultado = $obj->consultarMedidasClientes($id);
 
   if ($resultado) {
     echo '
     <tr>
     <th>Largo</th>
-    <td><span contenteditable="true" class="medidaChaleco">'.$resultado['me_largo_chaleco'].'</span> Cm</td>
+    <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_largo_chaleco'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Espalda</th>
-        <td><span contenteditable="true" class="medidaChaleco">'.$resultado['me_espalda_chaleco'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_espalda_chaleco'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Hombro</th>
-        <td><span contenteditable="true" class="medidaChaleco">'.$resultado['me_hombro_chaleco'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_hombro_chaleco'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Pecho</th>
-        <td><span contenteditable="true" class="medidaChaleco">'.$resultado['me_pecho_chaleco'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_pecho_chaleco'] . '</span> Cm</td>
     </tr>
     ';
-  }
-  else{
+  } else {
     echo '
     <tr>
     <th>Largo</th>
@@ -425,45 +425,45 @@ function mostrarMedidasChalecoConsultar($id){
     ';
   }
 }
-function mostrarMedidasChaquetaConsulta($id){
+function mostrarMedidasChaquetaConsulta($id)
+{
   $obj = new Medidas();
-  $resultado = $obj -> consultarMedidasClientes($id);
+  $resultado = $obj->consultarMedidasClientes($id);
 
   if ($resultado) {
-    echo 
+    echo
     '
     <tr>
     <th>Talle</th>
-    <td><span contenteditable="true" class="medidaChaqueta">'.$resultado['me_talle_chaqueta'].'</span> Cm</td>
+    <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_talle_chaqueta'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Largo</th>
-        <td><span contenteditable="true" class="medidaChaqueta">'.$resultado['me_largo_chaqueta'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_largo_chaqueta'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Espalda</th>
-        <td><span contenteditable="true" class="medidaChaqueta">'.$resultado['me_espalda_chaqueta'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_espalda_chaqueta'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Hombro</th>
-        <td><span contenteditable="true" class="medidaChaqueta">'.$resultado['me_hombro_chaqueta'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_hombro_chaqueta'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Pecho</th>
-        <td><span contenteditable="true" class="medidaChaqueta">'.$resultado['me_pecho_chaqueta'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_pecho_chaqueta'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Cintura</th>
-        <td><span contenteditable="true" class="medidaChaqueta">'.$resultado['me_cintura_chaqueta'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_cintura_chaqueta'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Manga</th>
-        <td><span contenteditable="true" class="medidaChaqueta">'.$resultado['me_manga_chaqueta'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_manga_chaqueta'] . '</span> Cm</td>
     </tr>
 ';
-  }
-  else{
-    echo 
+  } else {
+    echo
     '
     <tr>
     <th>Talle</th>
@@ -496,41 +496,41 @@ function mostrarMedidasChaquetaConsulta($id){
 ';
   }
 }
-function mostrarMedidasCamisaConsulta($id){
+function mostrarMedidasCamisaConsulta($id)
+{
   $obj = new Medidas();
-  $resultado = $obj -> consultarMedidasClientes($id);
+  $resultado = $obj->consultarMedidasClientes($id);
   if ($resultado) {
     echo '
     <tr>
     <th>Cuello</th>
-    <td><span contenteditable="true" class="medidaCamisa">'.$resultado['me_cuello'].'</span> Cm</td>
+    <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_cuello'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Espalda</th>
-        <td><span contenteditable="true" class="medidaCamisa">'.$resultado['me_espalda_camisa'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_espalda_camisa'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Manga</th>
-        <td><span contenteditable="true" class="medidaCamisa">'.$resultado['me_manga_camisa'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_manga_camisa'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Largo</th>
-        <td><span contenteditable="true" class="medidaCamisa">'.$resultado['me_largo_camisa'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_largo_camisa'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Pecho</th>
-        <td><span contenteditable="true" class="medidaCamisa">'.$resultado['me_pecho_camisa'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_pecho_camisa'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Cintura</th>
-        <td><span contenteditable="true" class="medidaCamisa">'.$resultado['me_cintura_camisa'].'</span> Cm</td>
+        <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_cintura_camisa'] . '</span> Cm</td>
     </tr>
     <tr>
         <th>Corte Puño</th>
-        <td><span contenteditable="true" class="medidaCamisa exceptuar">'.$resultado['me_cont_puño'].'</span></td>
+        <td><span contenteditable="true" class="medidaCamisa exceptuar">' . $resultado['me_cont_puño'] . '</span></td>
     </tr>';
-  }
-  else{
+  } else {
     echo '
     <tr>
     <th>Cuello</th>
@@ -563,75 +563,135 @@ function mostrarMedidasCamisaConsulta($id){
   }
 }
 
-function mostrarMedidasPantalonConsultar($id){
+function mostrarMedidasPantalonConsultar($id)
+{
+
   $obj = new Medidas();
-  $resultado = $obj -> consultarMedidasClientes($id);
+  $resultado = $obj->consultarMedidasClientes($id);
 
   if ($resultado) {
-    echo '
-    <tr>
-      <th>Cintura</th>
-      <td><span contenteditable="true" class="medidaPantalon">'.$resultado['me_cintura_pantalon'].'</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Base</th>
-        <td><span contenteditable="true" class="medidaPantalon">'.$resultado['me_base_pantalon'].'</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Largo</th>
-        <td><span contenteditable="true" class="medidaPantalon">'.$resultado['me_largo_pantalon'].'</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Rodilla</th>
-        <td><span contenteditable="true" class="medidaPantalon">'.$resultado['me_rodilla_pantalon'].'</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Tiro</th>
-        <td><span contenteditable="true" class="medidaPantalon">'.$resultado['me_tiro_pantalon'].'</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Bota</th>
-        <td><span contenteditable="true" class="medidaPantalon">'.$resultado['me_bota_pantalon'].'</span> Cm</td>
-    </tr>';
-  }
-  else{
-    echo '
-    <tr>
-      <th>Cintura</th>
-      <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Base</th>
-        <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Largo</th>
-        <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Rodilla</th>
-        <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Tiro</th>
-        <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Bota</th>
-        <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
-    </tr>';
+    if ($_SESSION['rol'] == 1) {
+      echo '
+        <tr>
+          <th>Cintura</th>
+          <td><span contenteditable="true" class="medidaPantalon">' . $resultado['me_cintura_pantalon'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Base</th>
+            <td><span contenteditable="true" class="medidaPantalon">' . $resultado['me_base_pantalon'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Largo</th>
+            <td><span contenteditable="true" class="medidaPantalon">' . $resultado['me_largo_pantalon'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Rodilla</th>
+            <td><span contenteditable="true" class="medidaPantalon">' . $resultado['me_rodilla_pantalon'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Tiro</th>
+            <td><span contenteditable="true" class="medidaPantalon">' . $resultado['me_tiro_pantalon'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Bota</th>
+            <td><span contenteditable="true" class="medidaPantalon">' . $resultado['me_bota_pantalon'] . '</span> Cm</td>
+        </tr>';
+    }
+    if ($_SESSION['rol'] == 5) {
+      echo '
+        <tr>
+          <th>Cintura</th>
+          <td><span class="medidaPantalon">' . $resultado['me_cintura_pantalon'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Base</th>
+            <td><span class="medidaPantalon">' . $resultado['me_base_pantalon'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Largo</th>
+            <td><span class="medidaPantalon">' . $resultado['me_largo_pantalon'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Rodilla</th>
+            <td><span class="medidaPantalon">' . $resultado['me_rodilla_pantalon'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Tiro</th>
+            <td><span class="medidaPantalon">' . $resultado['me_tiro_pantalon'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Bota</th>
+            <td><span class="medidaPantalon">' . $resultado['me_bota_pantalon'] . '</span> Cm</td>
+        </tr>';
+    }
+  } else {
+    if ($_SESSION['rol'] == 1) {
+      echo '
+        <tr>
+          <th>Cintura</th>
+          <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Base</th>
+            <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Largo</th>
+            <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Rodilla</th>
+            <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Tiro</th>
+            <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Bota</th>
+            <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
+        </tr>';
+    }
+    else if ($_SESSION['rol'] == 5) {
+      echo '
+        <tr>
+          <th>Cintura</th>
+          <td><span class="medidaPantalon"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Base</th>
+            <td><span class="medidaPantalon"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Largo</th>
+            <td><span class="medidaPantalon"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Rodilla</th>
+            <td><span class="medidaPantalon"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Tiro</th>
+            <td><span class="medidaPantalon"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Bota</th>
+            <td><span class="medidaPantalon"></span> Cm</td>
+        </tr>';
+    } 
   }
 }
 
 
-function mostrarMedidasGeneralesPedido($id,$infoPedido){
+function mostrarMedidasGeneralesPedido($id, $infoPedido)
+{
   $obj = new Medidas();
-  $resultado = $obj -> consultarMedidasClientes($id);
+  $resultado = $obj->consultarMedidasClientes($id);
 
   if ($resultado) {
     $tablasMedidas = null;
     $claseCamisa = "";
-    $claseChaleco ="";
+    $claseChaleco = "";
     $claseChaqueta = "";
     $clasePantalon = "";
     if ($infoPedido['camisa'] == "") {
@@ -647,9 +707,9 @@ function mostrarMedidasGeneralesPedido($id,$infoPedido){
       $clasePantalon = "noUtilizada";
     }
 
-    $tablasMedidas['camisa'] = 
+    $tablasMedidas['camisa'] =
       '
-      <div class="medidaCamisa '.$claseCamisa.'">
+      <div class="medidaCamisa ' . $claseCamisa . '">
         <table>
             <tr>
                 <th colspan="7">Medidas Camisa</th>
@@ -657,40 +717,40 @@ function mostrarMedidasGeneralesPedido($id,$infoPedido){
             </tr>
             <tr>
                 <td>Cuello</td>
-                <td>'.$resultado['me_cuello'].' Cm</td>
+                <td>' . $resultado['me_cuello'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Espalda</td>
-                <td>'.$resultado['me_espalda_camisa'].' Cm</td>
+                <td>' . $resultado['me_espalda_camisa'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Manga</td>
-                <td>'.$resultado['me_manga_camisa'].' Cm</td>
+                <td>' . $resultado['me_manga_camisa'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Largo</td>
-                <td>'.$resultado['me_largo_camisa'].' Cm</td>
+                <td>' . $resultado['me_largo_camisa'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Pecho</td>
-                <td>'.$resultado['me_pecho_camisa'].' Cm</td>
+                <td>' . $resultado['me_pecho_camisa'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Cintura</td>
-                <td>'.$resultado['me_cintura_camisa'].' Cm</td>
+                <td>' . $resultado['me_cintura_camisa'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Corte Puño</td>
-                <td>'.$resultado['me_cont_puño'].'</td>
+                <td>' . $resultado['me_cont_puño'] . '</td>
             </tr>
             
         </table>
       </div>
-      ' ;
+      ';
 
     $tablasMedidas['chaleco'] =
-    '
-      <div class="medidasChaleco '.$claseChaleco.'">
+      '
+      <div class="medidasChaleco ' . $claseChaleco . '">
           <table>
               <tr>
                   <th colspan="7">Medidas Chaleco</th>
@@ -698,28 +758,28 @@ function mostrarMedidasGeneralesPedido($id,$infoPedido){
               </tr>
               <tr>
                   <td>Largo</td>
-                  <td>'.$resultado['me_largo_chaleco'].' Cm</td>
+                  <td>' . $resultado['me_largo_chaleco'] . ' Cm</td>
               </tr>
               <tr>
                   <td>Espalda</td>
-                  <td>'.$resultado['me_espalda_chaleco'].' Cm</td>
+                  <td>' . $resultado['me_espalda_chaleco'] . ' Cm</td>
               </tr>
               <tr>
                   <td>Hombro</td>
-                  <td>'.$resultado['me_hombro_chaleco'].' Cm</td>
+                  <td>' . $resultado['me_hombro_chaleco'] . ' Cm</td>
               </tr>
               <tr>
                   <td>Pecho</td>
-                  <td>'.$resultado['me_pecho_chaleco'].' Cm</td>
+                  <td>' . $resultado['me_pecho_chaleco'] . ' Cm</td>
               </tr>
           </table>
       </div>
     ';
 
 
-    $tablasMedidas['chaqueta'] = 
-    '
-    <div class="medidasChaqueta '.$claseChaqueta.'">
+    $tablasMedidas['chaqueta'] =
+      '
+    <div class="medidasChaqueta ' . $claseChaqueta . '">
         <table>
             <tr>
                 <th colspan="7">Medidas Chaqueta</th>
@@ -727,67 +787,67 @@ function mostrarMedidasGeneralesPedido($id,$infoPedido){
             </tr>
             <tr>
                 <td>Talle</td>
-                <td>'.$resultado['me_talle_chaqueta'].' Cm</td>
+                <td>' . $resultado['me_talle_chaqueta'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Largo</td>
-                <td>'.$resultado['me_largo_chaqueta'].' Cm</td>
+                <td>' . $resultado['me_largo_chaqueta'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Espalda</td>
-                <td>'.$resultado['me_espalda_chaqueta'].' Cm</td>
+                <td>' . $resultado['me_espalda_chaqueta'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Hombro</td>
-                <td>'.$resultado['me_hombro_chaqueta'].' Cm</td>
+                <td>' . $resultado['me_hombro_chaqueta'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Pecho</td>
-                <td>'.$resultado['me_pecho_chaqueta'].' Cm</td>
+                <td>' . $resultado['me_pecho_chaqueta'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Cintura</td>
-                <td>'.$resultado['me_cintura_chaqueta'].' Cm</td>
+                <td>' . $resultado['me_cintura_chaqueta'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Manga</td>
-                <td>'.$resultado['me_manga_chaqueta'].' Cm</td>
+                <td>' . $resultado['me_manga_chaqueta'] . ' Cm</td>
             </tr>
         </table>
     </div>
     ';
 
-    $tablasMedidas['pantalon'] = 
-    '
-    <div class="medidasPantalon '.$clasePantalon.'">
-        <table>
+    $tablasMedidas['pantalon'] =
+      '
+    <div class="medidasPantalon ' . $clasePantalon . '">
+        <table class="tablamedidas">
             <tr>
                 <th colspan="7">Medidas Pantalón</th>
 
             </tr>
             <tr>
                 <td>Cintura</td>
-                <td>'.$resultado['me_cintura_pantalon'].' Cm</td>
+                <td>' . $resultado['me_cintura_pantalon'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Base</td>
-                <td>'.$resultado['me_base_pantalon'].' Cm</td>
+                <td>' . $resultado['me_base_pantalon'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Largo</td>
-                <td>'.$resultado['me_largo_pantalon'].' Cm</td>
+                <td>' . $resultado['me_largo_pantalon'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Rodilla</td>
-                <td>'.$resultado['me_rodilla_pantalon'].' Cm</td>
+                <td>' . $resultado['me_rodilla_pantalon'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Tiro</td>
-                <td>'.$resultado['me_tiro_pantalon'].' Cm</td>
+                <td>' . $resultado['me_tiro_pantalon'] . ' Cm</td>
             </tr>
             <tr>
                 <td>Bota</td>
-                <td>'.$resultado['me_bota_pantalon'].' Cm</td>
+                <td>' . $resultado['me_bota_pantalon'] . ' Cm</td>
             </tr>
         </table>
     </div>
@@ -795,9 +855,3 @@ function mostrarMedidasGeneralesPedido($id,$infoPedido){
     return $tablasMedidas;
   }
 }
-
-
-
-
-
-

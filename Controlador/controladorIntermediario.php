@@ -4,7 +4,7 @@ require_once("../Modelo/consultas.php");
 require_once("../Modelo/correoModelo.php");
 require_once("../Modelo/pedidoModelo.php");
 require_once("../Controlador/controladorMostrarPedido.php");
-
+session_start();
 $obj = new Pedido();
 $obj -> actualizarEstadoPedido($_GET);
 $cliente = new Consultas();

@@ -128,6 +128,24 @@ class Pedido{
         // Retornamos f
         return $f;
     }
+    // Se crea el metodo para consultar pedido para pantalonero
+    public function consultarPedidoPantalonero(){
+        // Creamos una variable f para guardar el resultado
+        $f = null;
+        // Se crea el objeto conexion
+        $obj = new Conexion();
+        $conexion = $obj -> get_conexion();
+        // Preparamos el codigo Sql
+        $result = $conexion -> prepare("CALL consultarPedidosPantalonero()");
+        // Ejecutamos el codigo Sql
+        $result -> execute();
+        // Convertir el resultado a un vector
+        while ($resultado = $result -> fetch()) {
+           $f[] = $resultado;
+        }
+        // Retornamos f
+        return $f;
+    }
     // Se crea el metodo consultar pedido con id
     public function consultarPedidoId($id,$n){
         // Creamos una variable f para guardar el resultado

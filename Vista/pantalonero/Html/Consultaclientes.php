@@ -80,9 +80,7 @@ if (isset($_SESSION["confirmarRegistro"])) {
                   <th>Dirección</th>
                   <th>Teléfono</th>
                   <th>Registrado por</th>
-                  <th>Actualizar</th>
                   <th>Medidas</th>
-                  <th>Pedido</th>
                 </tr>
               </thead>
               <tbody>

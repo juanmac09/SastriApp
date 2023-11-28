@@ -117,21 +117,6 @@ if (isset($_SESSION["confirmarRegistro"])) {
                 </div>
 
                 <div class="tablas_info">
-                    <div class="tabla_camisa">
-
-                        <?php echo $datos['camisa'] ?>
-                    </div>
-
-                    <div class="tabla_chaleco">
-
-                        <?php echo $datos['chaleco'] ?>
-                    </div>
-
-
-                    <div class="tabla_chaqueta">
-
-                        <?php echo $datos['chaqueta'] ?>
-                    </div>
 
                     <div class="tabla_Pantalon">
                         <?php echo $datos['pantalon'] ?>
@@ -151,27 +136,20 @@ if (isset($_SESSION["confirmarRegistro"])) {
                     </div>
 
                 </div>
-                <a href="<?php echo $link; ?>" class="btn btn-secondary" style="margin-top: 5%;"><span>ACTUALIZAR</span></a>
+
             </div>
             <!-- Registrarse -->
             <div id="registrarse">
                 <h2 class="title_medidas">Medidas</h2>
                 <div class="superior">
                     <div class="medidas">
-                        <?php echo $datosMedidas['camisa'] ?>
-
-                        <?php echo $datosMedidas['chaleco'] ?>
+                        <?php echo $datosMedidas['pantalon'] ?>
                     </div>
                     <div class="imagen">
                         <img src="../img/maniqui.jpeg" alt="Maniqui">
                     </div>
                 </div>
-                <div class="inferior">
 
-                    <?php echo $datosMedidas['chaqueta'] ?>
-
-                    <?php echo $datosMedidas['pantalon'] ?>
-                </div>
             </div>
         </div>
     </div>

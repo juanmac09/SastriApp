@@ -266,8 +266,14 @@ function mostrarPedidoId($id)  {
 }
 
 function mostrarPedido() {
+   
     $obj = new Pedido();
-    $resultado = $obj -> consultarPedido();
+    if ($_SESSION['rol'] == 1) {
+        $resultado = $obj -> consultarPedido();
+    }
+    else if ($_SESSION['rol'] == 5) {
+        $resultado = $obj -> consultarPedidoPantalonero();
+    }
     if ($resultado) {
         foreach ($resultado as $f) {
             

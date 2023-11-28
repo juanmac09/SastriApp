@@ -67,6 +67,10 @@ table {
   width: 100%;
   margin: 0 auto;
 }
+.tablamedidas{
+  width: 160%;
+}
+
 th, td {
   border: 1px solid #000;
   padding: 8px;
