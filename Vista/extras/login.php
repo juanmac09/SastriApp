@@ -58,6 +58,7 @@ if (isset($_SESSION["clave"])) {
 <html lang="en">
 
 <head>
+  <link rel="shortcut icon" href="img/Logo mini.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
