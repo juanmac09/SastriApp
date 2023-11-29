@@ -1,10 +1,11 @@
 <?php
-function mostrarPedidoId($id)  {
+function mostrarPedidoId($id)
+{
     $obj = new Pedido();
-    $resultado = $obj -> consultarPedidoId(0,$id);
+    $resultado = $obj->consultarPedidoId(0, $id);
     $table = null;
     if ($resultado) {
-        
+
         foreach ($resultado as $f) {
             if ($f['cam_cuello'] != "") {
                 $cuello = "";
@@ -85,7 +86,7 @@ function mostrarPedidoId($id)  {
                     case 3:
                         $tipoPuno = "Manga Corta";
                         break;
-                    
+
                     default:
                         $tipoPuno = "Error";
                         break;
@@ -110,14 +111,14 @@ function mostrarPedidoId($id)  {
                     case 6:
                         $bolsilloCamisa = "No Tiene";
                         break;
-                    
+
                     default:
                         $bolsilloCamisa = "Error";
                         break;
                 }
 
-                $table['camisa'] = 
-                '
+                $table['camisa'] =
+                    '
                     <h2>Detalle Pedido Camisa</h2>
                     <table>
                         <tr>
@@ -128,25 +129,24 @@ function mostrarPedidoId($id)  {
                             <th>Observaciones</th>
                         </tr>
                         <tr>
-                            <td>'.$cuello.'</td>
-                            <td>'.$despunte.'</td>
-                            <td>'.$tipoPuno.'</td>
-                            <td>'.$bolsilloCamisa.'</td>
-                            <td>'.$f['ped_caobservaciones'].'</td>
+                            <td>' . $cuello . '</td>
+                            <td>' . $despunte . '</td>
+                            <td>' . $tipoPuno . '</td>
+                            <td>' . $bolsilloCamisa . '</td>
+                            <td>' . $f['ped_caobservaciones'] . '</td>
                         </tr>
                     </table>
                 
                 ';
-            }
-            else{
+            } else {
                 $table['camisa'] = '';
                 $table['confirmadorCamisa'] = false;
             }
 
             if ($f['ped_chaobservaciones'] != "") {
                 $table['confirmadorChaleco'] = true;
-                $table['chaleco'] = 
-                "
+                $table['chaleco'] =
+                    "
                 <h2>Detalle Pedido Chaleco</h2>
                 <table>
                 
@@ -154,12 +154,11 @@ function mostrarPedidoId($id)  {
                         <th>Observaciones Chaleco</th>
                     </tr>
                     <tr>
-                        <td>".$f['ped_chaobservaciones']."</td>
+                        <td>" . $f['ped_chaobservaciones'] . "</td>
                     </tr>
                  </table>
                 ";
-            }
-            else{
+            } else {
                 $table['chaleco'] = "";
                 $table['confirmadorChaleco'] = false;
             }
@@ -174,12 +173,12 @@ function mostrarPedidoId($id)  {
                     case 1:
                         $tipoAbertura = "No";
                         break;
-                    default:    
+                    default:
                         $tipoAbertura = "Error";
                         break;
                 }
-                $table['chaqueta'] = 
-                "
+                $table['chaqueta'] =
+                    "
                 <h2>Detalle Pedido Chaqueta</h2>
                 <table>
                     <tr>
@@ -189,14 +188,13 @@ function mostrarPedidoId($id)  {
                         
                     </tr>
                     <tr>
-                        <td>".$f['ped_aberturas']."</td>
-                        <td>".$tipoAbertura."</td>
-                        <td>".$f['ped_cobservaciones']."</td>
+                        <td>" . $f['ped_aberturas'] . "</td>
+                        <td>" . $tipoAbertura . "</td>
+                        <td>" . $f['ped_cobservaciones'] . "</td>
                     </tr>
                 </table>
                 ";
-            }
-            else{
+            } else {
                 $table['chaqueta'] = "";
                 $table['confirmadorChaqueta'] = false;
             }
@@ -212,13 +210,13 @@ function mostrarPedidoId($id)  {
                     case 1:
                         $bolsilloReloj = "No";
                         break;
-                    default:    
+                    default:
                         $bolsilloReloj = "Error";
                         break;
                 }
 
-                $table['pantalon'] = 
-                "
+                $table['pantalon'] =
+                    "
                 <h2>Detalle Pedido Pantalón</h2>
                 <table>
                     <tr>
@@ -228,134 +226,130 @@ function mostrarPedidoId($id)  {
                         
                     </tr>
                     <tr>
-                        <td>".$f['ped_bota']."</td>
-                        <td>".$bolsilloReloj."</td>
-                        <td>".$f['ped_pobservaciones']."</td>
+                        <td>" . $f['ped_bota'] . "</td>
+                        <td>" . $bolsilloReloj . "</td>
+                        <td>" . $f['ped_pobservaciones'] . "</td>
                     </tr>
                 </table>
                 ";
-            }
-            else{
+            } else {
                 $table['pantalon'] = "";
                 $table['confirmadorPantalon'] = false;
             }
 
             if ($f['pe_tipo'] == 0) {
                 $table['tipoPedido'] = "Pedido";
-            }
-            else{
+            } else {
                 $table['tipoPedido'] = "Arreglo";
             }
 
-            
+
             $table['fecha'] = $f['pe_fecha'];
             $table['Entrega'] = $f['pe_fecha_entrega'];
-            $table['nombreCompletoCliente'] = $f['user_nombre'] . " ". $f['user_apellido'];
+            $table['nombreCompletoCliente'] = $f['user_nombre'] . " " . $f['user_apellido'];
             $table['telefono'] = $f['user_telefono'];
             $table['direccion'] = $f['user_direccion'];
             $table['email'] = $f['user_correo'];
             $table['abono'] = $f['pe_abono'];
             $table['total'] = $f['pe_total'];
             $table['obs'] = $f['ped_detalles'];
-            $table['id'] = $f['user_identificacion']; 
+            $table['id'] = $f['user_identificacion'];
             $table['datos'] = $f;
         }
         return $table;
     }
-     
 }
 
-function mostrarPedido() {
-   
+function mostrarPedido()
+{
+
     $obj = new Pedido();
     if ($_SESSION['rol'] == 1) {
-        $resultado = $obj -> consultarPedido();
-    }
-    else if ($_SESSION['rol'] == 5) {
-        $resultado = $obj -> consultarPedidoPantalonero();
+        $resultado = $obj->consultarPedido();
+    } else if ($_SESSION['rol'] == 5) {
+        $resultado = $obj->consultarPedidoPantalonero();
     }
     if ($resultado) {
         foreach ($resultado as $f) {
-            
-            if ($f['pe_estado'] == "pendiente") {
-                $select = "
-                <select class='estado n1' id_cli = '".$f['user_identificacion']."' id_ped = '".$f['ped_id']."'>
-                <option value='1' selected>Pendiente</option>
-                <option value='2'>Retrasado</option>
-                <option value='3'>Terminado </option>
-                <option value='4'>Entregado </option>
-                </select>
-                "; 
+            if ($_SESSION['rol'] == 1) {
+                if ($f['pe_estado'] == "pendiente") {
+                    $select = "
+                    <select class='estado n1' id_cli = '" . $f['user_identificacion'] . "' id_ped = '" . $f['ped_id'] . "'>
+                    <option value='1' selected>Pendiente</option>
+                    <option value='2'>Retrasado</option>
+                    <option value='3'>Terminado </option>
+                    <option value='4'>Entregado </option>
+                    </select>
+                    ";
+                } elseif ($f['pe_estado'] == "retrasado") {
+                    $select = "
+                    <select class='estado n1' id_cli = '" . $f['user_identificacion'] . "' id_ped = '" . $f['ped_id'] . "'>
+                    <option value='1'>Pendiente</option>
+                    <option value='2' selected>Retrasado</option>
+                    <option value='3'>Terminado </option>
+                    <option value='4'>Entregado </option>
+                    </select>
+                    ";
+                } elseif ($f['pe_estado'] == "terminado") {
+                    $select = "
+                    <select class='estado n1' id_cli = '" . $f['user_identificacion'] . "' id_ped = '" . $f['ped_id'] . "'>
+                    <option value='1'>Pendiente</option>
+                    <option value='2'>Retrasado</option>
+                    <option value='3' selected>Terminado </option>
+                    <option value='4'>Entregado </option>
+                    </select>
+                    ";
+                } else {
+                    $select = "
+                    <select class='estado n1' id_cli = '" . $f['user_identificacion'] . "' id_ped = '" . $f['ped_id'] . "'>
+                    <option value='1'>Pendiente</option>
+                    <option value='2'>Retrasado</option>
+                    <option value='3'>Terminado </option>
+                    <option value='4' selected>Entregado </option>
+                    </select>
+                    ";
+                }
             }
-            elseif ($f['pe_estado'] == "retrasado") {
-                $select = "
-                <select class='estado n1' id_cli = '".$f['user_identificacion']."' id_ped = '".$f['ped_id']."'>
-                <option value='1'>Pendiente</option>
-                <option value='2' selected>Retrasado</option>
-                <option value='3'>Terminado </option>
-                <option value='4'>Entregado </option>
-                </select>
-                "; 
+            else if ($_SESSION['rol'] == 5) {
+                $select = $f['pe_estado'];
             }
-            elseif ($f['pe_estado'] == "terminado") {
-                $select = "
-                <select class='estado n1' id_cli = '".$f['user_identificacion']."' id_ped = '".$f['ped_id']."'>
-                <option value='1'>Pendiente</option>
-                <option value='2'>Retrasado</option>
-                <option value='3' selected>Terminado </option>
-                <option value='4'>Entregado </option>
-                </select>
-                ";
-            }
-            else{
-                $select = "
-                <select class='estado n1' id_cli = '".$f['user_identificacion']."' id_ped = '".$f['ped_id']."'>
-                <option value='1'>Pendiente</option>
-                <option value='2'>Retrasado</option>
-                <option value='3'>Terminado </option>
-                <option value='4' selected>Entregado </option>
-                </select>
-                ";
-            }
-            
             if ($f['pe_tipo'] == 0) {
                 $tipo = "Pedido";
-            }
-            else{
+            } else {
                 $tipo = "Arreglo";
             }
-            echo 
+            echo
             "
                 <tr>
-                        <td>".$f['ped_id']."</td>
-                        <td>".$f['user_identificacion']."</td>
-                        <td>".$f['user_nombre']."</td>
-                        <td>".$tipo."</td>
-                        <td>".$f['pe_fecha']."</td>
-                        <td>".$f['pe_fecha_entrega']."</td>
-                        <td>$".$f['pe_total']."</td>
-                        <td>$".$f['pe_abono']."</td>
-                        <td>".$select."</td>
-                        <td><a href='ped_especifico.php?ped_id=".$f['ped_id']."' class='btn btn-info'>Ver</a></td>
+                        <td>" . $f['ped_id'] . "</td>
+                        <td>" . $f['user_identificacion'] . "</td>
+                        <td>" . $f['user_nombre'] . "</td>
+                        <td>" . $tipo . "</td>
+                        <td>" . $f['pe_fecha'] . "</td>
+                        <td>" . $f['pe_fecha_entrega'] . "</td>
+                        <td>$" . $f['pe_total'] . "</td>
+                        <td>$" . $f['pe_abono'] . "</td>
+                        <td>" . $select . "</td>
+                        <td><a href='ped_especifico.php?ped_id=" . $f['ped_id'] . "' class='btn btn-info'>Ver</a></td>
                 </tr>
             ";
         }
     }
 }
 
-function mostrarPedidoOpt(){
+function mostrarPedidoOpt()
+{
     $obj = new Pedido();
-    $resultado = $obj -> consultarPedido();
+    $resultado = $obj->consultarPedido();
     if ($resultado) {
-       foreach ($resultado as $f) {
-            echo 
+        foreach ($resultado as $f) {
+            echo
             "
-                <option value='".$f['ped_id']."'>
+                <option value='" . $f['ped_id'] . "'>
             ";
-       }
-    }
-    else{
-        echo 
+        }
+    } else {
+        echo
         "
             <option value='No hay proveedores registrados'>
         ";
@@ -364,8 +358,9 @@ function mostrarPedidoOpt(){
 
 
 
-function mostrarPedidoIdInvetario($id){
+function mostrarPedidoIdInvetario($id)
+{
     $obj = new Pedido();
-    $pedido = $obj -> consultarPedidoId(0,$id);
+    $pedido = $obj->consultarPedidoId(0, $id);
     return $pedido;
 }

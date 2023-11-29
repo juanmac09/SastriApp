@@ -853,18 +853,21 @@ BEGIN
 	SELECT
 		pedido.ped_id,
 		CASE
-			WHEN pedido.pe_prendas = 4 THEN 'Camisa, pantalón, chaleco y saco'
-			WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL THEN 'Camisa, pantalón y chaleco'
-			WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa, pantalón y chaqueta'
-			WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa, chaleco y chaqueta'
-			WHEN pedido.pe_prendas = 3 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Pantalón, chaleco y chaqueta'
-			WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL THEN 'Camisa y pantalón'
-			WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa y chaqueta'
-			WHEN pedido.pe_prendas = 2 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Pantalón y chaqueta'
-			WHEN pedido.pe_prendas = 1 AND adicional_camisa.ped_id IS NOT NULL THEN 'Camisa'
-			WHEN pedido.pe_prendas = 1 AND adicional_pantalon.ped_id IS NOT NULL THEN 'Pantalón'
-			WHEN pedido.pe_prendas = 1 AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Chaqueta'
-			WHEN pedido.pe_prendas = 1 AND adicional_chaleco.ped_id IS NOT NULL THEN 'Chaleco'
+			WHEN pedido.pe_prendas = 4 THEN 'Camisa, pantalón, chaleco y chaqueta'
+            WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL THEN 'Camisa, pantalón y chaleco'
+            WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa, pantalón y chaqueta'
+            WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa, chaleco y chaqueta'
+            WHEN pedido.pe_prendas = 3 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Pantalón, chaleco y chaqueta'
+            WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL THEN 'Camisa y pantalón'
+            WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL THEN 'Camisa y chaleco'
+            WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa y chaqueta'
+            WHEN pedido.pe_prendas = 2 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL THEN 'pantalón y chaleco'
+            WHEN pedido.pe_prendas = 2 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'pantalón y chaqueta'
+            WHEN pedido.pe_prendas = 2 AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Chaleco y chaqueta'	
+            WHEN pedido.pe_prendas = 1 AND adicional_camisa.ped_id IS NOT NULL THEN 'Camisa'
+            WHEN pedido.pe_prendas = 1 AND adicional_pantalon.ped_id IS NOT NULL THEN 'Pantalón'
+            WHEN pedido.pe_prendas = 1 AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Chaqueta'
+            WHEN pedido.pe_prendas = 1 AND adicional_chaleco.ped_id IS NOT NULL THEN 'Chaleco'
 			ELSE ''
 		END AS detalle,
 		pedido.pe_fecha,
@@ -904,14 +907,17 @@ BEGIN
     SELECT
         pedido.ped_id,
         CASE
-            WHEN pedido.pe_prendas = 4 THEN 'Camisa, pantalón, chaleco y saco'
+            WHEN pedido.pe_prendas = 4 THEN 'Camisa, pantalón, chaleco y chaqueta'
             WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL THEN 'Camisa, pantalón y chaleco'
             WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa, pantalón y chaqueta'
             WHEN pedido.pe_prendas = 3 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa, chaleco y chaqueta'
             WHEN pedido.pe_prendas = 3 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Pantalón, chaleco y chaqueta'
             WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_pantalon.ped_id IS NOT NULL THEN 'Camisa y pantalón'
+            WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL THEN 'Camisa y chaleco'
             WHEN pedido.pe_prendas = 2 AND adicional_camisa.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Camisa y chaqueta'
-            WHEN pedido.pe_prendas = 2 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Pantalón y chaqueta'
+            WHEN pedido.pe_prendas = 2 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaleco.ped_id IS NOT NULL THEN 'pantalón y chaleco'
+            WHEN pedido.pe_prendas = 2 AND adicional_pantalon.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'pantalón y chaqueta'
+            WHEN pedido.pe_prendas = 2 AND adicional_chaleco.ped_id IS NOT NULL AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Chaleco y chaqueta'	
             WHEN pedido.pe_prendas = 1 AND adicional_camisa.ped_id IS NOT NULL THEN 'Camisa'
             WHEN pedido.pe_prendas = 1 AND adicional_pantalon.ped_id IS NOT NULL THEN 'Pantalón'
             WHEN pedido.pe_prendas = 1 AND adicional_chaqueta.ped_id IS NOT NULL THEN 'Chaqueta'

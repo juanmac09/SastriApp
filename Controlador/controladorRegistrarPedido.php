@@ -170,7 +170,47 @@ if ($resultado) {
             $obj->registrarPedidoChaleco($_POST);
             $obj->registrarPedidoPantalon($_POST);
             $obj->registrarPedidoCamisa($_POST);
-        } else if (!isset($_POST['saco']) && isset($_POST['chaleco']) && isset($_POST['pantalon']) && !isset($_POST['camisa'])) {
+        } else if (isset($_POST['saco']) && isset($_POST['chaleco']) && !isset($_POST['pantalon']) && isset($_POST['camisa'])) {
+            $pedido = "Camisa, chaleco y saco";
+            $_POST['pe_prendas'] = 3;
+            if ($resulMedidas) {
+                
+                $medidas->actualizarMedidasCamisa($_POST);
+                $medidas->actualizarMedidasChaleco($_POST);
+                $medidas ->actualizarMedidasChaqueta($_POST);
+            } else {
+                
+                $medidas->registrarMedidasCamisa($_POST);
+                $medidas->registrarMedidasChaleco($_POST);
+                $medidas->registrarMedidasChaqueta($_POST);
+            }
+            $_SESSION['confirmarRegistro'] = 1;
+            $obj->registrarPedido($_POST);
+            $obj->registrarPedidoCamisa($_POST);
+            $obj->registrarPedidoChaleco($_POST);
+            $obj->registrarPedidoSaco($_POST);
+        }
+        else if (isset($_POST['saco']) && isset($_POST['chaleco']) && isset($_POST['pantalon']) && !isset($_POST['camisa'])) {
+            $pedido = "Pantalón, chaleco y saco";
+            $_POST['pe_prendas'] = 3;
+            if ($resulMedidas) {
+                
+                $medidas->actualizarMedidasPantalon($_POST);
+                $medidas->actualizarMedidasChaleco($_POST);
+                $medidas ->actualizarMedidasChaqueta($_POST);
+            } else {
+                
+                $medidas->registrarMedidasPantalon($_POST);
+                $medidas->registrarMedidasChaleco($_POST);
+                $medidas->registrarMedidasChaqueta($_POST);
+            }
+            $_SESSION['confirmarRegistro'] = 1;
+            $obj->registrarPedido($_POST);
+            $obj->registrarPedidoPantalon($_POST);
+            $obj->registrarPedidoChaleco($_POST);
+            $obj->registrarPedidoSaco($_POST);
+        }
+        else if (!isset($_POST['saco']) && isset($_POST['chaleco']) && isset($_POST['pantalon']) && !isset($_POST['camisa'])) {
             $pedido = "Chaleco y pantalón.";
             $_POST['pe_prendas'] = 2;
             if ($resulMedidas) {
