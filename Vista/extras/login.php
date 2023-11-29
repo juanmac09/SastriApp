@@ -77,7 +77,8 @@ if (isset($_SESSION["clave"])) {
 </head>
 
 <body>
-
+<!-- <button class="custom-btn btn-14"> &#9668; Atrás</button> -->
+<a href="../../index.html" class="ladin"><img src="img/flecha2.png" alt="flecha atras" class="flecha" id="imgt"></a>
 
   <form action="../../Controlador/controladorLogin.php" method="POST">
 

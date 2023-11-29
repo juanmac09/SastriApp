@@ -223,7 +223,57 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: #a12b42 !important;
   border-color: #a12b42 !important;
 }
-
+/* button {
+  margin: 20px;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+.btn-14 {
+  background: #a12b42;
+  border: none;
+  z-index: 1;
+}
+.btn-14:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+  background-color: #6b7f8dab;
+  background-image: linear-gradient(315deg, #6b7f8dab 0%, rgba(137, 146, 153, 0.445) 74%);
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5);
+  transition: all 0.3s ease;
+}
+.btn-14:hover {
+  color: #000;
+}
+.btn-14:hover:after {
+  top: auto;
+  bottom: 0;
+  height: 100%;
+}
+.btn-14:active {
+  top: 2px;
+} */
 label,
 select,
 input {
@@ -232,6 +282,15 @@ input {
 button {
   font-family: "Playfair Display", serif !important;
   font-weight: 100 !important;
+}
+.flecha{
+  width: 3%;
+  margin-left: 2%;
+  margin-top: 1%;
+}
+.flecha:hover{
+  transform: translate(-6%,1%);
+  transition: all 0.3s;
 }
 
 @media (max-width: 768px) {
@@ -242,6 +301,10 @@ button {
 
   .login-box {
     width: 90%;
+  }
+  
+  .flecha{
+    width: 10% !important;
   }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -255,4 +318,8 @@ button {
   .btno {
     margin-left: 30% !important;
   }
+   .flecha{
+    width: 10% !important;
+  }
 }
+  
