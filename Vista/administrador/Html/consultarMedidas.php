@@ -142,34 +142,34 @@ if (!$obj->consultarMedidasClientes($_GET['id'])) {
     <script src="../js/mainMedidas.js"></script>
     
     <script>
-        // Obtener todas las celdas editables
-        const celdasEditables = document.querySelectorAll('span[contenteditable="true"]');
+    // Obtener todas las celdas editables
+    const celdasEditables = document.querySelectorAll('span[contenteditable="true"]');
 
-        // Agregar un controlador de eventos para cada celda editable
-        celdasEditables.forEach(function(celda) {
-            celda.addEventListener('input', function(event) {
-                // Verificar si la celda tiene la clase "exceptuar"
-                if (celda.classList.contains('exceptuar')) {
-                    // Si tiene la clase "exceptuar", no realizamos ninguna validación
-                    return;
-                }
+    // Agregar un controlador de eventos para cada celda editable
+    celdasEditables.forEach(function(celda) {
+        celda.addEventListener('input', function(event) {
+            // Verificar si la celda tiene la clase "exceptuar"
+            if (celda.classList.contains('exceptuar')) {
+                // Si tiene la clase "exceptuar", no realizamos ninguna validación
+                return;
+            }
 
-                // Obtener el contenido ingresado por el usuario
-                const contenido = event.target.textContent;
+            // Obtener el contenido ingresado por el usuario
+            const contenido = event.target.textContent;
 
-                // Verificar si el contenido es numérico
-                if (!esNumero(contenido)) {
-                    // Si no es numérico, eliminar el contenido no válido
-                    event.target.textContent = '';
-                }
-            });
+            // Verificar si el contenido es numérico o decimal
+            if (!esNumeroDecimal(contenido)) {
+                // Si no es numérico o decimal, eliminar el contenido no válido
+                event.target.textContent = '';
+            }
         });
+    });
 
-        // Función para verificar si un valor es numérico
-        function esNumero(valor) {
-            return /^-?\d*\.?\d+$/.test(valor);
-        }
-    </script>
+    // Función para verificar si un valor es numérico o decimal
+    function esNumeroDecimal(valor) {
+        return /^-?\d*\.?\d*$/.test(valor);
+    }
+</script>   
 </body>
 
 </html>

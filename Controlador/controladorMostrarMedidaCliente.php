@@ -10,25 +10,25 @@ function mostrarMedidasChaleco($id)
           <div class="row">
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_largo_chaleco" class="camposMedidasChaleco" value="' . $resultado['me_largo_chaleco'] . '" >
+                <input type="text" name="me_largo_chaleco" class="camposMedidasChaleco camposDecimales" value="' . $resultado['me_largo_chaleco'] . '" >
                 <label>Largo</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_espalda_chaleco" class="camposMedidasChaleco" value="' . $resultado['me_espalda_chaleco'] . '">
+                <input type="text" name="me_espalda_chaleco" class="camposMedidasChaleco camposDecimales" value="' . $resultado['me_espalda_chaleco'] . '">
                 <label>Espalda</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_hombro_chaleco" class="camposMedidasChaleco" value="' . $resultado['me_hombro_chaleco'] . '">
+                <input type="text" name="me_hombro_chaleco" class="camposMedidasChaleco camposDecimales" value="' . $resultado['me_hombro_chaleco'] . '">
                 <label>Hombro</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_pecho_chaleco" class="camposMedidasChaleco" value="' . $resultado['me_pecho_chaleco'] . '">
+                <input type="text" name="me_pecho_chaleco" class="camposMedidasChaleco camposDecimales" value="' . $resultado['me_pecho_chaleco'] . '">
                 <label>Pecho</label>
               </div>
             </div>
@@ -40,25 +40,25 @@ function mostrarMedidasChaleco($id)
           <div class="row">
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_largo_chaleco" class="camposMedidasChaleco">
+                <input type="text" name="me_largo_chaleco" class="camposMedidasChaleco camposDecimales">
                 <label>Largo</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_espalda_chaleco" class="camposMedidasChaleco">
+                <input type="text" name="me_espalda_chaleco" class="camposMedidasChaleco camposDecimales">
                 <label>Espalda</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_hombro_chaleco" class="camposMedidasChaleco">
+                <input type="text" name="me_hombro_chaleco" class="camposMedidasChaleco camposDecimales">
                 <label>Hombro</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_pecho_chaleco" class="camposMedidasChaleco">
+                <input type="text" name="me_pecho_chaleco" class="camposMedidasChaleco camposDecimales">
                 <label>Pecho</label>
               </div>
             </div>
@@ -79,43 +79,43 @@ function mostrarMedidasChaqueta($id)
         <div class="row">
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_talle_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_talle_chaqueta'] . '">
+              <input type="text" name="me_talle_chaqueta" class="camposMedidasChaqueta camposDecimales" value="' . $resultado['me_talle_chaqueta'] . '">
               <label>Talle</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_largo_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_largo_chaqueta'] . '">
+              <input type="text" name="me_largo_chaqueta" class="camposMedidasChaqueta camposDecimales" value="' . $resultado['me_largo_chaqueta'] . '">
               <label>Largo</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_espalda_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_espalda_chaqueta'] . '">
+              <input type="text" name="me_espalda_chaqueta" class="camposMedidasChaqueta camposDecimales" value="' . $resultado['me_espalda_chaqueta'] . '">
               <label>Espalda</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_hombro_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_hombro_chaqueta'] . '">
+              <input type="text" name="me_hombro_chaqueta" class="camposMedidasChaqueta camposDecimales" value="' . $resultado['me_hombro_chaqueta'] . '">
               <label>Hombro</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_pecho_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_pecho_chaqueta'] . '">
+              <input type="text" name="me_pecho_chaqueta" class="camposMedidasChaqueta camposDecimales" value="' . $resultado['me_pecho_chaqueta'] . '">
               <label>Pecho</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_cintura_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_cintura_chaqueta'] . '">
+              <input type="text" name="me_cintura_chaqueta" class="camposMedidasChaqueta camposDecimales" value="' . $resultado['me_cintura_chaqueta'] . '">
               <label>Cintura</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_manga_chaqueta" class="camposMedidasChaqueta" value="' . $resultado['me_manga_chaqueta'] . '">
+              <input type="text" name="me_manga_chaqueta" class="camposMedidasChaqueta camposDecimales" value="' . $resultado['me_manga_chaqueta'] . '">
               <label>Manga</label>
             </div>
           </div>
@@ -129,43 +129,43 @@ function mostrarMedidasChaqueta($id)
       <div class="row">
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_talle_chaqueta" class="camposMedidasChaqueta">
+            <input type="text" name="me_talle_chaqueta" class="camposMedidasChaqueta camposDecimales">
             <label>Talle</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_largo_chaqueta" class="camposMedidasChaqueta">
+            <input type="text" name="me_largo_chaqueta" class="camposMedidasChaqueta camposDecimales">
             <label>Largo</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_espalda_chaqueta" class="camposMedidasChaqueta">
+            <input type="text" name="me_espalda_chaqueta" class="camposMedidasChaqueta camposDecimales">
             <label>Espalda</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_hombro_chaqueta" class="camposMedidasChaqueta">
+            <input type="text" name="me_hombro_chaqueta" class="camposMedidasChaqueta camposDecimales">
             <label>Hombro</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_pecho_chaqueta" class="camposMedidasChaqueta">
+            <input type="text" name="me_pecho_chaqueta" class="camposMedidasChaqueta camposDecimales">
             <label>Pecho</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_cintura_chaqueta" class="camposMedidasChaqueta">
+            <input type="text" name="me_cintura_chaqueta" class="camposMedidasChaqueta camposDecimales">
             <label>Cintura</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_manga_chaqueta" class="camposMedidasChaqueta">
+            <input type="text" name="me_manga_chaqueta" class="camposMedidasChaqueta camposDecimales">
             <label>Manga</label>
           </div>
         </div>
@@ -188,37 +188,37 @@ function mostrarMedidasCamisa($id)
           <div class="row">
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_cuello" class="camposMedidasCamisa" value="' . $resultado['me_cuello'] . '">
+                <input type="text" name="me_cuello" class="camposMedidasCamisa camposDecimales" value="' . $resultado['me_cuello'] . '">
                 <label>Cuello</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_espalda_camisa" class="camposMedidasCamisa" value="' . $resultado['me_espalda_camisa'] . '">
+                <input type="text" name="me_espalda_camisa" class="camposMedidasCamisa camposDecimales" value="' . $resultado['me_espalda_camisa'] . '">
                 <label>Espalda</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_manga_camisa" class="camposMedidasCamisa" value="' . $resultado['me_manga_camisa'] . '">
+                <input type="text" name="me_manga_camisa" class="camposMedidasCamisa camposDecimales" value="' . $resultado['me_manga_camisa'] . '">
                 <label>Manga</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_largo_camisa" class="camposMedidasCamisa" value="' . $resultado['me_largo_camisa'] . '">
+                <input type="text" name="me_largo_camisa" class="camposMedidasCamisa camposDecimales" value="' . $resultado['me_largo_camisa'] . '">
                 <label>Largo</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_pecho_camisa" class="camposMedidasCamisa" value="' . $resultado['me_pecho_camisa'] . '">
+                <input type="text" name="me_pecho_camisa" class="camposMedidasCamisa camposDecimales" value="' . $resultado['me_pecho_camisa'] . '">
                 <label>Pecho</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_cintura_camisa" class="camposMedidasCamisa" value="' . $resultado['me_cintura_camisa'] . '">
+                <input type="text" name="me_cintura_camisa" class="camposMedidasCamisa camposDecimales" value="' . $resultado['me_cintura_camisa'] . '">
                 <label>Cintura</label>
               </div>
             </div>
@@ -239,37 +239,37 @@ function mostrarMedidasCamisa($id)
       <div class="row">
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_cuello" class="camposMedidasCamisa">
+            <input type="text" name="me_cuello" class="camposMedidasCamisa camposDecimales">
             <label>Cuello</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_espalda_camisa" class="camposMedidasCamisa">
+            <input type="text" name="me_espalda_camisa" class="camposMedidasCamisa camposDecimales">
             <label>Espalda</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_manga_camisa" class="camposMedidasCamisa">
+            <input type="text" name="me_manga_camisa" class="camposMedidasCamisa camposDecimales">
             <label>Manga</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_largo_camisa" class="camposMedidasCamisa">
+            <input type="text" name="me_largo_camisa" class="camposMedidasCamisa camposDecimales">
             <label>Largo</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_pecho_camisa" class="camposMedidasCamisa">
+            <input type="text" name="me_pecho_camisa" class="camposMedidasCamisa camposDecimales">
             <label>Pecho</label>
           </div>
         </div>
         <div class="col-lg-3 col-md-12">
           <div class="form-group">
-            <input type="number" name="me_cintura_camisa" class="camposMedidasCamisa">
+            <input type="text" name="me_cintura_camisa" class="camposMedidasCamisa camposDecimales">
             <label>Cintura</label>
           </div>
         </div>
@@ -296,37 +296,37 @@ function mostrarMedidasPantalon($id)
         <div class="row">
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_cintura_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_cintura_pantalon'] . '">
+              <input type="text" name="me_cintura_pantalon" class="camposMedidasPantalon camposDecimales" value="' . $resultado['me_cintura_pantalon'] . '">
               <label>Cintura</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_base_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_base_pantalon'] . '">
+              <input type="text" name="me_base_pantalon" class="camposMedidasPantalon camposDecimales" value="' . $resultado['me_base_pantalon'] . '">
               <label>Base</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_largo_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_largo_pantalon'] . '">
+              <input type="text" name="me_largo_pantalon" class="camposMedidasPantalon camposDecimales" value="' . $resultado['me_largo_pantalon'] . '">
               <label>Largo</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_rodilla_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_rodilla_pantalon'] . '">
+              <input type="text" name="me_rodilla_pantalon" class="camposMedidasPantalon camposDecimales" value="' . $resultado['me_rodilla_pantalon'] . '">
               <label>Rodilla</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_tiro_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_tiro_pantalon'] . '">
+              <input type="text" name="me_tiro_pantalon" class="camposMedidasPantalon camposDecimales" value="' . $resultado['me_tiro_pantalon'] . '">
               <label>Tiro</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_bota_pantalon" class="camposMedidasPantalon" value="' . $resultado['me_bota_pantalon'] . '">
+              <input type="text" name="me_bota_pantalon" class="camposMedidasPantalon camposDecimales" value="' . $resultado['me_bota_pantalon'] . '">
               <label>Bota</label>
             </div>
           </div>
@@ -339,37 +339,37 @@ function mostrarMedidasPantalon($id)
         <div class="row">
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_cintura_pantalon" class="camposMedidasPantalon">
+              <input type="text" name="me_cintura_pantalon" class="camposMedidasPantalon camposDecimales">
               <label>Cintura</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_base_pantalon" class="camposMedidasPantalon">
+              <input type="text" name="me_base_pantalon" class="camposMedidasPantalon camposDecimales">
               <label>Base</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_largo_pantalon" class="camposMedidasPantalon">
+              <input type="text" name="me_largo_pantalon" class="camposMedidasPantalon camposDecimales">
               <label>Largo</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_rodilla_pantalon" class="camposMedidasPantalon">
+              <input type="text" name="me_rodilla_pantalon" class="camposMedidasPantalon camposDecimales">
               <label>Rodilla</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_tiro_pantalon" class="camposMedidasPantalon">
+              <input type="text" name="me_tiro_pantalon" class="camposMedidasPantalon camposDecimales">
               <label>Tiro</label>
             </div>
           </div>
           <div class="col-lg-3 col-md-12">
             <div class="form-group">
-              <input type="number" name="me_bota_pantalon" class="camposMedidasPantalon">
+              <input type="text" name="me_bota_pantalon" class="camposMedidasPantalon camposDecimales">
               <label>Bota</label>
             </div>
           </div>

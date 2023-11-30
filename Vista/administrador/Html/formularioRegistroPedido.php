@@ -215,43 +215,43 @@ if (isset($_SESSION["confirmarCorreo"]) && $_SESSION['confirmarCorreo'] == 1 && 
           <div class="row">
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_talle_chaqueta" class="camposMedidasChaqueta">
+                <input type="text" name="me_talle_chaqueta" class="camposMedidasChaqueta camposDecimales">
                 <label>Talle</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_largo_chaqueta" class="camposMedidasChaqueta">
+                <input type="text" name="me_largo_chaqueta" class="camposMedidasChaqueta camposDecimales">
                 <label>Largo</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_espalda_chaqueta" class="camposMedidasChaqueta">
+                <input type="text" name="me_espalda_chaqueta" class="camposMedidasChaqueta camposDecimales">
                 <label>Espalda</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_hombro_chaqueta" class="camposMedidasChaqueta">
+                <input type="text" name="me_hombro_chaqueta" class="camposMedidasChaqueta camposDecimales">
                 <label>Hombro</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_pecho_chaqueta" class="camposMedidasChaqueta">
+                <input type="text" name="me_pecho_chaqueta" class="camposMedidasChaqueta camposDecimales">
                 <label>Pecho</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_cintura_chaqueta" class="camposMedidasChaqueta">
+                <input type="text" name="me_cintura_chaqueta" class="camposMedidasChaqueta camposDecimales">
                 <label>Cintura</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_manga_chaqueta" class="camposMedidasChaqueta">
+                <input type="text" name="me_manga_chaqueta" class="camposMedidasChaqueta camposDecimales">
                 <label>Manga</label>
               </div>
             </div>
@@ -288,25 +288,25 @@ if (isset($_SESSION["confirmarCorreo"]) && $_SESSION['confirmarCorreo'] == 1 && 
           <div class="row">
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_largo_chaleco" class="camposMedidasChaleco">
+                <input type="text" name="me_largo_chaleco" class="camposMedidasChaleco camposDecimales">
                 <label>Largo</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_espalda_chaleco" class="camposMedidasChaleco">
+                <input type="text" name="me_espalda_chaleco" class="camposMedidasChaleco camposDecimales">
                 <label>Espalda</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_hombro_chaleco" class="camposMedidasChaleco">
+                <input type="text" name="me_hombro_chaleco" class="camposMedidasChaleco camposDecimales">
                 <label>Hombro</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_pecho_chaleco" class="camposMedidasChaleco">
+                <input type="text" name="me_pecho_chaleco" class="camposMedidasChaleco camposDecimales">
                 <label>Pecho</label>
               </div>
             </div>
@@ -327,37 +327,37 @@ if (isset($_SESSION["confirmarCorreo"]) && $_SESSION['confirmarCorreo'] == 1 && 
           <div class="row">
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_cuello" class="camposMedidasCamisa">
+                <input type="text" name="me_cuello" class="camposMedidasCamisa camposDecimales">
                 <label>Cuello</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_espalda_camisa" class="camposMedidasCamisa">
+                <input type="text" name="me_espalda_camisa" class="camposMedidasCamisa camposDecimales">
                 <label>Espalda</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_manga_camisa" class="camposMedidasCamisa">
+                <input type="text" name="me_manga_camisa" class="camposMedidasCamisa camposDecimales">
                 <label>Manga</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_largo_camisa" class="camposMedidasCamisa">
+                <input type="text" name="me_largo_camisa" class="camposMedidasCamisa camposDecimales">
                 <label>Largo</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_pecho_camisa" class="camposMedidasCamisa">
+                <input type="text" name="me_pecho_camisa" class="camposMedidasCamisa camposDecimales">
                 <label>Pecho</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_cintura_camisa" class="camposMedidasCamisa">
+                <input type="text" name="me_cintura_camisa" class="camposMedidasCamisa camposDecimales">
                 <label>Cintura</label>
               </div>
             </div>
@@ -439,37 +439,37 @@ if (isset($_SESSION["confirmarCorreo"]) && $_SESSION['confirmarCorreo'] == 1 && 
           <div class="row">
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_cintura_pantalon" class="camposMedidasPantalon">
+                <input type="text" name="me_cintura_pantalon" class="camposMedidasPantalon camposDecimales">
                 <label>Cintura</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_base_pantalon" class="camposMedidasPantalon">
+                <input type="text" name="me_base_pantalon" class="camposMedidasPantalon camposDecimales">
                 <label>Base</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_largo_pantalon" class="camposMedidasPantalon">
+                <input type="text" name="me_largo_pantalon" class="camposMedidasPantalon camposDecimales">
                 <label>Largo</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_rodilla_pantalon" class="camposMedidasPantalon">
+                <input type="text" name="me_rodilla_pantalon" class="camposMedidasPantalon camposDecimales">
                 <label>Rodilla</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_tiro_pantalon" class="camposMedidasPantalon">
+                <input type="text" name="me_tiro_pantalon" class="camposMedidasPantalon camposDecimales">
                 <label>Tiro</label>
               </div>
             </div>
             <div class="col-lg-3 col-md-12">
               <div class="form-group">
-                <input type="number" name="me_bota_pantalon" class="camposMedidasPantalon">
+                <input type="text" name="me_bota_pantalon" class="camposMedidasPantalon camposDecimales">
                 <label>Bota</label>
               </div>
             </div>
@@ -540,6 +540,7 @@ if (isset($_SESSION["confirmarCorreo"]) && $_SESSION['confirmarCorreo'] == 1 && 
   <script src="../js/validacionPedido.js"></script>
   <script src="../js/validacionSelect.js"></script>
   <script src="../js/validacionSelectVacioPedido.js"></script>
+  <script src="../js/controlarCamposMedidasPedido.js"></script>
 
   <?php
 

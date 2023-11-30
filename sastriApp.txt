@@ -68,33 +68,33 @@ foreign key (user_identificacion) references usuario(user_identificacion)
 
 create table medidas_chaqueta(
 me_id int not null unique,
-me_talle_chaqueta smallint null,
-me_largo_chaqueta smallint null,
-me_espalda_chaqueta smallint null,
-me_hombro_chaqueta smallint null,
-me_pecho_chaqueta smallint null,
-me_cintura_chaqueta smallint null,
-me_manga_chaqueta smallint null,
+me_talle_chaqueta varchar(255) null,
+me_largo_chaqueta varchar(255) null,
+me_espalda_chaqueta varchar(255) null,
+me_hombro_chaqueta varchar(255) null,
+me_pecho_chaqueta varchar(255) null,
+me_cintura_chaqueta varchar(255) null,
+me_manga_chaqueta varchar(255) null,
 foreign key(me_id) references medidas(me_id)
 );
 
 create table medidas_chaleco(
 me_id int not null unique,
-me_largo_chaleco smallint null,
-me_espalda_chaleco smallint null,
-me_hombro_chaleco smallint null,
-me_pecho_chaleco smallint null,
+me_largo_chaleco varchar(255) null,
+me_espalda_chaleco varchar(255) null,
+me_hombro_chaleco varchar(255) null,
+me_pecho_chaleco varchar(255) null,
 foreign key(me_id) references medidas(me_id)
 );
 
 create table medidas_camisa(
 me_id int not null unique,
-me_cuello smallint null,
-me_espalda_camisa smallint null,
-me_manga_camisa smallint null,
-me_largo_camisa smallint null,
-me_pecho_camisa smallint null,
-me_cintura_camisa smallint null,
+me_cuello varchar(255) null,
+me_espalda_camisa varchar(255) null,
+me_manga_camisa varchar(255) null,
+me_largo_camisa varchar(255) null,
+me_pecho_camisa varchar(255) null,
+me_cintura_camisa varchar(255) null,
 me_cont_puño varchar(25) null,
 foreign key(me_id) references medidas(me_id)
 );
@@ -102,12 +102,12 @@ foreign key(me_id) references medidas(me_id)
 
 create table medidas_pantalon(
 me_id int not null unique,
-me_cintura_pantalon smallint null,
-me_base_pantalon smallint null,
-me_largo_pantalon smallint null,
-me_rodilla_pantalon smallint null,
-me_tiro_pantalon smallint null,
-me_bota_pantalon smallint null,
+me_cintura_pantalon varchar(255) null,
+me_base_pantalon varchar(255) null,
+me_largo_pantalon varchar(255) null,
+me_rodilla_pantalon varchar(255) null,
+me_tiro_pantalon varchar(255) null,
+me_bota_pantalon varchar(255) null,
 foreign key(me_id) references medidas(me_id)
 );
 
@@ -479,10 +479,10 @@ DELIMITER ;
 #registrarMedidasChaleco
 DELIMITER //
 CREATE PROCEDURE registrarMedidasChaleco(
-IN me_largo_chaleco smallint,
-IN me_espalda_chaleco smallint,
-IN me_hombro_chaleco smallint,
-IN me_pecho_chaleco smallint
+IN me_largo_chaleco varchar(255),
+IN me_espalda_chaleco varchar(255),
+IN me_hombro_chaleco varchar(255),
+IN me_pecho_chaleco varchar(255)
 )
 BEGIN
 DECLARE ultimaMedida INT DEFAULT 0;
@@ -497,13 +497,13 @@ DELIMITER ;
 #registrarMedidasChaqueta
 DELIMITER //
 CREATE PROCEDURE registrarMedidasChaqueta(
-IN me_talle_chaqueta smallint,
-IN me_largo_chaqueta smallint,
-IN me_espalda_chaqueta smallint,
-IN me_hombro_chaqueta smallint,
-IN me_pecho_chaqueta smallint,
-IN me_cintura_chaqueta smallint,
-IN me_manga_chaqueta smallint
+IN me_talle_chaqueta varchar(255),
+IN me_largo_chaqueta varchar(255),
+IN me_espalda_chaqueta varchar(255),
+IN me_hombro_chaqueta varchar(255),
+IN me_pecho_chaqueta varchar(255),
+IN me_cintura_chaqueta varchar(255),
+IN me_manga_chaqueta varchar(255)
 )
 BEGIN 
 DECLARE ultimaMedida INT DEFAULT 0;
@@ -517,12 +517,12 @@ DELIMITER ;
 #registrarMedidasCamisa
 DELIMITER //
 CREATE PROCEDURE registrarMedidasCamisa(
-IN me_cuello smallint,
-IN me_espalda_camisa smallint,
-IN me_manga_camisa smallint,
-IN me_largo_camisa smallint,
-IN me_pecho_camisa smallint,
-IN me_cintura_camisa smallint,
+IN me_cuello varchar(255),
+IN me_espalda_camisa varchar(255),
+IN me_manga_camisa varchar(255),
+IN me_largo_camisa varchar(255),
+IN me_pecho_camisa varchar(255),
+IN me_cintura_camisa varchar(255),
 IN me_cont_puño varchar(25)
 
 )
@@ -538,12 +538,12 @@ DELIMITER ;
 #registrarMedidasPantalon
 DELIMITER //
 CREATE PROCEDURE registrarMedidasPantalon(
-IN me_cintura_pantalon smallint,
-IN me_base_pantalon smallint,
-IN me_largo_pantalon smallint,
-IN me_rodilla_pantalon smallint,
-IN me_tiro_pantalon smallint,
-IN me_bota_pantalon smallint
+IN me_cintura_pantalon varchar(255),
+IN me_base_pantalon varchar(255),
+IN me_largo_pantalon varchar(255),
+IN me_rodilla_pantalon varchar(255),
+IN me_tiro_pantalon varchar(255),
+IN me_bota_pantalon varchar(255)
 )
 BEGIN 
 DECLARE ultimaMedida INT DEFAULT 0;
@@ -600,10 +600,10 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE actualizarMedidasChaleco(
 	IN user_ident int,
-	IN me_largo_chaleco smallint,
-	IN me_espalda_chaleco smallint,
-	IN me_hombro_chaleco smallint,
-	IN me_pecho_chaleco smallint
+	IN me_largo_chaleco varchar(255),
+	IN me_espalda_chaleco varchar(255),
+	IN me_hombro_chaleco varchar(255),
+	IN me_pecho_chaleco varchar(255)
 )
 BEGIN
 DECLARE id_medidas INT DEFAULT 0; 
@@ -622,13 +622,13 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE actualizarMedidasChaqueta(
 	IN user_ident int,
-	IN me_talle_chaqueta smallint,
-	IN me_largo_chaqueta smallint,
-	IN me_espalda_chaqueta smallint,
-	IN me_hombro_chaqueta smallint,
-	IN me_pecho_chaqueta smallint,
-	IN me_cintura_chaqueta smallint,
-	IN me_manga_chaqueta smallint
+	IN me_talle_chaqueta varchar(255),
+	IN me_largo_chaqueta varchar(255),
+	IN me_espalda_chaqueta varchar(255),
+	IN me_hombro_chaqueta varchar(255),
+	IN me_pecho_chaqueta varchar(255),
+	IN me_cintura_chaqueta varchar(255),
+	IN me_manga_chaqueta varchar(255)
 )
 BEGIN
 DECLARE id_medidas INT DEFAULT 0; 
@@ -646,12 +646,12 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE actualizarMedidasCamisa(
 	IN user_ident int,
-	IN me_cuello smallint,
-	IN me_espalda_camisa smallint,
-	IN me_manga_camisa smallint,
-	IN me_largo_camisa smallint,
-	IN me_pecho_camisa smallint,
-	IN me_cintura_camisa smallint,
+	IN me_cuello varchar(255),
+	IN me_espalda_camisa varchar(255),
+	IN me_manga_camisa varchar(255),
+	IN me_largo_camisa varchar(255),
+	IN me_pecho_camisa varchar(255),
+	IN me_cintura_camisa varchar(255),
 	IN me_cont_puño varchar(25)
 )
 BEGIN 
@@ -670,12 +670,12 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE actualizarMedidasPantalon(
 	IN user_ident int,
-	IN me_cintura_pantalon smallint,
-	IN me_base_pantalon smallint,
-	IN me_largo_pantalon smallint,
-	IN me_rodilla_pantalon smallint,
-	IN me_tiro_pantalon smallint,
-	IN me_bota_pantalon smallint
+	IN me_cintura_pantalon varchar(255),
+	IN me_base_pantalon varchar(255),
+	IN me_largo_pantalon varchar(255),
+	IN me_rodilla_pantalon varchar(255),
+	IN me_tiro_pantalon varchar(255),
+	IN me_bota_pantalon varchar(255)
 )
 BEGIN 
 DECLARE id_medidas INT DEFAULT 0; 
