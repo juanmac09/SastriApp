@@ -1,7 +1,7 @@
 <?php
 
 require_once("../Modelo/conexion.php");
-require_once("../modelo/consultas.php");
+require_once("../Modelo/consultas.php");
 
 $veri = new Consultas;
 
