@@ -330,7 +330,7 @@ function mostrarPedido()
                         <td>$" . $f['pe_total'] . "</td>
                         <td>$" . $f['pe_abono'] . "</td>
                         <td>" . $select . "</td>
-                        <td><a href='ped_especifico.php?ped_id=" . $f['ped_id'] . "' class='btn btn-info'>Ver</a></td>
+                        <td><a href='ped_especifico.php?ped_id=" . $f['ped_id'] . "' class='btn btn-info'><i class='bi bi-search'></i> Ver</a></td>
                 </tr>
             ";
         }

@@ -39,7 +39,7 @@ function mostrarInventario()
                         <td>" . $tipo . "</td>
                         <td> $" . $total . "</td>
                         <td>" . $f['observaciones'] . "</td>
-                        <td><a href='$ver' class='btn btn-info'>Ver</a></td>
+                        <td><a href='$ver' class='btn btn-info'><i class='bi bi-search'></i> Ver</a></td>
                         <td><a href='../../../Controlador/controladorDeshabilitarInventario.php?in_id=" . $f['in_id'] . "' class='btn btn-danger eliminacionInventario'>Eliminar</a></td>
                     </tr>
                 ";
