@@ -74,7 +74,7 @@ if (isset($_SESSION["confirmarRegistro"])) {
             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
               <thead>
                 <tr>
-                  <th>Identificación</th>
+                  <th>Identificaciónnnnnn</th>
                   <th>Nombre</th>
                   <th>Apellido</th>
                   <th>Correo</th>
