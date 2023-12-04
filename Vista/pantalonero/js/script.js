@@ -1,4 +1,12 @@
-    var calendar;
+var calendar;
+    var hoy = ""
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        hoy = ""
+    }
+    else{
+        hoy = " today"
+    }
+   
     var Calendar = FullCalendar.Calendar;
     var events = [];
     $(function() {
@@ -17,7 +25,7 @@
             initialView: 'dayGridMonth',
             locale: 'es', //Idioma Español FullCalendar
             headerToolbar: {
-                left: 'prev,next today',
+                left: 'prev,next'+hoy,
                 right: 'dayGridMonth,dayGridWeek,list',
                 center: 'title',
             },

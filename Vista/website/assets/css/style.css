@@ -381,7 +381,7 @@ h6 {
   bottom: 15px;
   left: 15px;
   padding: 10px 0;
-  background-color: #fff;
+  background-color: transparent;
   overflow-y: auto;
   transition: 0.3s;
 }
@@ -1016,6 +1016,7 @@ section {
 
 .counts .content p {
   margin-bottom: 0;
+  color:#6b7f8d;
 }
 
 .counts .content .count-box {
@@ -1026,7 +1027,7 @@ section {
 .counts .content .count-box i {
   display: block;
   font-size: 36px;
-  color: #ffc451;
+  color: #a12b42;
   float: left;
 }
 
@@ -1686,6 +1687,10 @@ section {
 
 .bx{
   color: #fff !important;
+}
+
+.navbar-mobile a{
+  color:#fff !important;
 }
 
 
