@@ -8,8 +8,9 @@ $_POST['user_registrar'] = $_SESSION['id'];
 
 if ($_POST['rol'] == 1) {
     $usuario = $obj -> consultarDatosUsuarios($_POST['id'],1);
-    if ($usuario) {
-        $_SESSION['mensaje'] = "El usuario ya se encuentra registrado";
+    $cliente = $obj -> consultarDatosUsuarios($_POST['id'],2);
+    if ($usuario || $cliente) {
+        $_SESSION['mensaje'] = "El documento ya se encuentra registrado";
         $_SESSION['confirmarRegistro'] = 2;
         echo "<script> location.href='../Vista/administrador/Html/formularioRegistrar.php'</script>";
         die();
@@ -54,9 +55,10 @@ if ($_POST['rol'] == 1) {
     }
 }
 else if ($_POST['rol'] == 2) {
-    $cliente = $obj -> consultarClienteId($_POST['id']);
-    if ($cliente) {
-        $_SESSION['mensaje'] = "El cliente ya se encuentra registrado";
+    $usuario = $obj -> consultarDatosUsuarios($_POST['id'],1);
+    $cliente = $obj -> consultarDatosUsuarios($_POST['id'],2);
+    if ($usuario || $cliente) {
+        $_SESSION['mensaje'] = "Documento ya se encuentra registrado";
         $_SESSION['confirmarRegistro'] = 2;
         echo "<script> location.href='../Vista/administrador/Html/formularioRegistrar.php'</script>";
         die();

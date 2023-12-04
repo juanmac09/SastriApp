@@ -32,9 +32,9 @@ if ($f) {
                     break;
 
                 case 4:
-                    $_SESSION["mensajeBienvenida"] = "Proveedor";
+                    $_SESSION["mensajeBienvenida"] = "Usuario";
                     // echo "<script> alert('Bienvenido Proveedor')</script>";
-                    echo "<script> location.href='../Vista/proveedor/home.php'</script>";
+                    echo "<script> location.href='../Vista/usuario/home.php'</script>";
                     break;
 
                 case 5:

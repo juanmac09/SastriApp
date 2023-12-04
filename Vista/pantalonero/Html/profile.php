@@ -2,7 +2,8 @@
 session_start();
 
 
-require_once("../../../Modelo/seguridadHomePantalonero.php");
+
+require_once("../../../Modelo/seguridadPantalonero.php");
 require_once("../../../Modelo/conexion.php");
 require_once("../../../Modelo/consultas.php");
 require_once("../../../Controlador/controladorMostrarUsuario.php");
@@ -75,7 +76,7 @@ $correo = $datos['user_correo']
                         <div class="card">
                             <div class="card-body">
                                 <div class="media align-items-center mb-4">
-                                    <img class="mr-3 perfil" src="../../<?php echo $foto ?> " width="105" height="100" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <img id="fotoPrincipal" class="mr-3 perfil" src="../../<?php echo $foto ?> " width="105" height="100" alt="" >
                                     <div class="media-body">
                                         <h3 class="mb-0"><?php echo $datos['user_nombre'] . " " . $datos['user_apellido']; ?></h3>
                                         <p class="text-muted mb-0">Pantalonero</p>
@@ -88,41 +89,10 @@ $correo = $datos['user_correo']
 
                     <!-- Modal -->
                     <div class="modal fade modal-dialog modal-dialog-centered formulario" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <form action="../../../Controlador/controladorActualizarUsuario.php" method="POST"  enctype="multipart/form-data">
-                                <div class="modal-content">
-
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                            Cambiar foto del perfil
-                                        </h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label class="custom-file-upload">
-                                            <input type="file" class="form-control" id="formFileMultiple" name="fotosubida" accept="image/png, .jpeg, .jpg" required />
-                                            </label>
-
-                                            <p id="nameFoto"></p>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                            Cancelar
-                                        </button>
-                                        <button type="submit" name="cambiarFoto" class="btn btn-primary">
-                                            Guardar cambios
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
+                        
                     </div>
                     <div class="col-lg-6">
-                        <form class="form-valide" action="../../../Controlador/controladorActualizarUsuario.php" method="post" id="form">
+                        <form class="form-valide" action="../../../Controlador/controladorActualizarUsuario.php" method="post" id="form" enctype="multipart/form-data">
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-username">Cédula <span class="text-danger">*</span>
                                 </label>
@@ -159,6 +129,19 @@ $correo = $datos['user_correo']
                                 </div>
                             </div>
 
+                            <div class="form-group row" id="CheckFotoDiv">
+                                <label class="col-lg-4 col-form-label" for="CheckFoto">Cambiar Foto</label>
+                                <div class="col-lg-6">
+                                    <input type="checkbox" id="CheckFoto" name="CheckFoto">
+                                </div>
+                            </div>
+
+                            <div class="form-group row"id="photoCheckDiv">
+                                <label class="col-lg-4 col-form-label" for="photocheck">Foto</label>
+                                <div class="col-lg-6">
+                                    <input type="file" class="form-control" id="photocheck" name="photocheck" accept="image/png, .jpeg, .jpg">
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="Checkpass">Cambiar Contraseña</label>

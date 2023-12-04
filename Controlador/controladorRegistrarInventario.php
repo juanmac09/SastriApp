@@ -10,6 +10,9 @@ require_once("../Modelo/accesorioModelo.php");
 session_start();
 
 $obj = new Inventario();
+// Inicializamos una variable para retornar 
+$perfil = ($_SESSION['rol'] == 4) ? "usuario" : "administrador" ;
+ 
 // Verificamos que tipo de inventario vamos a registrar
 if ($_POST['TipoRegistro'] == 1) {
     // Creamos los objetos de las clases que usaremos y otras variables
@@ -43,7 +46,8 @@ if ($_POST['TipoRegistro'] == 1) {
                 // Mensaje
                 $_SESSION['mensaje'] = 'Hay algunos materiales que no se encuentran registrados';
                 $_SESSION['confirmarRegistro'] = 2;
-                echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                
+                echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
             }
             // Si esta registrado
             else {
@@ -67,7 +71,7 @@ if ($_POST['TipoRegistro'] == 1) {
                     // Mensaje
                     $_SESSION['mensaje'] = 'Se esta intentando registrar varias veces el mismo material';
                     $_SESSION['confirmarRegistro'] = 2;
-                    echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                    echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                 }
                 // Si no hay materiales repetidos seguimops
                 else {
@@ -83,7 +87,7 @@ if ($_POST['TipoRegistro'] == 1) {
                             // Si no lo son mandamos un mensaje y volvemos al formulario
                             $_SESSION['mensaje'] = 'Algunas unidades de medida no corresponden con el material';
                             $_SESSION['confirmarRegistro'] = 2;
-                            echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                            echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                             die();
                         }
                     }
@@ -124,14 +128,14 @@ if ($_POST['TipoRegistro'] == 1) {
                     // Mandamos un mensaje de exito y volvemos al formulario
                     $_SESSION['mensaje'] = 'Registro entrada material exitoso';
                     $_SESSION['confirmarRegistro'] = 1;
-                    echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                    echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                 }
             }
         } else {
             // Si el proveedor no existe mandamos un mensaje y volvemos al formulario
             $_SESSION['mensaje'] = 'El proveedor no se encuentra registrado';
             $_SESSION['confirmarRegistro'] = 2;
-            echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+            echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
         }
     }
     // Si se intenta registrar un inventario de salida entramos en esta condición
@@ -150,7 +154,7 @@ if ($_POST['TipoRegistro'] == 1) {
             if ($control == 1) {
                 $_SESSION['mensaje'] = 'No se puede registar debido que algunos materiales no se encuentran registrados';
                 $_SESSION['confirmarRegistro'] = 2;
-                echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
             } else {
                 // Si existe creamos variables para controlar las verificaciones
                 $materiaPrimas = null;
@@ -172,7 +176,7 @@ if ($_POST['TipoRegistro'] == 1) {
 
                     $_SESSION['mensaje'] = 'No se puede registar debido que esta intentado registrar dos veces el mismo material';
                     $_SESSION['confirmarRegistro'] = 2;
-                    echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                    echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                 } else {
                     // Si todo va bien continuamos rectificando si las unidades de medida sean coherentes y aparte que exista la suficiente cantidad de material para realizar el pedido
                     for ($i = 0; $i < $_POST['contadorSalida']; $i++) {
@@ -185,13 +189,13 @@ if ($_POST['TipoRegistro'] == 1) {
                         ) {
                             $_SESSION['mensaje'] = 'No se puede registrar el Inventario debido a que algunas unidades de medida no corresponden';
                             $_SESSION['confirmarRegistro'] = 2;
-                            echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                            echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                             die();
                         } else if ($_POST['TipCanSalida' . $i + 1] == 2 && $mat['ma_tipo_cantidad'] == "unidades") {
                             if ($_POST['cantSalida' . $i + 1] > $mat['ma_cantidad']) {
                                 $_SESSION['mensaje'] = 'No se puede registrar el Inventario debido a que no hay suficiente material';
                                 $_SESSION['confirmarRegistro'] = 2;
-                                echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                                echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                                 die();
                             }
                         } else if ($_POST['TipCanSalida' . $i + 1] == 1 && $mat['ma_tipo_cantidad'] == "centimetros") {
@@ -199,7 +203,7 @@ if ($_POST['TipoRegistro'] == 1) {
                             if ($centimetros > $mat['ma_cantidad']) {
                                 $_SESSION['mensaje'] = 'No se puede registrar el Inventario debido a que no hay suficiente material';
                                 $_SESSION['confirmarRegistro'] = 2;
-                                echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                                echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                                 die();
                             }
                         } else if ($_POST['TipCanSalida' . $i + 1] == 3 && $mat['ma_tipo_cantidad'] == "metros") {
@@ -207,14 +211,14 @@ if ($_POST['TipoRegistro'] == 1) {
                             if ($metros > $mat['ma_cantidad']) {
                                 $_SESSION['mensaje'] = 'No se puede registrar el Inventario debido a que no hay suficiente material';
                                 $_SESSION['confirmarRegistro'] = 2;
-                                echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                                echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                                 die();
                             }
                         } else {
                             if ($_POST['cantSalida' . $i + 1] > $mat['ma_cantidad']) {
                                 $_SESSION['mensaje'] = 'No se puede registrar el Inventario debido a que no hay suficiente material';
                                 $_SESSION['confirmarRegistro'] = 2;
-                                echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                                echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                                 die();
                             }
                         }
@@ -253,14 +257,14 @@ if ($_POST['TipoRegistro'] == 1) {
                     // Mostramos mensaje de exito y volvemos al formulario
                     $_SESSION['mensaje'] = 'Registro salida material exitoso';
                     $_SESSION['confirmarRegistro'] = 1;
-                    echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                    echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                 }
             }
         } else {
             // Mandamos mensaje y volvemos al formulario
             $_SESSION['mensaje'] = 'El pedido no se encuentra registrado';
             $_SESSION['confirmarRegistro'] = 2;
-            echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+            echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
         }
     }
 } else if ($_POST['TipoRegistro'] == 2) {
@@ -341,13 +345,13 @@ if ($_POST['TipoRegistro'] == 1) {
                     // Mandamos mensaje y volvemos al formulario
                     $_SESSION['mensaje'] = 'Algunos de los accesorios a registrar se encuentra repetido';
                     $_SESSION['confirmarRegistro'] = 2;
-                    echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                    echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                 }
             } else {
                 // Mandamos mensaje y volvemos al formulario
                 $_SESSION['mensaje'] = 'Alguno de los accesorios no se encuentra registrado';
                 $_SESSION['confirmarRegistro'] = 2;
-                echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
             }
         } else {
             // Con un for validamos si todos los accesorios a relacionar ya se encuentran registrados anteriormente
@@ -423,19 +427,19 @@ if ($_POST['TipoRegistro'] == 1) {
                         // Mandamos mensaje y volvemos al formulario
                         $_SESSION['mensaje'] = 'No hay accesorios suficientes para registrar el inventario';
                         $_SESSION['confirmarRegistro'] = 2;
-                        echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                        echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                     }
                 } else {
                     // Mandamos mensaje y volvemos al formulario
                     $_SESSION['mensaje'] = 'Alguno de los accesorios se encuentra repetido';
                     $_SESSION['confirmarRegistro'] = 2;
-                    echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                    echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                 }
             } else {
                 // Mandamos mensaje y volvemos al formulario
                 $_SESSION['mensaje'] = 'Alguno de los accesorios no se encuentra registrado';
                 $_SESSION['confirmarRegistro'] = 2;
-                echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+                echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
             }
         }
     } else {
@@ -443,11 +447,11 @@ if ($_POST['TipoRegistro'] == 1) {
         // Mandamos mensaje y volvemos al formulario
         $_SESSION['mensaje'] = 'Seleccione un tipo de inventario';
         $_SESSION['confirmarRegistro'] = 2;
-        echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+        echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
     }
 } else {
     $_SESSION['mensaje'] = 'Seleccione un tipo de inventario';
     $_SESSION['confirmarRegistro'] = 2;
-    echo "<script> location.href='../Vista/administrador/Html/formularioRegistroInventario.php'</script>";
+    echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
     die();
 }

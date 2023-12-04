@@ -11,17 +11,32 @@ function mostrarTodosAccesorios(){
     if ($resultado) {
         // Recorremos el resultado con un ciclo
         foreach ($resultado as $f) {
-            echo 
-            "
-                <tr>
-                    <td>".$f['acc_id']."</td>
-                    <td>".$f['acc_nombre']."</td>
-                    <td>".$f['acc_descripcion']."</td>
-                    <td>".$f['acc_cantidad']."</td>
-                    <td><a href='../FORMULARIOS_ACTUALIZAR/formularioActualizarAccesorios.php?acc_id=".$f['acc_id']."&acc_nombre=".$f['acc_nombre']."&acc_descripcion=".$f['acc_descripcion']."&acc_cantidad=".$f['acc_cantidad']."' class='btn btn-success'>Actualizar</a></td>
-                </tr>
+            if ($_SESSION['rol'] == 1) {
+                echo 
+                "
+                    <tr>
+                        <td>".$f['acc_id']."</td>
+                        <td>".$f['acc_nombre']."</td>
+                        <td>".$f['acc_descripcion']."</td>
+                        <td>".$f['acc_cantidad']."</td>
+                        <td><a href='../FORMULARIOS_ACTUALIZAR/formularioActualizarAccesorios.php?acc_id=".$f['acc_id']."&acc_nombre=".$f['acc_nombre']."&acc_descripcion=".$f['acc_descripcion']."&acc_cantidad=".$f['acc_cantidad']."' class='btn btn-success'><i class='bi bi-arrow-clockwise'></i> Editar</a></td>
+                    </tr>
+                
+                ";
+            }
+            else if($_SESSION['rol'] == 4){
+                echo 
+                "
+                    <tr>
+                        <td>".$f['acc_id']."</td>
+                        <td>".$f['acc_nombre']."</td>
+                        <td>".$f['acc_descripcion']."</td>
+                        <td>".$f['acc_cantidad']."</td>
+                    </tr>
+                
+                ";
+            }
             
-            ";
         }
     }
 }

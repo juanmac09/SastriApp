@@ -386,43 +386,87 @@ function mostrarMedidasChalecoConsultar($id)
   $resultado = $obj->consultarMedidasClientes($id);
 
   if ($resultado) {
-    echo '
-    <tr>
-    <th>Largo</th>
-    <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_largo_chaleco'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Espalda</th>
-        <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_espalda_chaleco'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Hombro</th>
-        <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_hombro_chaleco'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Pecho</th>
-        <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_pecho_chaleco'] . '</span> Cm</td>
-    </tr>
-    ';
+    if ($_SESSION['rol'] == 1) {
+      echo '
+        <tr>
+        <th>Largo</th>
+        <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_largo_chaleco'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Espalda</th>
+            <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_espalda_chaleco'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Hombro</th>
+            <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_hombro_chaleco'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Pecho</th>
+            <td><span contenteditable="true" class="medidaChaleco">' . $resultado['me_pecho_chaleco'] . '</span> Cm</td>
+        </tr>
+        ';
+    }
+    else if ($_SESSION['rol'] == 4) {
+      echo '
+      <tr>
+      <th>Largo</th>
+      <td><span class="medidaChaleco">' . $resultado['me_largo_chaleco'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Espalda</th>
+          <td><span class="medidaChaleco">' . $resultado['me_espalda_chaleco'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Hombro</th>
+          <td><span class="medidaChaleco">' . $resultado['me_hombro_chaleco'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Pecho</th>
+          <td><span class="medidaChaleco">' . $resultado['me_pecho_chaleco'] . '</span> Cm</td>
+      </tr>
+      ';
+    }
   } else {
-    echo '
-    <tr>
-    <th>Largo</th>
-    <td><span contenteditable="true" class="medidaChaleco"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Espalda</th>
-        <td><span contenteditable="true" class="medidaChaleco"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Hombro</th>
-        <td><span contenteditable="true" class="medidaChaleco"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Pecho</th>
-        <td><span contenteditable="true" class="medidaChaleco"></span> Cm</td>
-    </tr>
-    ';
+    if ($_SESSION['rol'] == 1) {
+      echo '
+      <tr>
+      <th>Largo</th>
+      <td><span contenteditable="true" class="medidaChaleco"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Espalda</th>
+          <td><span contenteditable="true" class="medidaChaleco"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Hombro</th>
+          <td><span contenteditable="true" class="medidaChaleco"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Pecho</th>
+          <td><span contenteditable="true" class="medidaChaleco"></span> Cm</td>
+      </tr>
+      ';
+    }
+    else if ($_SESSION['rol'] == 4) {
+      echo '
+        <tr>
+        <th>Largo</th>
+        <td><span class="medidaChaleco"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Espalda</th>
+            <td><span class="medidaChaleco"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Hombro</th>
+            <td><span class="medidaChaleco"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Pecho</th>
+            <td><span class="medidaChaleco"></span> Cm</td>
+        </tr>
+        ';
+    }
   }
 }
 function mostrarMedidasChaquetaConsulta($id)
@@ -431,69 +475,138 @@ function mostrarMedidasChaquetaConsulta($id)
   $resultado = $obj->consultarMedidasClientes($id);
 
   if ($resultado) {
-    echo
-    '
-    <tr>
-    <th>Talle</th>
-    <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_talle_chaqueta'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Largo</th>
-        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_largo_chaqueta'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Espalda</th>
-        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_espalda_chaqueta'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Hombro</th>
-        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_hombro_chaqueta'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Pecho</th>
-        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_pecho_chaqueta'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Cintura</th>
-        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_cintura_chaqueta'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Manga</th>
-        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_manga_chaqueta'] . '</span> Cm</td>
-    </tr>
-';
+    if ($_SESSION['rol'] == 1) {
+      echo
+      '
+        <tr>
+        <th>Talle</th>
+        <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_talle_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Largo</th>
+            <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_largo_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Espalda</th>
+            <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_espalda_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Hombro</th>
+            <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_hombro_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Pecho</th>
+            <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_pecho_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Cintura</th>
+            <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_cintura_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Manga</th>
+            <td><span contenteditable="true" class="medidaChaqueta">' . $resultado['me_manga_chaqueta'] . '</span> Cm</td>
+        </tr>
+    ';
+    } else if ($_SESSION['rol'] == 4) {
+      echo
+      '
+        <tr>
+        <th>Talle</th>
+        <td><span class="medidaChaqueta">' . $resultado['me_talle_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Largo</th>
+            <td><span class="medidaChaqueta">' . $resultado['me_largo_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Espalda</th>
+            <td><span class="medidaChaqueta">' . $resultado['me_espalda_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Hombro</th>
+            <td><span class="medidaChaqueta">' . $resultado['me_hombro_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Pecho</th>
+            <td><span class="medidaChaqueta">' . $resultado['me_pecho_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Cintura</th>
+            <td><span class="medidaChaqueta">' . $resultado['me_cintura_chaqueta'] . '</span> Cm</td>
+        </tr>
+        <tr>
+            <th>Manga</th>
+            <td><span class="medidaChaqueta">' . $resultado['me_manga_chaqueta'] . '</span> Cm</td>
+        </tr>
+    ';
+    }
   } else {
-    echo
-    '
-    <tr>
-    <th>Talle</th>
-    <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Largo</th>
+    if ($_SESSION['rol'] == 1) {
+      echo
+          '
+        <tr>
+        <th>Talle</th>
         <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Espalda</th>
-        <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Hombro</th>
-        <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Pecho</th>
-        <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Cintura</th>
-        <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Manga</th>
-        <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
-    </tr>
-';
+        </tr>
+        <tr>
+            <th>Largo</th>
+            <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Espalda</th>
+            <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Hombro</th>
+            <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Pecho</th>
+            <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Cintura</th>
+            <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Manga</th>
+            <td><span contenteditable="true" class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        ';
+    }
+    else if ($_SESSION['rol'] == 4) {
+      echo
+          '
+        <tr>
+        <th>Talle</th>
+        <td><span class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Largo</th>
+            <td><span class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Espalda</th>
+            <td><span class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Hombro</th>
+            <td><span class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Pecho</th>
+            <td><span class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Cintura</th>
+            <td><span class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        <tr>
+            <th>Manga</th>
+            <td><span class="medidaChaqueta"></span> Cm</td>
+        </tr>
+        ';
+    }
   }
 }
 function mostrarMedidasCamisaConsulta($id)
@@ -501,65 +614,131 @@ function mostrarMedidasCamisaConsulta($id)
   $obj = new Medidas();
   $resultado = $obj->consultarMedidasClientes($id);
   if ($resultado) {
-    echo '
-    <tr>
-    <th>Cuello</th>
-    <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_cuello'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Espalda</th>
-        <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_espalda_camisa'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Manga</th>
-        <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_manga_camisa'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Largo</th>
-        <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_largo_camisa'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Pecho</th>
-        <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_pecho_camisa'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Cintura</th>
-        <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_cintura_camisa'] . '</span> Cm</td>
-    </tr>
-    <tr>
-        <th>Corte Puño</th>
-        <td><span contenteditable="true" class="medidaCamisa exceptuar">' . $resultado['me_cont_puño'] . '</span></td>
-    </tr>';
+    if ($_SESSION['rol'] == 1) {
+      echo '
+      <tr>
+      <th>Cuello</th>
+      <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_cuello'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Espalda</th>
+          <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_espalda_camisa'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Manga</th>
+          <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_manga_camisa'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Largo</th>
+          <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_largo_camisa'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Pecho</th>
+          <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_pecho_camisa'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Cintura</th>
+          <td><span contenteditable="true" class="medidaCamisa">' . $resultado['me_cintura_camisa'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Corte Puño</th>
+          <td><span contenteditable="true" class="medidaCamisa exceptuar">' . $resultado['me_cont_puño'] . '</span></td>
+      </tr>';
+    }
+    else if ($_SESSION['rol'] == 4) {
+      echo '
+      <tr>
+      <th>Cuello</th>
+      <td><span class="medidaCamisa">' . $resultado['me_cuello'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Espalda</th>
+          <td><span class="medidaCamisa">' . $resultado['me_espalda_camisa'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Manga</th>
+          <td><span class="medidaCamisa">' . $resultado['me_manga_camisa'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Largo</th>
+          <td><span class="medidaCamisa">' . $resultado['me_largo_camisa'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Pecho</th>
+          <td><span class="medidaCamisa">' . $resultado['me_pecho_camisa'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Cintura</th>
+          <td><span class="medidaCamisa">' . $resultado['me_cintura_camisa'] . '</span> Cm</td>
+      </tr>
+      <tr>
+          <th>Corte Puño</th>
+          <td><span class="medidaCamisa exceptuar">' . $resultado['me_cont_puño'] . '</span></td>
+      </tr>';
+    }
   } else {
+   if ($_SESSION['rol'] == 1) {
+      echo '
+      <tr>
+      <th>Cuello</th>
+      <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Espalda</th>
+          <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Manga</th>
+          <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Largo</th>
+          <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Pecho</th>
+          <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Cintura</th>
+          <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Corte Puño</th>
+          <td><span contenteditable="true" class="medidaCamisa"></span></td>
+      </tr>';
+   }
+   else if ($_SESSION['rol'] == 4) {
     echo '
-    <tr>
-    <th>Cuello</th>
-    <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Espalda</th>
-        <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Manga</th>
-        <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Largo</th>
-        <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Pecho</th>
-        <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Cintura</th>
-        <td><span contenteditable="true" class="medidaCamisa"></span> Cm</td>
-    </tr>
-    <tr>
-        <th>Corte Puño</th>
-        <td><span contenteditable="true" class="medidaCamisa"></span></td>
-    </tr>';
+      <tr>
+      <th>Cuello</th>
+      <td><span class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Espalda</th>
+          <td><span class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Manga</th>
+          <td><span class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Largo</th>
+          <td><span class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Pecho</th>
+          <td><span class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Cintura</th>
+          <td><span class="medidaCamisa"></span> Cm</td>
+      </tr>
+      <tr>
+          <th>Corte Puño</th>
+          <td><span class="medidaCamisa"></span></td>
+      </tr>';
+   }
   }
 }
 
@@ -597,7 +776,7 @@ function mostrarMedidasPantalonConsultar($id)
             <td><span contenteditable="true" class="medidaPantalon">' . $resultado['me_bota_pantalon'] . '</span> Cm</td>
         </tr>';
     }
-    if ($_SESSION['rol'] == 5) {
+    if ($_SESSION['rol'] == 5 || $_SESSION['rol'] == 4) {
       echo '
         <tr>
           <th>Cintura</th>
@@ -651,8 +830,7 @@ function mostrarMedidasPantalonConsultar($id)
             <th>Bota</th>
             <td><span contenteditable="true" class="medidaPantalon"></span> Cm</td>
         </tr>';
-    }
-    else if ($_SESSION['rol'] == 5) {
+    } else if ($_SESSION['rol'] == 5 || $_SESSION['rol'] == 4) {
       echo '
         <tr>
           <th>Cintura</th>
@@ -678,7 +856,7 @@ function mostrarMedidasPantalonConsultar($id)
             <th>Bota</th>
             <td><span class="medidaPantalon"></span> Cm</td>
         </tr>';
-    } 
+    }
   }
 }
 

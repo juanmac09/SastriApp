@@ -1,0 +1,8 @@
+.dt-buttons .dt-button{
+    display: inline !important;
+}
+
+.dt-buttons .dt-button:hover{
+    background-color: #a12b42 !important;
+    border-color: #a12b42 !important;
+}

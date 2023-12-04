@@ -10,7 +10,8 @@ function mostrarProveedores($rol) {
         // Usamos un foreach para recorrer la consulta
         foreach ($resultado as $f ) {
             // Mostramos la información
-            echo 
+            if ($_SESSION['rol'] == 1) {
+                echo 
                 
                 "
                 <tr>
@@ -19,9 +20,24 @@ function mostrarProveedores($rol) {
                     <td>".$f['user_telefono']."</td>
                     <td>".$f['user_direccion']."</td>
                     <td>".$f['user_registra']."</td>
-                    <td><a href='../FORMULARIOS_ACTUALIZAR/formularioActualizarProveedor.php?id=".$f['user_identificacion']."&nom=".$f['user_nombre']."&tel=".$f['user_telefono']."&dir=".$f['user_direccion']."' class='btn btn-success'>Editar</a></td>
+                    <td><a href='../FORMULARIOS_ACTUALIZAR/formularioActualizarProveedor.php?id=".$f['user_identificacion']."&nom=".$f['user_nombre']."&tel=".$f['user_telefono']."&dir=".$f['user_direccion']."' class='btn btn-success'><i class='bi bi-arrow-clockwise'></i> Editar</a></td>
                 </tr>
                 ";
+            }
+            else if($_SESSION['rol'] == 4){
+                echo 
+                
+                "
+                <tr>
+                    <td>".$f['user_identificacion']."</td>
+                    <td>".$f['user_nombre']."</td>
+                    <td>".$f['user_telefono']."</td>
+                    <td>".$f['user_direccion']."</td>
+                    <td>".$f['user_registra']."</td>
+                </tr>
+                ";
+            }
+            
         }
     }
     else {

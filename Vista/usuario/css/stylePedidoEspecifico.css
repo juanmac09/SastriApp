@@ -1,0 +1,236 @@
+/* Codigo css de la animación y cuadro */
+body {
+  background: #fff;
+  font-family: 'Great Vibes', cursive;
+  font-family: 'Lato', sans-serif;
+  font-size: 120%;
+  background-image: url("../img/pedido.jpg");
+}
+
+.contenedor-formularios {
+  background: #fff;
+  padding: 50px;
+  max-width: 40%;
+  margin: 40px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  border-color: #a12b42, 1px ;
+}
+
+.contenedor-tabs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+.contenedor-tabs:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.contenedor-tabs li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: rgba(160, 179, 176, 0.25);
+  color: #a0b3b0;
+  font-size: 20px;
+  float: left;
+  width: 20%;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s ease;
+  border-radius:3%;
+  margin-left: 18%;
+  
+}
+.contenedor-tabs li a:hover {
+  background: #a12b42;
+  color: #fff;
+}
+.contenedor-tabs .active a {
+  background: #a12b42;
+  color: #fff;
+}
+
+.contenido-tab > div:last-child {
+  display: none;
+}
+
+.info_general{
+  width: 100%;
+  display: flex;
+}
+
+/* Tablas */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+}
+th, td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center;
+}
+th {
+  background-color: #a12b42;
+  color: #fff;
+}
+/* Css del contenido de pedido */
+.logo{
+  width: 50%;
+  margin-top: -4%;
+}
+.logo img{
+  width: 100%;
+}
+.info_pedido{
+  width: 50%;
+  margin-left: 20%;
+}   
+
+.info_cliente{
+  width: 100%;
+  margin-bottom: 5%;
+}
+.email::after {
+  content: '';
+  display: block;
+  margin-left: 7%;
+  border-bottom: 1px solid #000; /* Puedes ajustar el color de la línea aquí */
+}
+
+.nom::after {
+  content: '';
+  display: block;
+  margin-left: 18%;
+  border-bottom: 1px solid #000; /* Puedes ajustar el color de la línea aquí */
+}
+
+.tel::after{
+  content: '';
+  display: block;
+  margin-left: 10%;
+  border-bottom: 1px solid #000;
+}
+.dir::after{
+  content: '';
+  display: block;
+  margin-left: 11%;
+  border-bottom: 1px solid #000;
+}
+
+.obs::after{
+  content: '';
+  display: block;
+  margin-left: 18%;
+  border-bottom: 1px solid #000;
+}
+
+.pago{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+h2{
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 280%;
+  
+}
+
+/* Css de medidas */
+.title_medidas{
+  font-size: 350%;
+  margin-bottom: 0%;
+}
+
+.superior{
+  display: flex;
+  justify-content: center;
+}
+.medidas{
+  width: 48%;
+  margin-right: 4%;
+}
+.imagen{
+  width: 48%;
+}
+.imagen img{
+  width: 100%;
+  height: 540px;
+}
+.medidaCamisa{
+  margin-bottom: 5%;
+}
+.medidasChaleco{
+  margin-bottom: 5%;
+}
+
+.inferior{
+  display: flex;
+}
+.medidasChaqueta{
+  width: 48%;
+  margin-right: 4%;
+}
+.medidasPantalon{
+  width: 48%;
+}
+
+.btn-secondary{
+  margin-left: 40% !important;
+  padding: 2% 3%;
+  background-color: #a12b42;
+  border-color: #a12b42;
+
+}
+
+.cta{
+  line-height: 3;
+  margin-top: 100% !important;
+}
+
+/* no utilizada */
+
+.noUtilizada{
+  opacity: 0.5;
+}
+/* @media screen and (max-width: 500px) {
+  .fila-arriba div {
+    width: 100%;
+  }
+  .fila-arriba div:last-child {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .contenedor-tabs li a {
+    width: 100%;
+  }
+
+} */
+
+
+@media (max-width: 768px) {
+  /* Estilos para pantallas más pequeñas */
+  .contenedor-formularios{
+    max-width: 100%;
+  }
+
+  .contenedor-tabs li a{
+    width: 35%;
+    margin-left: 10%;
+  }
+
+  .logo{
+    width: 0;
+  }
+  .btn-secondary{
+    margin-left: 30% !important;
+  }
+  .info_general{
+    margin-bottom: 5%;
+  }
+  
+}

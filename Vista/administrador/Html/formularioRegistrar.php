@@ -78,6 +78,7 @@ if (isset($_SESSION["confirmarRegistro"])) {
           <select name="rolUsuario" id="rolUsuario" class="select">
             <option value="">Seleccione Rol del Usuario</option>
             <option value="1">Administrador</option>
+            <option value="4">Usuario</option>
             <option value="5">Pantalonero</option>
           </select>
         </div>

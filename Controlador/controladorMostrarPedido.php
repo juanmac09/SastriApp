@@ -264,7 +264,7 @@ function mostrarPedido()
 {
 
     $obj = new Pedido();
-    if ($_SESSION['rol'] == 1) {
+    if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 4) {
         $resultado = $obj->consultarPedido();
     } else if ($_SESSION['rol'] == 5) {
         $resultado = $obj->consultarPedidoPantalonero();
@@ -310,7 +310,7 @@ function mostrarPedido()
                     ";
                 }
             }
-            else if ($_SESSION['rol'] == 5) {
+            else if ($_SESSION['rol'] == 5 || $_SESSION['rol'] == 4) {
                 $select = $f['pe_estado'];
             }
             if ($f['pe_tipo'] == 0) {

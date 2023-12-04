@@ -30,8 +30,10 @@ function mostrarInventario()
             }
 
             $accesorioMaterial = ($f['in_accesorio_material'] == 1) ? "Materias Primas" : "Accesorios";
-            echo
-            "
+
+            if ($_SESSION['rol'] == 1) {
+                echo
+                "
                     <tr>
                         <td>" . $f['in_id'] . "</td>
                         <td>" . $f['in_fecha'] . "</td>
@@ -40,9 +42,25 @@ function mostrarInventario()
                         <td> $" . $total . "</td>
                         <td>" . $f['observaciones'] . "</td>
                         <td><a href='$ver' class='btn btn-info'><i class='bi bi-search'></i> Ver</a></td>
-                        <td><a href='../../../Controlador/controladorDeshabilitarInventario.php?in_id=" . $f['in_id'] . "' class='btn btn-danger eliminacionInventario'>Eliminar</a></td>
+                        <td><a href='../../../Controlador/controladorDeshabilitarInventario.php?in_id=" . $f['in_id'] . "' class='btn btn-danger eliminacionInventario'><i class='bi bi-trash'></i> Eliminar</a></td>
                     </tr>
                 ";
+            }
+            else if ($_SESSION['rol'] == 4) {
+                echo
+                "
+                    <tr>
+                        <td>" . $f['in_id'] . "</td>
+                        <td>" . $f['in_fecha'] . "</td>
+                        <td>" . $accesorioMaterial . "</td>
+                        <td>" . $tipo . "</td>
+                        <td> $" . $total . "</td>
+                        <td>" . $f['observaciones'] . "</td>
+                        <td><a href='$ver' class='btn btn-info'><i class='bi bi-search'></i> Ver</a></td>
+                    </tr>
+                ";
+            }
+            
         }
     }
 }

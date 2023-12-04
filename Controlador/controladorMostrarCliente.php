@@ -19,12 +19,13 @@ function mostrarClientes($rol)
                     <td>" . $f['user_direccion'] . "</td>
                     <td>" . $f['user_telefono'] . "</td>
                     <td>" . $f['user_registra'] . "</td>
-                    <td><a href='../FORMULARIOS_ACTUALIZAR/actualizarCliente.php?id=" . $f['user_identificacion'] . "&nombre=" . $f['user_nombre'] . "&apellido=" . $f['user_apellido'] . "&correo=" . $f['user_correo'] . "&telefono=" . $f['user_telefono'] . "&direccion=" . $f['user_direccion'] . "' class='btn btn-success'>Actualizar</a></td>
-                    <td><a href='consultarMedidas.php?id=" . $f['user_identificacion'] . "' class='btn btn-warning'>Medidas</a></td>
-                    <td><button href='#' id_cliente='" . $f['user_identificacion'] . " - " . $f['user_nombre'] . "' class='btn btn-info btnPedidoCliente'>Pedido</button></td>
+                    <td><a href='../FORMULARIOS_ACTUALIZAR/actualizarCliente.php?id=" . $f['user_identificacion'] . "&nombre=" . $f['user_nombre'] . "&apellido=" . $f['user_apellido'] . "&correo=" . $f['user_correo'] . "&telefono=" . $f['user_telefono'] . "&direccion=" . $f['user_direccion'] . "' class='btn btn-success'> <i class='bi bi-arrow-clockwise'></i> Editar</a></td>
+                    <td><a href='consultarMedidas.php?id=" . $f['user_identificacion'] . "' class='btn btn-warning'><i class='bi bi-rulers'></i> Medidas</a></td>
+                    <td><button href='#' id_cliente='" . $f['user_identificacion'] . " - " . $f['user_nombre'] . "' class='btn btn-info btnPedidoCliente'><i class='bi bi-newspaper'></i>  Pedido</button></td>
                 </tr>
                 ";
-            } else if ($_SESSION['rol'] == 5) {
+            } 
+            else if ($_SESSION['rol'] == 4) {
                 echo
                 "   
                 <tr>
@@ -35,7 +36,22 @@ function mostrarClientes($rol)
                     <td>" . $f['user_direccion'] . "</td>
                     <td>" . $f['user_telefono'] . "</td>
                     <td>" . $f['user_registra'] . "</td>
-                    <td><a href='consultarMedidas.php?id=" . $f['user_identificacion'] . "' class='btn btn-warning'>Medidas</a></td>
+                    <td><a href='consultarMedidas.php?id=" . $f['user_identificacion'] . "' class='btn btn-warning'><i class='bi bi-rulers'></i> Medidas</a></td>
+                </tr>
+                ";
+            } 
+            else if ($_SESSION['rol'] == 5) {
+                echo
+                "   
+                <tr>
+                    <td>" . $f['user_identificacion'] . "</td>
+                    <td>" . $f['user_nombre'] . "</td>
+                    <td>" . $f['user_apellido'] . "</td>
+                    <td>" . $f['user_correo'] . "</td>
+                    <td>" . $f['user_direccion'] . "</td>
+                    <td>" . $f['user_telefono'] . "</td>
+                    <td>" . $f['user_registra'] . "</td>
+                    <td><a href='consultarMedidas.php?id=" . $f['user_identificacion'] . "' class='btn btn-warning'><i class='bi bi-rulers'></i> Medidas</a></td>
                 </tr>
                 ";
             }
