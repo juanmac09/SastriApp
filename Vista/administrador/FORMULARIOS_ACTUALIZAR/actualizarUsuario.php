@@ -24,7 +24,7 @@ require_once("../../../Modelo/seguridadAdministrador.php");
     <img src="../img/administrador.jpeg" alt="Imagen de fondo">
   </div>
 
-  <a href="../Html/ConsultaUsuario.php?rol=1" class="cta"><span>Atrás</span></a>
+  <a href="../Html/Consultausuario.php?rol=1" class="cta"><span>Atrás</span></a>
 
   <form method="POST" action="../../../Controlador/controladorActualizarUsuario.php" enctype="multipart/form-data">
     <div class="contact_form">

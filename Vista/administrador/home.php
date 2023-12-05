@@ -129,7 +129,7 @@ if (isset($_SESSION["clave"])) {
                     </li>
                     <li><a class="sidebar-sub-toggle"><i class="bi bi-search"></i> Consultar <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="Html/ConsultaUsuario.php?rol=1">Usuarios</a></li>
+                            <li><a href="Html/Consultausuario.php?rol=1">Usuarios</a></li>
                             <li><a href="Html/Consultaclientes.php?rol=2">Clientes</a></li>
                             <li><a href="Html/consultarProveedor.php?rol=3">Proveedores</a></li>
                             <li><a href="Html/consultarPedido.php">Pedidos</a></li>

@@ -24,13 +24,7 @@ if ($f) {
                     $_SESSION["mensajeBienvenida"] = "Administrador";
                     echo "<script> location.href='../Vista/administrador/home.php'</script>";
                     break;
-
-                case 2:
-                    $_SESSION["mensajeBienvenida"] = "Saquero";
-                    // echo "<script> alert('Bienvenido Saquero')</script>";
-                    echo "<script> location.href='../Vista/saquero/home.php'</script>";
-                    break;
-
+                    
                 case 4:
                     $_SESSION["mensajeBienvenida"] = "Usuario";
                     // echo "<script> alert('Bienvenido Proveedor')</script>";

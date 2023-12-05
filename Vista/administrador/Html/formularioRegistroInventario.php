@@ -49,7 +49,7 @@ if (isset($_SESSION["confirmarRegistro"])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
   <link href="../css/formSimple.css " rel="stylesheet" type="text/css">
-  <link href="../css/formSimplelittle-inventario.css " rel="stylesheet" type="text/css">
+  <link href="../css/formSimplelittle-Inventario.css " rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../css/styleIconos.css">
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">

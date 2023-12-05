@@ -40,7 +40,7 @@ if ($_POST['TipoRegistro'] == 1) {
                     $control = 1;
                     $mensaje = $mensaje . $_POST['material' . $i + 1] . " ";
                 }
-            }
+            }   
             // Si no esta registrado mostramos un mensaje y nos devolvemos al formulario
             if ($control == 1) {
                 // Mensaje
@@ -73,7 +73,7 @@ if ($_POST['TipoRegistro'] == 1) {
                     $_SESSION['confirmarRegistro'] = 2;
                     echo "<script> location.href='../Vista/".$perfil."/Html/formularioRegistroInventario.php'</script>";
                 }
-                // Si no hay materiales repetidos seguimops
+                // Si no hay materiales repetidos seguimos
                 else {
                     // Usaremos el for para verificar si las unidades de los materiales concuerdan
                     for ($i = 0; $i < $_POST['contador']; $i++) {

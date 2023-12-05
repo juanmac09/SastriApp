@@ -6,7 +6,7 @@ $archivos[0] = "formularioRegistrar.php";
 $archivos[1] = "formularioRegistroPedido.php";
 $archivos[2] = "formularioRegistroMaterial.php";
 $archivos[3] = "formularioRegistroInventario.php";
-$archivos[4] = "ConsultaUsuario.php?rol=1";
+$archivos[4] = "Consultausuario.php?rol=1";
 $archivos[5] = "Consultaclientes.php?rol=2";
 $archivos[6] = "consultarProveedor.php?rol=3";
 $archivos[7] = "consultarPedido.php";

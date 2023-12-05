@@ -39,7 +39,7 @@
   font-weight: 400;
   line-height: 1;
   margin: 20px;
-  padding: 1em 1em;
+  padding: 1em 1.9em;
   text-decoration: none;
   text-align: center;
   text-transform: capitalize;
@@ -215,9 +215,14 @@ a {
     margin-left: 20%;
   }
   .acc {
-    width: 32% !important;
+    padding: 1em 1em;
+    width: 26% !important;
   }
   .third {
-    width: 70% !important;
+    padding: 1em 1em;
+    width: 65% !important;
+  }
+  .btns{
+    justify-content: center;
   }
 }

@@ -8,7 +8,7 @@ for (let index = 0; index < enlaces.length; index++) {
         swal(
             {
                 title: "Eliminar Usuario",
-                text: "¿Estas seguro de deshabiitar el usuario?",
+                text: "¿Esta seguro de deshabilitar el usuario?",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",

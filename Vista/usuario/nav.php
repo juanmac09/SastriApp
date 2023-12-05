@@ -3,7 +3,7 @@ $arreglo = explode("/",$_SERVER['REQUEST_URI']);
 $direccion = end($arreglo);
 $largo = "height: 150vh;";
 $archivos[0] = "formularioRegistroInventario.php";
-$archivos[1] = "ConsultaUsuario.php?rol=1";
+$archivos[1] = "Consultausuario.php?rol=1";
 $archivos[2] = "Consultaclientes.php?rol=2";
 $archivos[3] = "consultarProveedor.php?rol=3";
 $archivos[4] = "consultarPedido.php";

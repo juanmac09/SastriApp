@@ -1,7 +1,7 @@
 <?php
 // IMPORTAMOS LAS DEPENDECIAS NECESARIAS
 require_once("../Modelo/conexion.php");
-require_once("../modelo/consultas.php");
+require_once("../Modelo/consultas.php");
 session_start();
 $obj = new Consultas();
 $_POST['user_registrar'] = $_SESSION['id'];

@@ -232,5 +232,38 @@ h2{
   .info_general{
     margin-bottom: 5%;
   }
+
+  .info_pedido{
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  .email::after {
+    margin-left: 0%;
+  }
+  
+  .nom::after {
+    margin-left:0;
+  }
+  
+  .tel::after{
+    margin-left: 0;
+  }
+  .dir::after{
+    margin-left: 0;
+  }
+  
+  .obs::after{
+    margin-left: 0;
+  }
+
+  .tabla_camisa,.tabla_chaleco,.tabla_Pantalon,.tabla_chaqueta{
+    margin-bottom: 5%;
+    max-width: 102%; /* Ajusta la altura máxima según tus necesidades */
+    overflow-x: auto;
+  }
+  
+
+
   
 }

@@ -68,7 +68,7 @@ if (isset($_SESSION["confirmarRegistro"])) {
 </head>
 
 <body>
-    <a href="../Html/ConsultarPedido.php" class="cta"><span>Atrás</span></a>
+    <a href="../Html/consultarPedido.php" class="cta"><span>Atrás</span></a>
 
     <!-- Formularios -->
     <div class="contenedor-formularios">

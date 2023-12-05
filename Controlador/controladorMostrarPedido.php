@@ -351,7 +351,7 @@ function mostrarPedidoOpt()
     } else {
         echo
         "
-            <option value='No hay proveedores registrados'>
+            <option value='No hay pedidos registrados'>
         ";
     }
 }
