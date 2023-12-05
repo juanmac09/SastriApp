@@ -275,7 +275,7 @@ DELIMITER ;
 
 
 CALL registrarUsuario(1124242245,1,'johan','escarraga','910e4c2bf662c66651f4103495c7967e','../uploads/users/escarraga.jpeg',3125019407,null,'escarragajohan12@gmail.com',null);
-CALL registrarUsuario(1031643308,1,'Diana','Barrante','800f5d2633b027bcaa163a9ee229439b','../uploads/users/DIANA.jpg',3222040229,null,'dianabarrante17@gmail.com',null);
+CALL registrarUsuario(1031643308,1,'Diana','Barrante','800f5d2633b027bcaa163a9ee229439b','../uploads/users/Diana.jpg',3222040229,null,'dianabarrante17@gmail.com',null);
 CALL registrarUsuario(1001116571,1,'johan','coronado','5ba498d2a6783c6b4a88cb77f71a50df','../uploads/users/coronado.jpg',3148356401,null,'coronadojohan123@gmail.com',null);
 CALL registrarUsuario(1031540393,1,'Juan','Romero','52a57041739cf96fef674ecb9af6a2a2','../uploads/users/romero.jpg',3212714034,null,'mateoromero0910@gmail.com',null);
 CALL registrarUsuario(1000131959,1,'Andres','Hernandez','17d542a975065ba2174bb46d7ef2b0fe','../uploads/users/andres.jpeg',3175683452,null,'camilohg003@gmail.com',null);
