@@ -26,7 +26,7 @@ if ($resultado) {
     $datos['pass'] = $token;
     $obj -> modificarPassword($datos);
     $token = md5($token);
-    $link = "http://localhost/SastriApp/Vista/extras/cambiarContra/index.php?user=".$resultado['user_identificacion']."&token=".$token;
+    $link = "sastriapp.site/Vista/extras/cambiarContra/index.php?user=".$resultado['user_identificacion']."&token=".$token;
     $correo  -> enviarCorreoCambioPassword($resultado['user_correo'],$link);
 
     session_start();
