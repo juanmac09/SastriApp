@@ -14,7 +14,7 @@ require_once("../../../Controlador/controladorMostrarPedido.php");
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <link rel="shortcut icon" href="../img/Logo mini.png">

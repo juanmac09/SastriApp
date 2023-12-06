@@ -44,27 +44,27 @@ require_once("../../../Modelo/seguridadAdministrador.php");
 
         <div class="user-box">
           <input type="text" name="nom" required value="<?php echo $_GET['nombre']; ?>">
-          <label>Nombre</label>
+          <label class="read">Nombre</label>
         </div>
 
         <div class="user-box">
           <input type="text" name="ape" required value="<?php echo $_GET['apellido']; ?>">
-          <label>Apellido</label>
+          <label class="read">Apellido</label>
         </div>
 
         <div class="user-box">
           <input type="number" name="tel" required value="<?php echo $_GET['telefono']; ?>">
-          <label>Teléfono</label>
+          <label class="read">Teléfono</label>
         </div>
 
         <div class="user-box">
           <input type="email" name="email" required value="<?php echo $_GET['correo']; ?>">
-          <label>Correo</label>
+          <label class="read">Correo</label>
         </div>
 
         <div class="user-box">
           <input type="text" name="dire" required value="<?php echo $_GET['direccion']; ?>">
-          <label>Dirección</label>
+          <label class="read">Dirección</label>
         </div>
         <center> <button class="btn third" type="submit">Actualizar</button></center>
       </div>

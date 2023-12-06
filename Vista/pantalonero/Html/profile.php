@@ -16,7 +16,7 @@ $tel = $datos['user_telefono'];
 $correo = $datos['user_correo']
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <link rel="shortcut icon" href="../img/Logo mini.png">

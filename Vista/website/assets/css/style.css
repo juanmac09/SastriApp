@@ -1177,7 +1177,7 @@ section {
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #ffc451;
+  background-color: #a12b42;
   opacity: 1;
 }
 
@@ -1241,7 +1241,7 @@ section {
 
 .team .member .social a:hover {
   color: #151515;
-  background: #ffc451;
+  background: #a12b42;
 }
 
 .team .member .social i {

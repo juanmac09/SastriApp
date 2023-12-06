@@ -24,6 +24,7 @@ if ($_GET['ma_tipo_cantidad'] == 'metros') {
     <option value='3' selected >Centímetros</option>
   ";
 }
+
 ?>
 
 <html lang="es">
